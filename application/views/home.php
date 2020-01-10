@@ -21,7 +21,7 @@
 		<div class="slide-content">
 			<div class="container">
 				<div class="slide-text">
-					<h1>THE FASTEST WAY TO<br><span style="font-size: 62px;">GET A VISA</span></h1>
+					<h1>THE FASTEST WAY TO<br><span style="font-size: 62px;">GET A VISA </span></h1>
 					<ul class="checklist d-none d-sm-none d-md-block">
 						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Quick and easy</strong> – Only 4 steps to get the visa to Vietnam</li>
 						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Accept credit cards</strong> – Low processing rates</li>

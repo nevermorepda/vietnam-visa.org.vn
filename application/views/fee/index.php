@@ -47,7 +47,7 @@
 					<div class="container">
 						<div class="cluster-body">
 							<div class="text-center">
-								<h3 class="hw-opt-title">List of eligible countries for a Vietnam visa</h3>
+								<h3 class="hw-opt-title">List of eligible countries for a Vietnam visa </h3>
 								<p>The following <?=sizeof($nationalities)?> countries and territories can obtain Vietnam visa on arrival</p>
 							</div>
 							<div class="row">
