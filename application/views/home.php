@@ -116,6 +116,57 @@
 	</div>
 </div>
 <div class="container">
+	<div class="cluster-heading d-none d-lg-block" >
+		<div class="text-center">
+			<h1 style="text-shadow: 3px 3px #bdbdbd;font-family: Roboto,Tahoma,sans-serif;font-size: 35px;">VIETNAM E-VISA</h1>
+			<div class="heading-div"></div>
+		</div>
+	</div>
+	<div class="tourist-visa-fee d-none d-lg-block">
+		<table class="table table-bordered pricing-table">
+			<tr>
+				<th class="text-left" rowspan="2">TYPES OF VISA</th>
+				<th class="text-center" colspan="3">SERVICE FEE</th>
+				<th class="text-center" rowspan="2">STAMPING FEE</th>
+			</tr>
+			<tr>
+				<th class="sub-heading text-center" rowspan="1" colspan="1">NORMAL PROCESSING <br>(24-48 working hours)</th>
+				<th class="sub-heading text-center red" rowspan="1">URGENT <br>(4-8 working hours)</th>
+				<th class="sub-heading text-center red" rowspan="1">EMERGENCY <br>(1-4 working hours)</th>
+			</tr>
+			<tr>
+				<td class="text-left">For tourist</td>
+				<td class="text-center"><?=$fee->evisa_tourist_1ms?> USD</td>
+				<td class="text-center">
+					<span class="red">Plus <?=$processing_fee->evisa_tourist_1ms_urgent?> USD/pax</span>
+					
+				</td>
+				<td class="text-center">
+					<span class="red">Plus <?=$processing_fee->evisa_tourist_1ms_emergency?> USD/pax</span>
+				</td>
+				<td class="text-center">25 USD/pax</td>
+			</tr>
+			<tr>
+				<td class="text-left">For business</td>
+				<td class="text-center"><?=$fee->evisa_business_1ms?> USD</td>
+				<td class="text-center">
+					<span class="red">Plus <?=$processing_fee->evisa_business_1ms_urgent?> USD/pax</span>
+				</td>
+				<td class="text-center">
+					<span class="red">Plus <?=$processing_fee->evisa_business_1ms_emergency?> USD/pax</span>
+				</td>
+				<td class="text-center">25 USD/pax</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="container">
+	<div class="cluster-heading pt-5  d-none d-lg-block" >
+		<div class="text-center">
+			<h1 style="text-shadow: 3px 3px #bdbdbd;font-family: Roboto,Tahoma,sans-serif;font-size: 35px;">VIETNAM VISA ON ARRIVAL</h1>
+			<div class="heading-div"></div>
+		</div>
+	</div>
 	<div class="service-fees d-none d-lg-block">
 		<div class="tourist-visa-fee">
 			<table class="table table-bordered pricing-table">
@@ -130,21 +181,21 @@
 						<th class="sub-heading text-center red" rowspan="1">URGENT <br>(4-8 working hours)</th>
 						<th class="sub-heading text-center red" rowspan="1">EMERGENCY <br>(1-4 working hours)</th>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td class="text-left">1 month single (E-visa)</td>
 						<td class="text-center"><?=$fee->evisa_tourist_1ms?> USD</td>
 						<td class="text-center red">Plus <?=$processing_fee->evisa_tourist_1ms_urgent?> USD/pax</td>
 						<td class="text-center red">Plus <?=$processing_fee->evisa_tourist_1ms_emergency?> USD/pax</td>
 						<td class="text-center">25 USD/pax</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td class="text-left">1 month single</td>
 						<td class="text-center"><?=$fee->tourist_1ms?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_1ms_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_1ms_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_1ms_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_1ms_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">25 USD/pax</td>
 					</tr>
@@ -152,10 +203,10 @@
 						<td class="text-left">1 month multiple</td>
 						<td class="text-center"><?=$fee->tourist_1mm?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_1mm_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_1mm_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_1mm_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_1mm_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">50 USD/pax</td>
 					</tr>
@@ -163,10 +214,10 @@
 						<td class="text-left">3 months single</td>
 						<td class="text-center"><?=$fee->tourist_3ms?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_3ms_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_3ms_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_3ms_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_3ms_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">25 USD/pax</td>
 					</tr>
@@ -174,10 +225,10 @@
 						<td class="text-left">3 months multiple</td>
 						<td class="text-center"><?=$fee->tourist_3mm?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_3mm_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_3mm_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->tourist_3mm_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->tourist_3mm_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">50 USD/pax</td>
 					</tr>
@@ -199,21 +250,21 @@
 						<th class="sub-heading text-center red" rowspan="1">URGENT <br>(4-8 working hours)</th>
 						<th class="sub-heading text-center red" rowspan="1">EMERGENCY <br>(1-4 working hours)</th>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td class="text-left">1 month single (E-visa)</td>
 						<td class="text-center"><?=$fee->evisa_business_1ms?> USD</td>
 						<td class="text-center red">Plus <?=$processing_fee->evisa_business_1ms_urgent?> USD/pax</td>
 						<td class="text-center red">Plus <?=$processing_fee->evisa_business_1ms_emergency?> USD/pax</td>
 						<td class="text-center">25 USD/pax</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td class="text-left">1 month single</td>
 						<td class="text-center"><?=$fee->business_1ms?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_1ms_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_1ms_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_1ms_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_1ms_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">25 USD/pax</td>
 					</tr>
@@ -221,10 +272,10 @@
 						<td class="text-left">1 month multiple</td>
 						<td class="text-center"><?=$fee->business_1mm?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_1mm_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_1mm_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_1mm_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_1mm_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">50 USD/pax</td>
 					</tr>
@@ -232,10 +283,10 @@
 						<td class="text-left">3 months single</td>
 						<td class="text-center"><?=$fee->business_3ms?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_3ms_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_3ms_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_3ms_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_3ms_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">25 USD/pax</td>
 					</tr>
@@ -243,10 +294,10 @@
 						<td class="text-left">3 months multiple</td>
 						<td class="text-center"><?=$fee->business_3mm?> USD</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_3mm_urgent?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_3mm_urgent?> USD/pax</span>
 						</td>
 						<td class="text-center">
-							<div class="red">Plus <?=$processing_fee->business_3mm_emergency?> USD/pax</div>
+							<span class="red">Plus <?=$processing_fee->business_3mm_emergency?> USD/pax</span>
 						</td>
 						<td class="text-center">50 USD/pax</td>
 					</tr>

@@ -138,7 +138,7 @@
 						<table class="table table-bordered pricing-table">
 							<tr>
 								<th class="text-left" rowspan="<?=$row_number_service?>">TYPES OF VISA</th>
-								<th class="text-center" colspan="<?=$col_number_service?>">VIETNAM TOURIST E-VISA FEE</th>
+								<th class="text-center" colspan="<?=$col_number_service?>">VIETNAM E-VISA FEE</th>
 								<th class="text-center" rowspan="<?=$row_number_service?>">STAMPING FEE</th>
 							</tr>
 							<tr>
@@ -254,6 +254,13 @@
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">URGENT <br>(4-8 working hours)</th>
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">EMERGENCY <br>(1-4 working hours)</th>
 							</tr>
+							<tr>
+								<td class="text-left">Evisa</td>
+								<td class="text-center"><?=$price_nation->evisa_tourist_1ms;?></td>
+								<td class="text-center"></td>
+								<td class="text-center"></td>
+								<td class="text-center"></td>
+							</tr>
 							<?
 								foreach ($tourist_visa_types as $visa_type) { 
 							?>
@@ -307,6 +314,13 @@
 								<th class="sub-heading text-center" colspan="<?=$col_number_service-2?>">NORMAL PROCESSING <br>(<?=$normal_pr_time?>)</th>
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">URGENT <br>(4-8 working hours)</th>
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">EMERGENCY <br>(1-4 working hours)</th>
+							</tr>
+							<tr>
+								<td class="text-left">Evisa</td>
+								<td class="text-center"></td>
+								<td class="text-center"></td>
+								<td class="text-center"></td>
+								<td class="text-center"></td>
 							</tr>
 							<?
 								foreach ($tourist_visa_types as $visa_type) { 
