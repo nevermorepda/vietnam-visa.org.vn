@@ -317,11 +317,11 @@
 					<tr>
 						<th class="sub-heading text-center" rowspan="1" colspan="1">NORMAL PROCESSING <br>(24-48 working hours)</th>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td class="text-left">1 month single (E-visa)</td>
 						<td class="text-center"><?=$fee->evisa_tourist_1ms?> USD</td>
 						<td class="text-center">25 USD/pax</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td class="text-left">1 month single</td>
 						<td class="text-center"><?=$fee->tourist_1ms?> USD</td>
@@ -358,11 +358,11 @@
 					<tr>
 						<th class="sub-heading text-center" rowspan="1" colspan="1">NORMAL PROCESSING <br>(24-48 working hours)</th>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td class="text-left">1 month single (E-visa)</td>
 						<td class="text-center"><?=$fee->evisa_business_1ms?> USD</td>
 						<td class="text-center">25 USD/pax</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td class="text-left">1 month single</td>
 						<td class="text-center"><?=$fee->business_1ms?> USD</td>

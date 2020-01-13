@@ -47,7 +47,7 @@
 					<div class="container">
 						<div class="cluster-body">
 							<div class="text-center">
-								<h3 class="hw-opt-title">List of eligible countries for a Vietnam visa </h3>
+								<h3 class="hw-opt-title">List of eligible countries for a Vietnam visa</h3>
 								<p>The following <?=sizeof($nationalities)?> countries and territories can obtain Vietnam visa on arrival</p>
 							</div>
 							<div class="row">
@@ -96,7 +96,7 @@
 	<div class="container">
 		<div class="cluster-heading" >
 			<div class="text-center">
-				<h1 style="text-shadow: 3px 3px #bdbdbd;font-family: Roboto,Tahoma,sans-serif;font-size: 35px;">VIETNAM E-VISA<? if (!empty($current_nation)) { ?> FOR <span class="text-color-red"><?=strtoupper($current_nation->name)?></span><? } ?></h1>
+				<h2 style="text-shadow: 3px 3px #bdbdbd;font-family: Roboto,Tahoma,sans-serif;font-size: 35px;">VIETNAM E-VISA<? if (!empty($current_nation)) { ?> FOR <span class="text-color-red"><?=strtoupper($current_nation->name)?></span><? } ?></h2>
 				<div class="heading-div"></div>
 				<? if (!sizeof($tourist_visa_types) && !sizeof($business_visa_types)) { ?>
 				<h4 class="text-color-red">The Vietnam visa on arrival (VOA) is not available for your nationality. Please contact to <a class="text-color-red" href="<?=site_url("vietnam-embassies/{$current_nation->alias}")?>"><u>Vietnam Embassies</u></a> at your country to apply.</h4>
@@ -254,13 +254,13 @@
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">URGENT <br>(4-8 working hours)</th>
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">EMERGENCY <br>(1-4 working hours)</th>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td class="text-left">Evisa</td>
 								<td class="text-center"><?=$price_nation->evisa_tourist_1ms;?></td>
 								<td class="text-center"></td>
 								<td class="text-center"></td>
 								<td class="text-center"></td>
-							</tr>
+							</tr> -->
 							<?
 								foreach ($tourist_visa_types as $visa_type) { 
 							?>
@@ -315,13 +315,13 @@
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">URGENT <br>(4-8 working hours)</th>
 								<th class="sub-heading text-center red" rowspan="<?=$row_number_service-1?>">EMERGENCY <br>(1-4 working hours)</th>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td class="text-left">Evisa</td>
 								<td class="text-center"></td>
 								<td class="text-center"></td>
 								<td class="text-center"></td>
 								<td class="text-center"></td>
-							</tr>
+							</tr> -->
 							<?
 								foreach ($tourist_visa_types as $visa_type) { 
 								$price_nation = $this->m_visa_fee->search($current_nation->id);
