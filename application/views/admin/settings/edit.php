@@ -37,6 +37,10 @@
 					<td class="table-head text-right" width="10%">Tollfree</td>
 					<td><input type="text" id="company_tollfree" name="company_tollfree" class="form-control" value="<?=$setting->company_tollfree?>"></td>
 				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">VN to rate</td>
+					<td><input type="text" id="vnd_ex_rate" name="vnd_ex_rate" class="form-control" value="<?=$setting->vnd_ex_rate?>"></td>
+				</tr>
 			</table>
 			<h1 class="page-title">Social Links</h1>
 			<table class="table table-bordered">

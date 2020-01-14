@@ -345,7 +345,7 @@ class Member extends CI_Controller {
 			$this->m_visa_booking->update($data, $where);
 			
 			$item = $this->m_visa_booking->booking($booking_id);
-			
+			$setting = $this->m_setting->load(1);
 			// Payment
 			if ($payment == 'OnePay') {
 				//Redirect to OnePay
@@ -357,7 +357,7 @@ class Member extends CI_Controller {
 				$vpcOpt['vpc_AccessCode']		= OP_ACCESSCODE;
 				$vpcOpt['vpc_MerchTxnRef']		= 'm_'.$item->booking_key;
 				$vpcOpt['vpc_OrderInfo']		= (!empty($item->order_ref)?$item->order_ref:$item->id);
-				$vpcOpt['vpc_Amount']			= $item->total_fee*100;
+				$vpcOpt['vpc_Amount']			= $setting->vnd_ex_rate*$item->total_fee*100;
 				$vpcOpt['vpc_ReturnURL']		= OP_RETURN_URL;
 				$vpcOpt['vpc_Version']			= "2";
 				$vpcOpt['vpc_Command']			= "pay";

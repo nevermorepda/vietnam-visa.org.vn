@@ -221,8 +221,9 @@ class Booking extends CI_Controller {
 		
 		// Car pick-up
 		$car_pickup = $this->m_car_fee->search($num_seat, $arrival_port);
+		$setting = $this->m_setting->load(1);
 		
-		$result = array($fast_checkin, $car_pickup);
+		$result = array($fast_checkin, $car_pickup, $setting->vnd_ex_rate);
 		echo json_encode($result);
 	}
 	
@@ -282,7 +283,7 @@ class Booking extends CI_Controller {
 			$fee = $this->m_car_fee->search($num_seat, $arrival_port, 1);
 			$capital += $fee;
 		}
-		
+		$setting = $this->m_setting->load(1);
 		// Get book id
 		$book_id = $this->m_service_booking->get_next_value();
 		
@@ -303,6 +304,7 @@ class Booking extends CI_Controller {
 			"special_request"	=> $special_request,
 			"promotion_code"	=> $promotion_code,
 			"payment_method"	=> $payment,
+			"vnd_ex_rate"		=> $total_fee*$setting->vnd_ex_rate,
 			"total_fee"			=> $total_fee,
 			"capital"			=> $capital,
 			"fast_checkin"		=> $fast_track,
@@ -377,7 +379,7 @@ class Booking extends CI_Controller {
 				$vpcOpt['vpc_AccessCode']		= OP_ACCESSCODE;
 				$vpcOpt['vpc_MerchTxnRef']		= $key;
 				$vpcOpt['vpc_OrderInfo']		= BOOKING_PREFIX_EX.$book_id;
-				$vpcOpt['vpc_Amount']			= $total_fee*100;
+				$vpcOpt['vpc_Amount']			= $total_fee*$setting->vnd_ex_rate*100;
 				$vpcOpt['vpc_ReturnURL']		= OP_RETURN_URL;
 				$vpcOpt['vpc_Version']			= "2";
 				$vpcOpt['vpc_Command']			= "pay";

@@ -283,6 +283,10 @@ class M_visa_fee extends M_db
 		$nation = $this->m_country->search_by_name($passport_holder);
 		if (!empty($nation)) {
 			$fee = $this->search($nation->id);
+			if (!empty($fee->document_required)) {
+				$rush_fee = $this->m_processing_special_fee->search($purpose.$visa_type.'_'.strtolower($processing_time));
+				$rush_capital = $this->m_processing_special_fee->search($capital.$purpose.$visa_type.'_'.strtolower($processing_time));
+			}
 			if (!empty($fee->get_fee_default)) {
 				$fee = $this->search(0);
 				if (empty($fee)) {

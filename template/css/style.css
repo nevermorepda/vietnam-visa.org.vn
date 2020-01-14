@@ -2804,7 +2804,8 @@ ul.style-step li.active {
 }
 .applyform.step3 .table-summary .total {
 	font-weight: bold;
-    color: red;
+	color: red;
+	margin: 0;
 }
 
 .applymore15 {

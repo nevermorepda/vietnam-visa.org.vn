@@ -126,7 +126,13 @@ function onCarPickupChanged()
 		$(".car-pickup-li").hide();
 	}
 }
-
+function numberWithCommas(x) {
+	x = x.toString();
+	var pattern = /(-?\d+)(\d{3})/;
+	while (pattern.test(x))
+		x = x.replace(pattern, "$1,$2");
+	return x;
+}
 function calServiceFee()
 {
 	var fc_fee			= 0;
@@ -182,6 +188,7 @@ function calServiceFee()
 			
 			var total = (fc_fee*group_size) + car_fee;
 			$(".total_price").html(total + " $");
+			$(".usd-to-vnd").html('('+numberWithCommas(total*result[2])+ " VND)");
 		}
 	});
 }

@@ -779,7 +779,9 @@ class Apply_visa extends CI_Controller {
 		}
 		
 		$service_fee = 0;
+		$rush_fee = 0;
 		$service_fee_detail = "";
+		$service_rush_fee_detail = "";
 		foreach ($nationality_group as $nationality => $count) {
 			$visa_fee = $this->m_visa_fee->cal_visa_fee($visa_type, $group_size, $processing_time, $nationality, $visit_purpose);
 			$service_fee += $visa_fee->service_fee * $count;
@@ -791,9 +793,20 @@ class Apply_visa extends CI_Controller {
 			}
 			$service_fee_detail .= '<div class="price text-right">'.$visa_fee->service_fee.' $ x '.$count.' '.($count>1?"people":"person").' = '.($visa_fee->service_fee * $count).' $</div>';
 			$service_fee_detail .= '</div>';
+
+			$rush_fee += $visa_fee->rush_fee * $count;
+			$service_rush_fee_detail .= '<div class="service-rush-fee-item">';
+			if (!empty($nationality)) {
+				$service_rush_fee_detail .= '<div class="text-right"><strong>'.$nationality.'</strong></div>';
+			} else if (empty($nationality) && $count < sizeof($nationalities)) {
+				$service_rush_fee_detail .= '<div class="text-right"><strong>Other Nationality</strong></div>';
+			}
+			$service_rush_fee_detail .= '<div class="price text-right">'.$visa_fee->rush_fee.' $ x '.$count.' '.($count>1?"people":"person").' = '.($visa_fee->rush_fee * $count).' $</div>';
+			$service_rush_fee_detail .= '</div>';
 		}
 		$service_fee = $service_fee . ' $ <i class="fa fa-chevron-circle-down"></i>';
-		$result = array($service_fee, $service_fee_detail);
+		$rush_fee = $rush_fee . ' $ <i class="fa fa-chevron-circle-down"></i>';
+		$result = array($service_fee, $service_fee_detail, $rush_fee, $service_rush_fee_detail);
 		echo json_encode($result);
 	}
 	function dologout()
@@ -1130,18 +1143,19 @@ class Apply_visa extends CI_Controller {
 	{
 		$step1 = $this->session->userdata("step1");
 		$setting = $this->m_setting->load(1);
-		$bang_name = explode(',',str_replace(' ','',strtolower($setting->bang_name)));
-		$bang_email = explode(',',str_replace(' ','',strtolower($setting->bang_email)));
-		$bang_passport = explode(',',str_replace(' ','',strtolower($setting->bang_passport)));
-		$bang_err = 0;
+		$ban_name = explode(',',str_replace(' ','',strtolower($setting->ban_name)));
+		$ban_email = explode(',',str_replace(' ','',strtolower($setting->ban_email)));
+		$ban_passport = explode(',',str_replace(' ','',strtolower($setting->ban_passport)));
+		$ban_err = 0;
 		
 		if ($step1 == null) {
 			redirect(site_url("{$this->util->slug($this->router->fetch_class())}"));
 		}
 		else {
+			
 			$this->check_valid_return($step1);
 		}
-		
+
 		if (!$this->util->checkUserLogin()) {
 			redirect(site_url("{$this->util->slug($this->router->fetch_class())}/login"));
 		}
@@ -1157,11 +1171,11 @@ class Apply_visa extends CI_Controller {
 				$step1->nationality[$i]		= (!empty($_POST["nationality_{$i}"]) ? $_POST["nationality_{$i}"] : "");
 				$step1->passportnumber[$i]	= (!empty($_POST["passportnumber_{$i}"]) ? $_POST["passportnumber_{$i}"] : "");
 
-				if (in_array(strtolower($_POST["fullname_{$i}"]), $bang_name)) {
-					$bang_err++;
+				if (in_array(strtolower($_POST["fullname_{$i}"]), $ban_name)) {
+					$ban_err++;
 				}
-				if (in_array(strtolower($_POST["passportnumber_{$i}"]), $bang_passport)) {
-					$bang_err++;
+				if (in_array(strtolower($_POST["passportnumber_{$i}"]), $ban_passport)) {
+					$ban_err++;
 				}
 
 			}
@@ -1185,16 +1199,16 @@ class Apply_visa extends CI_Controller {
 			
 			$step1->task				= (!empty($_POST["task"]) ? $_POST["task"] : "");
 
-			if (in_array(strtolower($_POST["contact_fullname"]), $bang_name)) {
-				$bang_err++;
+			if (in_array(strtolower($_POST["contact_fullname"]), $ban_name)) {
+				$ban_err++;
 			}
-			if (in_array(strtolower($_POST["contact_email"]), $bang_email)) {
-				$bang_err++;
+			if (in_array(strtolower($_POST["contact_email"]), $ban_email)) {
+				$ban_err++;
 			}
-			if (in_array(strtolower($_POST["contact_email2"]), $bang_email)) {
-				$bang_err++;
+			if (in_array(strtolower($_POST["contact_email2"]), $ban_email)) {
+				$ban_err++;
 			}
-			if ($bang_err != 0) {
+			if ($ban_err != 0) {
 				redirect(site_url("apply-visa"));
 			}
 			// Double check holiday case
@@ -1238,15 +1252,17 @@ class Apply_visa extends CI_Controller {
 			$step1->total_service_fee = 0;
 			$step1->total_rush_fee = 0;
 			$arr_service_fee = array();
+			$arr_rush_fee = array();
 			$step1->arr_service_fee = "";
 			foreach ($nationality_group as $nationality => $count) {
 				$visa_fee = $this->m_visa_fee->cal_visa_fee($step1->visa_type, $step1->group_size, $step1->processing_time, $nationality, $step1->visit_purpose);
 				array_push($arr_service_fee, $visa_fee->service_fee);
+				array_push($arr_rush_fee, $visa_fee->rush_fee);
 				$step1->arr_service_fee		= $arr_service_fee;
 				$step1->stamp_fee			= $visa_fee->stamp_fee;
-				$step1->rush_fee			= $visa_fee->rush_fee;
+				$step1->arr_rush_fee		= $arr_rush_fee;
 				$step1->total_service_fee	+= ($visa_fee->service_fee * $count);
-				$step1->total_rush_fee	+= ($visa_fee->rush_fee * $count);
+				$step1->total_rush_fee		+= ($visa_fee->rush_fee * $count);
 			}
 
 			if ($step1->private_visa) {
@@ -1322,7 +1338,7 @@ class Apply_visa extends CI_Controller {
 					}
 				}
 			}
-
+			$step1->vnd_ex_rate = $step1->total_fee*$setting->vnd_ex_rate;
 				// Mobile detect
 			$this->load->library('user_agent');
 			
@@ -1394,6 +1410,7 @@ class Apply_visa extends CI_Controller {
 		
 		$view_data = array();
 		$view_data["step1"] = $step1;
+		$view_data["setting"] = $setting;
 		$view_data["breadcrumb"] = $breadcrumb;
 		
 		$tmpl_content = array();
@@ -1516,7 +1533,8 @@ class Apply_visa extends CI_Controller {
 				'total_visa_fee'		=> $step1->total_service_fee,
 				'stamp_fee'				=> $step1->stamp_fee,
 				'rush_type'				=> ($step1->processing_time == "Urgent") ? 1 : (($step1->processing_time == "Emergency") ? 2 : (($step1->processing_time == "Holiday") ? 3 : (($step1->processing_time == "TET Holiday") ? 4 : 0))),
-				'rush_fee'				=> $step1->rush_fee,
+				'rush_fee'				=> $step1->total_rush_fee,
+				'vnd_ex_rate'			=> $step1->vnd_ex_rate,
 				'total_fee'				=> $step1->total_fee,
 				'capital'				=> $step1->capital,
 				'contact_title'			=> $step1->contact_title,
@@ -1638,7 +1656,7 @@ class Apply_visa extends CI_Controller {
 				$vpcOpt['vpc_AccessCode']		= OP_ACCESSCODE;
 				$vpcOpt['vpc_MerchTxnRef']		= $key;
 				$vpcOpt['vpc_OrderInfo']		= $booking->order_ref;
-				$vpcOpt['vpc_Amount']			= $booking->total_fee*100;
+				$vpcOpt['vpc_Amount']			= $booking->vnd_ex_rate*100;
 				$vpcOpt['vpc_ReturnURL']		= OP_RETURN_URL;
 				$vpcOpt['vpc_Version']			= "2";
 				$vpcOpt['vpc_Command']			= "pay";

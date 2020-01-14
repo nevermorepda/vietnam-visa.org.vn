@@ -224,10 +224,11 @@ class Syslog extends CI_Controller {
 				$googleplus_url		= $this->util->value($this->input->post("googleplus_url"), "");
 				$twitter_url		= $this->util->value($this->input->post("twitter_url"), "");
 				$youtube_url		= $this->util->value($this->input->post("youtube_url"), "");
-				$bang_ip			= $this->util->value($this->input->post("bang_ip"), "");
-				$bang_name			= $this->util->value($this->input->post("bang_name"), "");
-				$bang_email			= $this->util->value($this->input->post("bang_email"), "");
-				$bang_passport		= $this->util->value($this->input->post("bang_passport"), "");
+				$ban_ip				= $this->util->value($this->input->post("ban_ip"), "");
+				$ban_name			= $this->util->value($this->input->post("ban_name"), "");
+				$ban_email			= $this->util->value($this->input->post("ban_email"), "");
+				$ban_passport		= $this->util->value($this->input->post("ban_passport"), "");
+				$vnd_ex_rate		= $this->util->value($this->input->post("vnd_ex_rate"), "");
 				
 				$data = array (
 					"company_name"			=> $company_name,
@@ -241,10 +242,11 @@ class Syslog extends CI_Controller {
 					"googleplus_url"		=> $googleplus_url,
 					"twitter_url"			=> $twitter_url,
 					"youtube_url"			=> $youtube_url,
-					"bang_ip"				=> $bang_ip,
-					"bang_name"				=> $bang_name,
-					"bang_email"			=> $bang_email,
-					"bang_passport"			=> $bang_passport,
+					"ban_ip"				=> $ban_ip,
+					"ban_name"				=> $ban_name,
+					"ban_email"				=> $ban_email,
+					"ban_passport"			=> $ban_passport,
+					"vnd_ex_rate"			=> $vnd_ex_rate,
 				);
 				
 				if (!is_null($settings) && sizeof($settings)) {

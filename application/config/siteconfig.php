@@ -86,14 +86,17 @@ define("G2S_CURRENTCY",			"USD");
 define("G2S_VERSION",			"3.0.0");
 
 // OnePay
-define("OP", "OFF");
+define("OP", "ON");
 define("OP_PAYMENT_URL",		"https://onepay.vn/vpcpay/vpcpay.op?");
 define("OP_QUERY_URL",			"https://migs.mastercard.com.au/vpcdps");
 define("OP_RETURN_URL",			BASE_URL."/apply-visa.html");
 define("OP_E_RETURN_URL",		BASE_URL."/apply-e-visa.html");
-define('OP_SECURE_SECRET',		'DD9F0B7DB5DFA307A067F17F6E1576E6');
-define('OP_MERCHANT',			'OP_VNEVISA08');
-define('OP_ACCESSCODE',			'E1ACF954');
+define("OP_SECURE_SECRET",		"11001D5C3C99C0721E7B73D682FD5B01");
+define("OP_MERCHANT",			"OP_THEONEVN1");
+define("OP_ACCESSCODE",			"E1001B01");
+// define('OP_SECURE_SECRET',		'DD9F0B7DB5DFA307A067F17F6E1576E6');
+// define('OP_MERCHANT',			'OP_VNEVISA08');
+// define('OP_ACCESSCODE',			'E1ACF954');
 
 // Google reCaptcha
 define('RECAPTCHA_KEY',			'6LecZBgTAAAAAIaIO0g4yUJtDToIc7D8OR2WP2UF');

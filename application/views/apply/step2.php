@@ -283,10 +283,13 @@
 								</li>
 								<li class="clearfix" id="processing_time_li" style="display: <?=(($step1->processing_time != 'Normal')?'block':'none')?>">
 									<div class="clearfix">
-										<label>Processing time:</label>
-										<span class="processing_note_t"><?=$step1->processing_time?></span>
+										<label>Processing time <?='('.$step1->processing_time.')'?>:</label>
+										<span class="processing_note_t" data-toggle="collapse" data-target="#service-rush-fee-detail" style="font-weight: bold;"><?=$step1->rush_fee*$step1->group_size.' $'?> <i class="fa fa-chevron-circle-down"></i></span>
 									</div>
-									<span class="processing_t price"><?=$step1->rush_fee." $ x ".$step1->group_size." application".($step1->group_size>1?"s":"")." = ".$step1->rush_fee*$step1->group_size?> $</span>
+									<div id="service-rush-fee-detail" class="service-rush-fee-detail text-right collapse">
+										<span class="price"><?=$step1->rush_fee." $ x ".$step1->group_size." application".($step1->group_size>1?"s":"")." = ".$step1->rush_fee*$step1->group_size?> $</span>
+									</div>
+									<!-- <span class="processing_t price"><?=$step1->rush_fee." $ x ".$step1->group_size." application".($step1->group_size>1?"s":"")." = ".$step1->rush_fee*$step1->group_size?> $</span> -->
 								</li>
 								<li class="clearfix" id="private_visa_li" style="display: <?=(!empty($step1->private_visa)?'block':'none')?>">
 									<label>Private letter:</label>

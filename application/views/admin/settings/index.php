@@ -30,6 +30,10 @@
 				<td class="table-head text-right" width="10%">Tollfree</td>
 				<td><?=$setting->company_tollfree?></td>
 			</tr>
+			<tr>
+				<td class="table-head text-right" width="10%">VN to rate</td>
+				<td><?=$setting->vnd_ex_rate?></td>
+			</tr>
 		</table>
 		<h1 class="page-title">Social Links</h1>
 		<table class="table table-bordered">

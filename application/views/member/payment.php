@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" media="screen,all" href="<?=CSS_URL?>member.css" />
-
+<?=$setting = $this->m_setting->load(1);?>
 <div class="container">
 	<div class="info-bar">
 		<h1><span class="glyphicon glyphicon-user"></span> <?=$this->session->userdata("user")->user_fullname?> <span class="right-panel"><a href="<?=site_url("member/logout")?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></span></h1>
@@ -10,7 +10,8 @@
 			<div class="detail">
 				<div class="alert alert-info" role="alert">
 					<p>Payment for Application ID: <span class="f18"><strong><?=BOOKING_PREFIX.$item->id?></strong></span></p>
-					<p>Amount to pay: $<?=$item->total_fee?></p>
+					<p>Amount to pay: $<?=$item->total_fee?> (<?=number_format(round($item->total_fee*$setting->vnd_ex_rate),2)?> VND)</p>
+					<p>Exchange rate: 1 USD = <?=number_format($setting->vnd_ex_rate,2)?> VND</p>
 				</div>
 				<form method="post" action="<?=site_url("member/pay")?>">
 					<input type="hidden" id="booking_id" name="booking_id" value="<?=$item->id?>"/>
@@ -24,7 +25,7 @@
 								<label><input id="payment3" type="radio" name="payment" value="Paypal" checked="checked" />Paypal</label>
 							</div>
 						</div>
-						<div class="col-xs-6 col-sm-6 text-center hidden">
+						<div class="col-xs-6 col-sm-6 text-center">
 							<label for="payment1"><img class="img-responsive" src="<?=IMG_URL?>payment/onepay.png" alt="OnePay" /></label>
 							<br />
 							<div class="radio">

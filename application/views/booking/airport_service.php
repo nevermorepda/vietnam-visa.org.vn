@@ -128,7 +128,8 @@
 								</li>
 								<li class="clearfix total">
 									<label>TOTAL FEES:</label>
-									<span class="total_price">20 $</span>
+									<span><strong class="total_price">0 $</strong> <strong class="usd-to-vnd" style="color: #333;font-size: 15px;">(0 VND)</strong></span>
+									<p style="text-align: right;font-size: 14px;color: #333;"><i>Exchange rate: 1 USD = <?=number_format($this->m_setting->load(1)->vnd_ex_rate,2)?> VND</i></p>
 								</li>
 							</ul>
 						</div>
@@ -259,7 +260,7 @@
 							<label><input id="payment3" type="radio" name="payment" value="Paypal" checked="checked" />Paypal</label>
 						</div>
 					</div>
-					<div class="col-xs-6 col-sm-6 text-center hidden">
+					<div class="col-xs-6 col-sm-6 text-center">
 						<label for="payment1"><img class="img-responsive" src="<?=IMG_URL?>payment/onepay.png" alt="OnePay" /></label>
 						<br />
 						<div class="radio">

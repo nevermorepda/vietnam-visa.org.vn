@@ -430,6 +430,8 @@ function calServiceFees()
 		success: function(result) {
 			$(".total_visa_price_t").html(result[0]);
 			$(".service-fee-detail").html(result[1]);
+			$(".processing_note_t").html(result[2])
+			$(".service-rush-fee-detail").html(result[3]);
 		}
 	});
 }
