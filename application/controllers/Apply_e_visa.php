@@ -1502,7 +1502,7 @@ class Apply_e_visa extends CI_Controller {
 				if ($vev->processing_time != "Normal") {
 					$subject = "Application #".BOOKING_E_PREFIX.$booking_id.": ".$vev->processing_time." E-Visa for Vietnam Remind ".$payment;
 				} else {
-					$subject = "Application #".BOOKING_E_PREFIX.$booking_id.": Visa for E-Vietnam Remind ".$payment;
+					$subject = "Application #".BOOKING_E_PREFIX.$booking_id.": E-Visa for Vietnam Remind ".$payment;
 				}
 			}
 			
@@ -2139,7 +2139,7 @@ class Apply_e_visa extends CI_Controller {
 				// Send mail
 				$tpl_data = $this->mail_tpl->visa_data($booking);
 
-				$subject = "Application #".BOOKING_E_PREFIX.$booking->id.": Confirm Visa for Vietnam Failure (gate ".$booking->payment_method.")";
+				$subject = "Application #".BOOKING_E_PREFIX.$booking->id.": Confirm E-Visa for Vietnam Failure (gate ".$booking->payment_method.")";
 				
 				$vendor_subject = $subject;
 				if ($tpl_data["PROCESSING_TIME"] != "Normal") {
