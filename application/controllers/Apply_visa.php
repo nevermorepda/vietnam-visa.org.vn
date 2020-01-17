@@ -1249,6 +1249,7 @@ class Apply_visa extends CI_Controller {
 			}
 			
 			//Cal fees
+			$step1->capital = 0;
 			$step1->total_service_fee = 0;
 			$step1->total_rush_fee = 0;
 			$arr_service_fee = array();
@@ -1263,6 +1264,8 @@ class Apply_visa extends CI_Controller {
 				$step1->arr_rush_fee		= $arr_rush_fee;
 				$step1->total_service_fee	+= ($visa_fee->service_fee * $count);
 				$step1->total_rush_fee		+= ($visa_fee->rush_fee * $count);
+				$step1->capital 			+= $visa_fee->service_capital;
+				$step1->capital 			+= $visa_fee->rush_capital;
 			}
 
 			if ($step1->private_visa) {
@@ -1355,11 +1358,11 @@ class Apply_visa extends CI_Controller {
 				$agent = $this->agent->robot();
 			}
 			
-			$step1->capital = 0;
 			
-			$visa_fee = $this->m_visa_fee->cal_visa_fee($step1->visa_type, $step1->group_size, $step1->processing_time, $step1->passport_holder, $step1->visit_purpose, $step1->arrival_port);
-			$step1->capital += $visa_fee->service_capital * $step1->group_size;
-			$step1->capital += $visa_fee->rush_capital * $step1->group_size;
+			// $visa_fee = $this->m_visa_fee->cal_visa_fee($step1->visa_type, $step1->group_size, $step1->processing_time, $step1->passport_holder, $step1->visit_purpose, $step1->arrival_port);
+			// var_dump($visa_fee);
+			// $step1->capital += $visa_fee->service_capital * $step1->group_size;
+			// $step1->capital += $visa_fee->rush_capital * $step1->group_size;
 			
 			// if ($step1->private_visa) {
 			// 	$private_visa_fee = $this->m_private_letter_fee->search("capital_".((stripos(strtolower($step1->visit_purpose), "business") === false) ? "tourist_" : "business_").$step1->visa_type);
