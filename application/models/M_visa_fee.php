@@ -313,7 +313,7 @@ class M_visa_fee extends M_db
 		} else if ($group_size >= 10) {
 			$price_discount = 4;
 		}
-		
+
 		if ($fee->group_discount) {
 			$service_fee	= $original_fee - $price_discount;
 		} else {
