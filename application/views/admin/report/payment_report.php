@@ -33,8 +33,8 @@
 							<div class="input-group input-group-sm">
 								<select id="report_payment_method" name="report_payment_method" class="form-control">
 									<option value="">All payment method</option>
-									<option value="OnePay">OnePay</option>
-									<option value="Paypal">Paypal</option>
+									<option value="OnePay">OnePay </option>
+									<option value="Paypal">Paypal </option>
 									<option value="Credit Card">Gate2Shop</option>
 									<option value="Western Union">Western Union</option>
 									<option value="Bank Transfer">Bank Transfer</option>
