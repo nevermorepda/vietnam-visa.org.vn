@@ -101,7 +101,8 @@ i.fa {
 						<textarea required="" style="height: 108px;" id="message" name="message" type="text" class="form-control"></textarea>
 					</div>
 					<div class="form-group">
-						<label class="form-label">CAPTCHA <span class="required">*</span></label>
+						<div class="g-recaptcha" data-sitekey="<?=RECAPTCHA_KEY?>"></div>
+						<!-- <label class="form-label">CAPTCHA <span class="required">*</span></label>
 						<div class="clearfix">
 							<div class="left">
 								<input type="text" style="width: 100px" value="" id="security_code" name="security_code" required="" class="form-control">
@@ -109,7 +110,7 @@ i.fa {
 							<div class="left" style="margin-left: 10px; line-height: 30px;">
 								<label class="security-code"><?=$this->util->createSecurityCode()?></label>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-danger btn-contact" name="submit" value="SEND MESSAGE">
@@ -119,7 +120,7 @@ i.fa {
 		</div>
 	</div>
 </div>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <? if ($this->session->flashdata('success')) { ?>
 <script>
 	$(document).ready(function() {
@@ -157,12 +158,13 @@ $(document).ready(function() {
 			$("#message").removeClass("error");
 		}
 
-		if ($("#security_code").val() == "" || $("#security_code").val().toUpperCase() != $(".security-code").html().toUpperCase()) {
-			$("#security_code").addClass("error");
-			msg.push("Captcha code does not matched.");
+		var response = grecaptcha.getResponse();
+		if (response.length == 0) {
+			$(".g-recaptcha > div > div").addClass("error");
+			msg.push("Please check on the Captcha box before submitting.");
 			err++;
 		} else {
-			$("#security_code").removeClass("error");
+			$(".g-recaptcha > div > div").removeClass("error");
 		}
 
 		if (err == 0) {

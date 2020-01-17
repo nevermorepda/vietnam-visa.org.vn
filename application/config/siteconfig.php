@@ -99,8 +99,8 @@ define("OP_ACCESSCODE",			"E1001B01");
 // define('OP_ACCESSCODE',			'E1ACF954');
 
 // Google reCaptcha
-define('RECAPTCHA_KEY',			'6LecZBgTAAAAAIaIO0g4yUJtDToIc7D8OR2WP2UF');
-define('RECAPTCHA_SECRET',		'6LecZBgTAAAAAONTUrc7vt24lHNBAuvhMO2-jBtQ');
+define('RECAPTCHA_KEY',			'6LciJtAUAAAAANzGSJNg_sZTwQPtP63zF3zLxOCQ');
+define('RECAPTCHA_SECRET',		'6LciJtAUAAAAACUhmzxtYsBDKDsh7nX5KBMDKT3U');
 
 // Google Plus API key
 define('GOOGLE_KEY',			'724539714112-fpe7i8pgia4tg37gna48e94dan9ijpk2.apps.googleusercontent.com');

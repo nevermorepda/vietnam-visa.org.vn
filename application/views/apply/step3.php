@@ -234,7 +234,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label class="form-label">CAPTCHA <span class="required">*</span></label>
 						<div class="clearfix">
 							<div class="left">
@@ -244,7 +244,7 @@
 								<label class="security-code"><?=$this->util->createSecurityCode()?></label>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group" style="padding-top: 20px; padding-bottom: 20px;">
 						<div class="text-center">
 							<button class="btn btn-danger btn_back" type="button" onclick="window.location='<?=BASE_URL_HTTPS."/apply-visa/step2.html"?>'"><i class="icon-double-angle-left icon-large"></i> BACK</button>

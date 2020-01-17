@@ -20,5 +20,25 @@ class Captcha {
 	{
 		return (strtoupper(trim($input)) == strtoupper(trim($this->create())));
 	}
+	function test_recaptcha($str, $ip_adress, $user_agent)
+	{
+		$url = "https://www.google.com/recaptcha/api/siteverify?secret=".RECAPTCHA_SECRET."&response=".$str."&remoteip=".$ip_adress;
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		$data = curl_exec($ch);
+		curl_close($ch);
+		
+		$status= json_decode($data, true);
+
+		if($status['success']) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 ?>

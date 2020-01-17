@@ -1427,7 +1427,7 @@ class Apply_visa extends CI_Controller {
 	function completed()
 	{
 		$step1 = $this->session->userdata("step1");
-		$security_code = $this->util->value($this->input->post("security_code"), "");
+		// $security_code = $this->util->value($this->input->post("security_code"), "");
 		if ($step1 == null) {
 			redirect(site_url("{$this->util->slug($this->router->fetch_class())}"));
 		}
@@ -1570,29 +1570,29 @@ class Apply_visa extends CI_Controller {
 				'user_agent'			=> $agent,
 				'platform'				=> $platform,
 			);
-			if (strtoupper($security_code) == strtoupper($this->util->getSecurityCode()))
-			{
-				if (!$this->m_visa_booking->add($data)) {
-					$succed = false;
-				} else {
-					for ($i=1; $i<=$step1->group_size; $i++) {
-						$pax["book_id"]		= $booking_id;
-						$pax["fullname"]	= $step1->fullname[$i];
-						$pax["gender"]		= $step1->gender[$i];
-						$pax["birthday"]	= date("Y-m-d", strtotime($step1->birthmonth[$i]."/".$step1->birthdate[$i]."/".$step1->birthyear[$i]));
-						$pax["nationality"]	= $step1->nationality[$i];
-						$pax["passport"]	= $step1->passportnumber[$i];
-						
-						if (!$this->m_visa_booking->add_traveller($pax)) {
-							$succed = false;
-						}
+			// if (strtoupper($security_code) == strtoupper($this->util->getSecurityCode()))
+			// {
+			if (!$this->m_visa_booking->add($data)) {
+				$succed = false;
+			} else {
+				for ($i=1; $i<=$step1->group_size; $i++) {
+					$pax["book_id"]		= $booking_id;
+					$pax["fullname"]	= $step1->fullname[$i];
+					$pax["gender"]		= $step1->gender[$i];
+					$pax["birthday"]	= date("Y-m-d", strtotime($step1->birthmonth[$i]."/".$step1->birthdate[$i]."/".$step1->birthyear[$i]));
+					$pax["nationality"]	= $step1->nationality[$i];
+					$pax["passport"]	= $step1->passportnumber[$i];
+					
+					if (!$this->m_visa_booking->add_traveller($pax)) {
+						$succed = false;
 					}
 				}
-			} else {
-				$succed = false;
-				$this->session->set_flashdata("error", "Captcha is not valid");
-				redirect('apply-visa/step3');
 			}
+			// } else {
+			// 	$succed = false;
+			// 	$this->session->set_flashdata("error", "Captcha is not valid");
+			// 	redirect('apply-visa/step3');
+			// }
 		}
 		
 		if ($succed)

@@ -23,10 +23,9 @@ class Contact extends CI_Controller {
 			$email = $this->util->value($this->input->post("email"), "");
 			$phone = $this->util->value($this->input->post("phone"), "");
 			$content = $this->util->value($this->input->post("message"), "");
-			$security_code = $this->util->value($this->input->post("security_code"), "");
+			$g_recatcha = $this->input->post("g-recaptcha-response");
 			
-			if (strtoupper($security_code) == strtoupper($this->util->getSecurityCode()))
-			{
+			if ($this->captcha->test_recaptcha($g_recatcha, $this->input->ip_address(), $this->input->user_agent())) {
 				// Inform by mail
 				$mail = array(
 	            		"subject"		=> "[Contact] ".$fullname,
@@ -39,6 +38,8 @@ class Contact extends CI_Controller {
 				$this->mail->sendmail();
 				
 				$this->session->set_flashdata("success", "Your message has been sent successful.");
+			} else {
+				$this->session->set_flashdata("error", "The CAPTCHA field is telling me that you are a robot. Shall we give it another try?");
 			}
 		}
 		
