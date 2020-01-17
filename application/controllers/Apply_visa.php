@@ -1240,7 +1240,12 @@ class Apply_visa extends CI_Controller {
 			}
 			
 			$nationality_group = array();
+			$service_capital = 0;
+			$rush_capital = 0;
 			for ($i=1; $i<=$step1->group_size; $i++) {
+				$visa_fee = $this->m_visa_fee->cal_visa_fee($step1->visa_type, 1, $step1->processing_time, $step1->nationality[$i], $step1->visit_purpose);
+				$service_capital 		+= $visa_fee->service_capital;
+				$rush_capital 			+= $visa_fee->rush_capital;
 				if (array_key_exists($step1->nationality[$i], $nationality_group)) {
 					$nationality_group[$step1->nationality[$i]] = $nationality_group[$step1->nationality[$i]] + 1;
 				} else {
@@ -1264,8 +1269,7 @@ class Apply_visa extends CI_Controller {
 				$step1->arr_rush_fee		= $arr_rush_fee;
 				$step1->total_service_fee	+= ($visa_fee->service_fee * $count);
 				$step1->total_rush_fee		+= ($visa_fee->rush_fee * $count);
-				$step1->capital 			+= $visa_fee->service_capital;
-				$step1->capital 			+= $visa_fee->rush_capital;
+				
 			}
 
 			if ($step1->private_visa) {
@@ -1323,6 +1327,7 @@ class Apply_visa extends CI_Controller {
 				$discount = $step1->member_discount;
 				$step1->total_fee = round($step1->total_fee - round(($step1->total_service_fee * $discount/100),2),2);
 			}
+			$step1->capital = $service_capital + $rush_capital;
 			$step1->total_fee = $step1->total_fee - round(($step1->total_service_fee * $step1->vip_discount/100),2);
 			$step1->total_fee = $step1->total_fee - round(($step1->total_service_fee * $step1->service_fee_discount/100),2);
 			// =============================

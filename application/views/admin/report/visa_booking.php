@@ -101,7 +101,7 @@
 								<input type="text" id="report_text" name="report_text" class="form-control" value="<?=$search_text?>" placeholder="Search for application ID">
 							</div>
 						</div>
-						<? if ($admin->user_type == USR_SUPPER_ADMIN) { ?>
+						<? if ($admin->user_type == USR_ADMIN || $admin->user_type == USR_SUPPER_ADMIN) { ?>
 						<div class="pull-left" style="margin-right: 5px;">
 							<div class="input-group input-group-sm">
 								<select id="report_visa_type" name="report_visa_type" class="form-control">
@@ -139,7 +139,7 @@
 							</div>
 						</div>
 						<? } ?>
-						<? if ($admin->user_type == USR_SUPPER_ADMIN) { ?>
+						<? if ($admin->user_type == USR_ADMIN || $admin->user_type == USR_SUPPER_ADMIN) { ?>
 						<div class="pull-left" style="max-width: 220px;">
 							<div class="input-group input-group-sm">
 								<input type="text" class="form-control daterange">
@@ -244,7 +244,7 @@
 			<p class="help-block">No booking found.</p>
 			<? } else { ?>
 			<p></p>
-			<? if ($admin->user_type == USR_SUPPER_ADMIN || ($task == "search" && $edited_search_text != "")) { ?>
+			<? if ($admin->user_type == USR_ADMIN || $admin->user_type == USR_SUPPER_ADMIN || ($task == "search" && $edited_search_text != "")) { ?>
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped table-hover">
 					<tr>
