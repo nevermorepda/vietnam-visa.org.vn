@@ -154,6 +154,9 @@ $(document).ready(function() {
 		} else {
 			$("#arrivalyear").removeClass("error");
 		}
+		if ($('input[name="processing_time"]:checked').val() == undefined) {
+			err++;
+		}
 		
 		if (err == 0) {
 			// Check date time
@@ -399,18 +402,22 @@ function checkProcessingTime()
 			if (!$("#processing_time_normal").is(":disabled")) {
 				$("#processing_time_normal").attr("disabled", true);
 				$("#processing_time_normal").parent().find("strong").css("color", "#ccc");
+				document.getElementById('processing_time_normal').checked = false;
 			}
 			if (!$("#processing_time_urgent").is(":disabled")) {
 				$("#processing_time_urgent").attr("disabled", true);
 				$("#processing_time_urgent").parent().find("strong").css("color", "#ccc");
+				document.getElementById('processing_time_urgent').checked = false;
 			}
 			if (!$("#processing_time_emergency").is(":disabled")) {
 				$("#processing_time_emergency").attr("disabled", true);
 				$("#processing_time_emergency").parent().find("strong").css("color", "#ccc");
+				document.getElementById('processing_time_emergency').checked = false;
 			}
 			if (!$("#processing_time_holiday").is(":disabled")) {
 				$("#processing_time_holiday").attr("disabled", true);
 				$("#processing_time_holiday").parent().find("strong").css("color", "#ccc");
+				document.getElementById('processing_time_holiday').checked = false;
 			}
 		}
 		else {
@@ -429,18 +436,22 @@ function checkProcessingTime()
 						if (!$("#processing_time_normal").is(":disabled")) {
 							$("#processing_time_normal").attr("disabled", true);
 							$("#processing_time_normal").parent().find("strong").css("color", "#ccc");
+							document.getElementById('processing_time_normal').checked = false;
 						}
 						if (!$("#processing_time_urgent").is(":disabled")) {
 							$("#processing_time_urgent").attr("disabled", true);
 							$("#processing_time_urgent").parent().find("strong").css("color", "#ccc");
+							document.getElementById('processing_time_urgent').checked = false;
 						}
 						if (!$("#processing_time_emergency").is(":disabled")) {
 							$("#processing_time_emergency").attr("disabled", true);
 							$("#processing_time_emergency").parent().find("strong").css("color", "#ccc");
+							document.getElementById('processing_time_emergency').checked = false;
 						}
 						if (!$("#processing_time_holiday").is(":disabled")) {
 							$("#processing_time_holiday").attr("disabled", true);
 							$("#processing_time_holiday").parent().find("strong").css("color", "#ccc");
+							document.getElementById('processing_time_holiday').checked = false;
 						}
 					} else  if (result == 3) {
 						if (!$("#processing_time_normal").is(":disabled")) {

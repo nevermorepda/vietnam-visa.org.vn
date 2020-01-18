@@ -385,7 +385,18 @@ class Util {
 				$rush = 2;
 			}
 		}
-		
+		////////////////////////////////////////////////////////
+		$daa = new DateTime(date('Y-m-d'));
+		$d11 = new DateTime(date('Y-m-d',strtotime('2020-01-22')));
+		$d22 = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+
+		$da = new DateTime(date('Y-m-d',strtotime($date)));
+		$d1 = new DateTime(date('Y-m-d',strtotime('2020-01-23')));
+		$d2 = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+
+		if ($daa >= $d11 && $daa <= $d22 && $da >= $d1 && $da <= $d2 && $purpose == 'For business') {
+			$rush = -1;
+		}
 		return $rush;
 	}
 	public function upload_file($file_path=null,$name=null,$file_deleted=null,$allow_type='rar|zip|pdf|doc|docx|PDF|DOC|DOCX|xls|xlsx|csv',$file_name)
