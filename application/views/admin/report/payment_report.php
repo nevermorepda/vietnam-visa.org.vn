@@ -33,8 +33,8 @@
 							<div class="input-group input-group-sm">
 								<select id="report_payment_method" name="report_payment_method" class="form-control">
 									<option value="">All payment method</option>
-									<option value="OnePay">OnePay</option>
-									<option value="Paypal">Paypal</option>
+									<option value="OnePay">OnePay </option>
+									<option value="Paypal">Paypal </option>
 									<option value="Credit Card">Gate2Shop</option>
 									<option value="Western Union">Western Union</option>
 									<option value="Bank Transfer">Bank Transfer</option>
@@ -344,8 +344,15 @@
 										<?=$item->primary_email?>
 									</td>
 									<? } ?>
+									<? $level = $this->util->level_account($item->customer_id); ?>
 									<td width="3%" class="text-right">
 										<?=($item->promotion_code ? $item->promotion_code : "")?>
+										<?
+										if ($item->promotion_code == 'Member Discount')
+										{
+											echo '<div class="title">(Level:'.$level[1].'</div><div class="discount">Discount : '.$level[2].'%)</div>';
+										}
+										?>
 									</td>
 									<td width="3%" class="text-center">
 										<input type="text" class="capital" name="capital" value="<?=($item->capital ? $item->capital : "")?>" booking-id="<?=$item->order_id?>" typ="<?=$item->payment_type?>" style="background-color: #F0F0F0; width: 30px; text-align: right; border: none;">

@@ -79,7 +79,7 @@
 					</ul>
 				</li>
 				<li class="menu-item-div"></li>
-				<li><a class="<?=(($tabindex == "visa-fee") ? "active" : "")?> menu-noel" title="" href="<?=site_url("visa-fee")?>">Visa Fees <img src="<?=IMG_URL.'hat-noel.png'?>" alt="hat-noel"> <div class="wrap-hat-noel"></div></a></li>
+				<li><a class="<?=(($tabindex == "visa-fee") ? "active" : "")?> menu-noel" title="" href="<?=site_url("visa-fee")?>">Visa Fees </a></li>
 				<li class="menu-item-div"></li>
 				<li><a class="<?=(($tabindex == "services") ? "active" : "")?>" title="" href="<?=site_url("services")?>">Extra Services</a></li>
 				<li class="menu-item-div"></li>
