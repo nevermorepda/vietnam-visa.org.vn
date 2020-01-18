@@ -344,7 +344,7 @@
 										<?=$item->primary_email?>
 									</td>
 									<? } ?>
-									<? $level = $this->util->level_account(); ?>
+									<? $level = $this->util->level_account($item->customer_id); ?>
 									<td width="3%" class="text-right">
 										<?=($item->promotion_code ? $item->promotion_code : "")?>
 										<?
