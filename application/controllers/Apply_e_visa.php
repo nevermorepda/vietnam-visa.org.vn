@@ -1009,13 +1009,28 @@ class Apply_e_visa extends CI_Controller {
 		$arrival_month		= (!empty($_POST["arrival_month"]) ? $_POST["arrival_month"] : "");
 		$arrival_date		= (!empty($_POST["arrival_date"]) ? $_POST["arrival_date"] : "");
 		$arrival_year		= (!empty($_POST["arrival_year"]) ? $_POST["arrival_year"] : "");
-		// $visit_purpose		= (!empty($_POST["visit_purpose"]) ? $_POST["visit_purpose"] : "");
+		$visit_purpose		= (!empty($_POST["visit_purpose"]) ? $_POST["visit_purpose"] : "");
 		$day = (strtotime("{$arrival_year}-{$arrival_month}-{$arrival_date}") - strtotime(date("Y-m-d")))/86400;
 		$working_day = 0;
 		for ($i=1; $i <= $day; $i++) { 
 			if (date('N',strtotime(" +{$i} days")) != 6 && date('N',strtotime(" +{$i} days")) != 7) {
 				$working_day++;
 			}
+		}
+		//////////////////////////////////
+		$arrival_month = ($arrival_month < 9) ? '0'.$arrival_month : $arrival_month;
+		$arrival_date = ($arrival_date < 9) ? '0'.$arrival_date : $arrival_date;
+		$date = $arrival_year.'-'.$arrival_month.'-'.$arrival_date;
+		$date_apply = new DateTime(date('Y-m-d'));
+		$date_apply_from = new DateTime(date('Y-m-d',strtotime('2020-01-20')));
+		$date_apply_to = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+
+		$date_arrival = new DateTime(date('Y-m-d',strtotime($date)));
+		$date_arrival_from = new DateTime(date('Y-m-d',strtotime('2020-01-21')));
+		$date_arrival_to = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+
+		if ($date_arrival >= $date_arrival_from && $date_arrival <= $date_arrival_to && $visit_purpose === 'For business') {
+			$working_day = 0;	
 		}
 		echo $working_day;
 	}

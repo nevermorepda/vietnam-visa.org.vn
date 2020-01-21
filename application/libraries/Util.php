@@ -386,15 +386,15 @@ class Util {
 			}
 		}
 		////////////////////////////////////////////////////////
-		$daa = new DateTime(date('Y-m-d'));
-		$d11 = new DateTime(date('Y-m-d',strtotime('2020-01-22')));
-		$d22 = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+		$date_apply = new DateTime(date('Y-m-d'));
+		$date_apply_from = new DateTime(date('Y-m-d',strtotime('2020-01-20')));
+		$date_apply_to = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
 
-		$da = new DateTime(date('Y-m-d',strtotime($date)));
-		$d1 = new DateTime(date('Y-m-d',strtotime('2020-01-23')));
-		$d2 = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
+		$date_arrival = new DateTime(date('Y-m-d',strtotime($date)));
+		$date_arrival_from = new DateTime(date('Y-m-d',strtotime('2020-01-22')));
+		$date_arrival_to = new DateTime(date('Y-m-d',strtotime('2020-01-29')));
 
-		if ($daa >= $d11 && $daa <= $d22 && $da >= $d1 && $da <= $d2 && $purpose == 'For business') {
+		if ($date_apply >= $date_apply_from && $date_apply <= $date_apply_to && $date_arrival >= $date_arrival_from && $date_arrival <= $date_arrival_to && $purpose === 'For business') {
 			$rush = -1;
 		}
 		return $rush;
