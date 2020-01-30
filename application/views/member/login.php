@@ -126,14 +126,14 @@
 										<input type="text" class="form-control" id="new_email" name="new_email" value="<?=$new_email?>" placeholder="Email" />
 									</div>
 								</div>
-								<div class="row form-group">
+							<!-- 	<div class="row form-group">
 									<div class="col-md-4">
 										<label class="control-label">Phone <span class="red">*</span></label>
 									</div>
 									<div class="col-md-8">
 										<input type="text" id="new_phone" name="new_phone" class="form-control" value="<?=$new_phone?>" placeholder="Phone number" />
 									</div>
-								</div>
+								</div> -->
 								<div class="row form-group">
 									<div class="col-md-4">
 										<label class="control-label">Password <span class="red">*</span></label>
@@ -246,13 +246,13 @@ $(document).ready(function() {
 			$("#new_email").removeClass("error");
 		}
 
-		if ($("#new_phone").val() == "") {
-			$("#new_phone").addClass("error");
-			err++;
-			msg.push("Phone number is required.");
-		} else {
-			$("#new_phone").removeClass("error");
-		}
+		// if ($("#new_phone").val() == "") {
+		// 	$("#new_phone").addClass("error");
+		// 	err++;
+		// 	msg.push("Phone number is required.");
+		// } else {
+		// 	$("#new_phone").removeClass("error");
+		// }
 
 		if ($("#new_password").val() == "") {
 			$("#new_password").addClass("error");
