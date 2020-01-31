@@ -1,6 +1,6 @@
 <div class="container">
 	<form id="frmSignUp" name="frmSignUp" class="form-horizontal" role="form" action="<?=site_url("member/dologin")?>" method="POST">
-		<div class="col-sm-8 col-md-8" style="padding-left: 0px !important;">
+		<div class="col-sm-8 col-md-8 pt-3" style="padding-left: 0px !important;">
 			<div style="margin: 0px auto">
 				<h2>Forgotten Password</h2>
 				<p>If you have forgotten the username and password to your account, simply enter a email you have registered with us and click the "Get Password" button. We will send an email to your mail inbox that contains information on how to change the password.</p>
@@ -11,7 +11,7 @@
 					<div class="col-xs-7 col-sm-8 col-md-8">
 						<input type="text" class="form-control" id="email" name="email" placeholder="Email" />
 					</div>
-					<div class="col-xs-5 col-sm-4 col-md-4">
+					<div class="col-xs-5 col-sm-4 col-md-4 pt-3">
 						<button type="button" class="btn btn-danger" id="btn-getpass">Get Password</button>
 					</div>
 				</div>
