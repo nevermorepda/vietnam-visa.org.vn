@@ -304,6 +304,24 @@
 								</div>
 							</div>
 						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="div"></div>
+								</div>
+								<div class="col-md-12">
+									<div class="checkbox cb_fast_checkin">
+										<label>
+											<input type="checkbox" id="flight_ticket" name="flight_ticket" class="flight_ticket" value="1">
+											<strong><span class="text-color-red">*</span>Please click if you have flight ticket to Vietnam</strong>
+										</label>
+										<div class="processing-note">
+											<p>Because of the CoronaVirus outbreak, your flight ticket is required for Vietnam visa application. Please click if you have flight ticket to Vietnam.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="form-group d-none d-sm-none d-md-block">
 							<div class="row" style="padding-top: 20px; padding-bottom: 20px;">
 								<label class="col-md-4 control-label"></label>

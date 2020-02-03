@@ -187,7 +187,7 @@ class Mail_tpl {
 								} else {
 									$trl_lines .= '<td '.$style.'>'.$tpl_data["VISA_TYPE"].'</td>';
 								}
-			$trl_lines .= '</tr>';
+			$trl_lines .= '<td align="center" '.$style.'><a href="'.BASE_URL.$paxs[$i]["flight_ticket"].'">Download</a></td></tr>';
 		}
 		
 		$result = '<fieldset style="border:1px solid #DADCE0; background-color: #FFFFFF;">
@@ -239,7 +239,7 @@ class Mail_tpl {
 									} else {
 										$result .= '<th style="background-color: #F1F1F1;border: 1px solid #DDDDDD;font-weight: normal;text-align: center;vertical-align: middle;">Type of visa</th>';
 									}
-									$result .= '</tr>
+									$result .= '<th style="background-color: #F1F1F1;border: 1px solid #DDDDDD;font-weight: normal;text-align: center;vertical-align: middle;">Flight ticket</th></tr>
 								'.$trl_lines.'
 							</table>
 						</div>

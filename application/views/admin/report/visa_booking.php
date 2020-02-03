@@ -571,6 +571,7 @@
 																	<td class="text-center" '.$style.'><a target="_blank" href="'.BASE_URL.$travelers[$i]->passport_photo.'">Download</a></td>
 																	<td class="text-center" '.$style.'><a target="_blank" href="'.BASE_URL.$travelers[$i]->passport_data.'">Download</a></td>';
 													}
+													$trl_lines .= '<td class="text-center" '.$style.'><a target="_blank" href="'.BASE_URL.$travelers[$i]->flight_ticket.'">Download</a></td>';
 													$trl_lines .= '<td class="text-center" '.$style.'><a class="pointer btn-edit-passport" item-id="'.$travelers[$i]->id.'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
 													</tr>';
 												}
@@ -683,7 +684,7 @@
 																				<th class="text-center">Passport photo</th>
 																				<th class="text-center">Passport data</th>';
 																	}
-																			$result .= '<th class="text-center" width="60"></th>
+																			$result .= '<th class="text-center">Flight ticket</th><th class="text-center" width="60"></th>
 																			</tr>
 																			'.$trl_lines.'
 																		</table>

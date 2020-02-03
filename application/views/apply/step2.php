@@ -16,7 +16,7 @@
 			</ul>
 		</div>
 		<div class="applyform step2">
-			<form id="frmApply" class="form-horizontal" role="form" action="<?=BASE_URL_HTTPS."/apply-visa/step3.html"?>" method="POST">
+			<form id="frmApply" class="form-horizontal" role="form" action="<?=BASE_URL_HTTPS."/apply-visa/step3.html"?>" method="POST" enctype="multipart/form-data">
 				<input type="hidden" id="visa_type" name="visa_type" value="<?=$step1->visa_type?>">
 				<input type="hidden" id="group_size" name="group_size" value="<?=$step1->group_size?>">
 				<input type="hidden" id="arrival_port" name="arrival_port" value="<?=$step1->arrival_port?>">
@@ -128,6 +128,16 @@
 											<input type="text" id="passportnumber_<?=$cnt?>" name="passportnumber_<?=$cnt?>" class="form-control passportnumber_<?=$cnt?>" value="<?=!empty($step1->passportnumber[$cnt]) ? $step1->passportnumber[$cnt] : ''?>" />
 										</div>
 									</div>
+									<div class="col-sm-6 apply-visa">
+										<label class="form-label">Upload your flight ticket<span class="required">*</span></label>
+										<div class="passport-upload file-flight-ticket-<?=$cnt?>" <?=!empty($step1->flight_ticket[$cnt]) ? 'style="background: url('.BASE_URL.$step1->flight_ticket[$cnt].')"' : 'style="background: #e7e7e7;"'?>>
+											<label>
+												<input type="file" name="flight_ticket_photo_<?=$cnt?>" sts="<?=!empty($step1->flight_ticket[$cnt]) ? 1 : 0 ?>" class="file-upload flight-ticket-upload-<?=$cnt?>" typ="flight-ticket" stt="<?=$cnt?>" value="">
+												<i class="fa fa-cloud-upload"></i>
+											</label>
+											<i class="fa fa-times" typ="flight-ticket" stt="<?=$cnt?>"></i>
+										</div>
+									</div>
 								</div>
 								<? } ?>
 								<div class="processing-note">
@@ -139,6 +149,36 @@
 								</div>
 							</div>
 						</div>
+						<script type="text/javascript">
+							$(".file-upload").change(function() {
+								readURL(this);
+							});
+							
+							function readURL(input) {
+								if (input.files && input.files[0]) {
+									var stt = $(input).attr('stt');
+									var typ = $(input).attr('typ');
+									var reader = new FileReader();
+									reader.onload = function(e) {
+										$('.file-'+typ+'-'+stt).css({
+											"background": "url('"+e.target.result+"')"
+										});
+										$('.file-'+typ+'-'+stt+' > i').css({
+											"color": "rgba(52, 73, 94, 0.38)"
+										});
+									};
+									reader.readAsDataURL(input.files[0]);
+								}
+							}
+							$(".fa-times").click(function(event) {
+								var stt = $(this).attr('stt');
+								var typ = $(this).attr('typ');
+								$('.file-'+typ+'-'+stt).css({
+									"background": "#e7e7e7"
+								});
+								$('.'+typ+'-upload-'+stt).val('');
+							});
+						</script>
 						<div class="group" id="flightinfo">
 							<h2>Flight Information</h2>
 							<div class="group-content">

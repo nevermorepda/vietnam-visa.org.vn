@@ -144,6 +144,13 @@ $(document).ready(function() {
 		} else {
 			$("#arrivalmonth").removeClass("error");
 		}
+		if ($('#flight_ticket').is(":checked") == false) {
+			$("#flight_ticket").addClass("error");
+			err++;
+			msg.push('Your flight ticket to Vietnam is required due to the CoronaVirus outbreak');
+		} else {
+			$("#flight_ticket").removeClass("error");
+		}
 		if ($("#arrivalyear").val() == "") {
 			$("#arrivalyear").addClass("error");
 			err++;
