@@ -316,7 +316,7 @@
 											<strong><span class="text-color-red">*</span>Please click if you have flight ticket to Vietnam</strong>
 										</label>
 										<div class="processing-note">
-											<p>Because of the CoronaVirus outbreak, your flight ticket is required for Vietnam visa application. Please click if you have flight ticket to Vietnam.</p>
+											<p>Because of the CoronaVirus outbreak, your flight ticket is required for Vietnam visa application. If you have flight ticket to Vietnam.</p>
 										</div>
 									</div>
 								</div>
