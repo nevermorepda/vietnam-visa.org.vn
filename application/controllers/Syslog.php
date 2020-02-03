@@ -7939,7 +7939,7 @@ class Syslog extends CI_Controller {
 					array_push($arr_ex_id,$service->id);
 				}
 				/////////////////////////////////////////////////////////////////////////
-				if (!empty($arr_fc_id)) {
+				if (!empty($arr_fc_id) || !empty($arr_ex_id)) {
 					$tpl_data = array(
 						"ITEMS"			=> $arr_items,
 						"SERVICES_ITEMS"=> $services,
