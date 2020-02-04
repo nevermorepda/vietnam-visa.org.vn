@@ -3,8 +3,21 @@
 	$loc = new IP2Location(FCPATH . '/application/libraries/ip2location/databases/IP-COUNTRY-SAMPLE.BIN', IP2Location::FILE_IO);
 	$country_name = $loc->lookup($this->util->realIP(), IP2Location::COUNTRY_NAME);
 	$nations = $this->m_nation->nation_jion_visa_fee();
-?>
 
+	$info = new stdClass();
+	$info->category_id = 1;
+	$airports = $this->m_arrival_port->items($info,1);
+	$arr_airports = array();
+	$str_json = '';
+	foreach ($airports as $airport) {
+		array_push($arr_airports, $airport->short_name);
+		$str_json .= $airport->short_name.',';
+	}
+?>
+<script type="text/javascript">
+	var airport_json = '<?=$str_json?>';
+	var arrival_port = '<?=$vev->arrival_port?>';
+</script>
 <script type="text/javascript" src="<?=JS_URL?>e-visa-step2.js"></script>
 <div class="apply-visa">
 	<div class="slide-bar hidden">
@@ -242,6 +255,18 @@
 															<i class="fa fa-times" typ="passport" stt="<?=$cnt?>"></i>
 														</div>
 													</div>
+													<? if (in_array($vev->arrival_port, $arr_airports)) { ?>
+													<div class="col-sm-6 apply-visa">
+														<label class="form-label">Upload your flight ticket<span class="required">*</span></label>
+														<div class="passport-upload file-flight-ticket-<?=$cnt?>" <?=!empty($vev->flight_ticket[$cnt]) ? 'style="background: url('.BASE_URL.$vev->flight_ticket[$cnt].')"' : 'style="background: #e7e7e7;"'?>>
+															<label>
+																<input type="file" name="flight_ticket_photo_<?=$cnt?>" sts="<?=!empty($vev->flight_ticket[$cnt]) ? 1 : 0 ?>" class="file-upload flight-ticket-upload-<?=$cnt?>" typ="flight-ticket" stt="<?=$cnt?>" value="">
+																<i class="fa fa-cloud-upload"></i>
+															</label>
+															<i class="fa fa-times" typ="flight-ticket" stt="<?=$cnt?>"></i>
+														</div>
+													</div>
+													<? } ?>
 												</div>
 												<? } ?>
 											</div>

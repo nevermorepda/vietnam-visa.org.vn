@@ -58,6 +58,7 @@ class Mail_tpl {
 			$pax["expiry_date"]= $booking_paxs[$i]->expiry_date;
 			$pax["passport_photo"]= $booking_paxs[$i]->passport_photo;
 			$pax["passport_data"]= $booking_paxs[$i]->passport_data;
+			$pax["flight_ticket"]= $booking_paxs[$i]->flight_ticket;
 			// $pax["religion"]= $booking_paxs[$i]->religion;
 			}
 			$paxs[] = $pax;

@@ -33,10 +33,10 @@ $(document).ready(function() {
 	$(".flight_booking").change(function(){
 		onDisplayFlightInfo();
 	});
-	
+
 	$(".btn-next").click(function(){
 		clearFormError();
-		
+		var airport = airport_json.split(',');
 		var err = 0;
 		var msg = new Array();
 		var applicants = $("#group_size").val();
@@ -187,6 +187,21 @@ $(document).ready(function() {
 				}
 			} else {
 				$(".file-passport-"+i).removeClass("error");
+			}
+			if (airport.indexOf(arrival_port) > 0) {
+				if ($(".flight-ticket-upload-"+i).val() == "") {
+					var sts = parseInt($(".flight-ticket-upload-"+i).attr('sts'));
+					if (sts == 0) {
+						$(".file-flight-ticket-"+i).addClass("error");
+						err++;
+						var txt = "Flight ticket is required.";
+						if (msg.indexOf(txt) == -1) {
+							msg.push(txt);
+						}
+					}
+				} else {
+					$(".file-flight-ticket-"+i).removeClass("error");
+				}
 			}
 		}
 		

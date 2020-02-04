@@ -1116,6 +1116,7 @@ class Apply_e_visa extends CI_Controller {
 
 				$allow_type = 'JPG|PNG|jpg|jpeg|png|pdf|PDF';
 				$path = "/files/upload/image/passport_photo";
+				$path_ticket = "/files/upload/image/flight_ticket";
 				
 				$vev->fullname[$i]		= (!empty($_POST["fullname_{$i}"]) ? $_POST["fullname_{$i}"] : "");
 				$vev->gender[$i]		= (!empty($_POST["gender_{$i}"]) ? $_POST["gender_{$i}"] : "");
@@ -1141,7 +1142,12 @@ class Apply_e_visa extends CI_Controller {
 					$this->util->upload_file('.'.$path,"passport_data_{$i}","",$allow_type,$data_name);
 					$vev->passport_path[$i]	= $path.'/'.$data_name;
 				}
-
+				if (!empty($_FILES["flight_ticket_photo_{$i}"]["name"])) {
+					$format_photo = explode('.', $_FILES["flight_ticket_photo_{$i}"]["name"]);
+					$photo_name = $this->util->slug($format_photo[0]).'.'.$format_photo[1];
+					$this->util->upload_file('.'.$path_ticket,"flight_ticket_photo_{$i}","",$allow_type,$photo_name);
+					$vev->flight_ticket[$i]	= $path.'/'.$photo_name;
+				}
 			}
 			
 			$vev->private_visa			= (!empty($_POST["private_visa"]) ? $_POST["private_visa"] : 0);
@@ -1477,6 +1483,7 @@ class Apply_e_visa extends CI_Controller {
 					// $pax["religion"]		= $vev->religion[$i];
 					$pax["passport_photo"]	= $vev->photo_path[$i];
 					$pax["passport_data"]	= $vev->passport_path[$i];
+					$pax["flight_ticket"]	= $vev->flight_ticket[$i];
 					
 					if (!$this->m_visa_booking->add_traveller($pax)) {
 						$succed = false;

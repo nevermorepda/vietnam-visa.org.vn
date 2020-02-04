@@ -126,7 +126,7 @@
 											<label><input id="payment3" type="radio" name="payment" value="Paypal" checked="checked" />Credit Card by Paypal</label>
 										</div>
 									</div>
-									<? if (defined("OP") && OP == "ON" && ($step1->processing_time != "Holiday")) { ?>
+									<? if (defined("OP") && OP == "ON" && ($vev->processing_time != "Holiday")) { ?>
 									<div class="col-xs-4 col-sm-4 text-center">
 										<label for="payment1"><img class="img-responsive" src="<?=IMG_URL?>payment/onepay.png" alt="OnePay" /></label>
 										<br />
