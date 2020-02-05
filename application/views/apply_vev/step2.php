@@ -278,18 +278,27 @@
 											
 											function readURL(input) {
 												if (input.files && input.files[0]) {
+													var file_name = $(input).val().replace(/^.*\\/, "");
+													var allow_type = file_name.split('.')[1].toLowerCase();
 													var stt = $(input).attr('stt');
 													var typ = $(input).attr('typ');
 													var reader = new FileReader();
-													reader.onload = function(e) {
+													if (allow_type == 'pdf') {
 														$('.file-'+typ+'-'+stt).css({
-															"background": "url('"+e.target.result+"')"
+															"background": "url('<?=IMG_URL.'pdf.png'?>')"
 														});
-														$('.file-'+typ+'-'+stt+' > i').css({
-															"color": "rgba(52, 73, 94, 0.38)"
-														});
-													};
-													reader.readAsDataURL(input.files[0]);
+													} else {
+														reader.onload = function(e) {
+															$('.file-'+typ+'-'+stt).css({
+																"background": "url('"+e.target.result+"')"
+															});
+															$('.file-'+typ+'-'+stt+' > i').css({
+																"color": "rgba(52, 73, 94, 0.38)"
+															});
+														};
+														reader.readAsDataURL(input.files[0]);
+													}
+													
 												}
 											}
 											$(".fa-times").click(function(event) {

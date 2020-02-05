@@ -61,6 +61,7 @@ class Mail_tpl {
 			$pax["flight_ticket"]= $booking_paxs[$i]->flight_ticket;
 			// $pax["religion"]= $booking_paxs[$i]->religion;
 			}
+			$pax["flight_ticket"]= $booking_paxs[$i]->flight_ticket;
 			$paxs[] = $pax;
 		}
 		

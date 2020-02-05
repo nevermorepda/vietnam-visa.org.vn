@@ -1209,18 +1209,18 @@ class Apply_visa extends CI_Controller {
 			
 			$step1->task				= (!empty($_POST["task"]) ? $_POST["task"] : "");
 
-			if (in_array(strtolower($_POST["contact_fullname"]), $ban_name)) {
-				$ban_err++;
-			}
-			if (in_array(strtolower($_POST["contact_email"]), $ban_email)) {
-				$ban_err++;
-			}
-			if (in_array(strtolower($_POST["contact_email2"]), $ban_email)) {
-				$ban_err++;
-			}
-			if ($ban_err != 0) {
-				redirect(site_url("apply-visa"));
-			}
+			// if (in_array(strtolower($_POST["contact_fullname"]), $ban_name)) {
+			// 	$ban_err++;
+			// }
+			// if (in_array(strtolower($_POST["contact_email"]), $ban_email)) {
+			// 	$ban_err++;
+			// }
+			// if (in_array(strtolower($_POST["contact_email2"]), $ban_email)) {
+			// 	$ban_err++;
+			// }
+			// if ($ban_err != 0) {
+			// 	redirect(site_url("apply-visa"));
+			// }
 			// Double check holiday case
 			$rush = $this->util->detect_rush_visa(date("m/d/Y", strtotime($step1->arrivalmonth."/".$step1->arrivaldate."/".$step1->arrivalyear)), $step1->visa_type, $step1->visit_purpose);
 			if ($rush == 3) {
@@ -1423,7 +1423,7 @@ class Apply_visa extends CI_Controller {
 				}
 			}
 		}
-
+		// die;
 		$breadcrumb = array('Apply Visa' => site_url('apply-visa'), '1. Visa Options' => site_url('apply-visa/step1'), '2. Applicant Details' => site_url('apply-visa/step2'), '3. Review & Payment' => '');
 		
 		$view_data = array();
@@ -2370,6 +2370,10 @@ class Apply_visa extends CI_Controller {
 		);
 		$this->m_review_audio->add($data);
 	}
+
+
+
+	
 }
 
 ?>
