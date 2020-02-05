@@ -24,7 +24,7 @@ class Terms_and_conditions extends CI_Controller {
 		$tmpl_content['meta']['title'] = $this->util->getMetaTitle($item);
 		$tmpl_content['meta']['keywords'] = $item->meta_key;
 		$tmpl_content['meta']['description'] = $item->meta_desc;
-		$tmpl_content['content']   = $this->load->view("content/detail", $view_data, TRUE);
+		$tmpl_content['content'] = $this->load->view("content/detail", $view_data, TRUE);
 		$this->load->view('layout/view', $tmpl_content);
 	}
 }

@@ -276,17 +276,23 @@
 									</label>
 									<div class="col-sm-9">
 										<textarea id="comment" name="comment" class="form-control" rows="5"><?=$step1->comment?></textarea>
-										<div class="checkbox">
-											<label for="information_confirm"><input type="checkbox" id="information_confirm" name="information_confirm" checked="checked"> I would like to confirm the above information is correct.</label>
-										</div>
-										<div class="checkbox">
-											<label for="terms_conditions_confirm"><input type="checkbox" id="terms_conditions_confirm" name="terms_conditions_confirm" checked="checked"> I have read and agreed <a title="Terms and Condition" class="terms_conditions_confirm" target="_blank" href="<?=site_url("terms-and-conditions")?>">Terms and Condition</a>.</label>
-										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="group">
+						<div class="group hidden-xs">
+							<h2 class="hidden-xs">Terms and Conditions</h2>
+							<div class="group-content hidden-xs" style="height: 200px;overflow: scroll;padding: 15px;">
+								<div class="content-text"><?=$item->content?></div>
+							</div>
+						</div>
+						<div class="checkbox">
+							<label for="information_confirm"><input type="checkbox" id="information_confirm" name="information_confirm" checked="checked"> I would like to confirm the above information is correct.</label>
+						</div>
+						<div class="checkbox">
+							<label for="terms_conditions_confirm"><input type="checkbox" id="terms_conditions_confirm" name="terms_conditions_confirm" checked="checked"> I have read and agreed <a title="Terms and Condition" class="terms_conditions_confirm" target="_blank" href="<?=site_url("terms-and-conditions")?>">Terms and Condition</a>.</label>
+						</div>
+						<div class="">
 							<div class="form-group" style="padding-top: 20px; padding-bottom: 20px;">
 								<div class="text-center">
 									<button class="btn btn-danger btn_back" type="button" onclick="window.location='<?=BASE_URL_HTTPS."/apply-visa/step1.html"?>'"><i class="icon-double-angle-left icon-large"></i> BACK</button>
