@@ -112,18 +112,20 @@ $(document).ready(function() {
 			} else {
 				$("#passportnumber_"+i).removeClass("error");
 			}
-			if ($(".flight-ticket-upload-"+i).val() == "") {
-				var sts = parseInt($(".flight-ticket-upload-"+i).attr('sts'));
-				if (sts == 0) {
-					$(".file-flight-ticket-"+i).addClass("error");
-					err++;
-					var txt = "Flight ticket is required.";
-					if (msg.indexOf(txt) == -1) {
-						msg.push(txt);
+			if (visit_purpose == 'For business') {
+				if ($(".flight-ticket-upload-"+i).val() == "") {
+					var sts = parseInt($(".flight-ticket-upload-"+i).attr('sts'));
+					if (sts == 0) {
+						$(".file-flight-ticket-"+i).addClass("error");
+						err++;
+						var txt = "Flight ticket is required.";
+						if (msg.indexOf(txt) == -1) {
+							msg.push(txt);
+						}
 					}
+				} else {
+					$(".file-flight-ticket-"+i).removeClass("error");
 				}
-			} else {
-				$(".file-flight-ticket-"+i).removeClass("error");
 			}
 		}
 		
