@@ -663,9 +663,18 @@ class Apply_visa extends CI_Controller {
 		$this->session->set_userdata("check_step", $check_step);
 		// END add check step
 		$breadcrumb = array('Apply Visa' => site_url('apply-visa'), '1. Visa Options' => site_url('apply-visa/step1'), '2. Applicant Details' => '');
+
+		$info = new stdClass();
+		$info->catid = 7;
+		$items = $this->m_content->items($info, 1);
+
+		if (!empty($items)) {
+			$item = $items[0];
+		}
 		
 		$view_data = array();
 		$view_data["step1"] = $step1;
+		$view_data['item'] = $item;
 		$view_data["breadcrumb"] = $breadcrumb;
 		
 		$tmpl_content = array();

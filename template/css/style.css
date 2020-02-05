@@ -2732,6 +2732,8 @@ ul.style-step li.active {
 .promotion-input {
 }
 .applyform.step2 .group {
+	border: 1px solid #DDD;
+    margin-bottom: 15px;
 }
 .applyform.step2 .group h2 {
 	background-color: #CFD8DC;

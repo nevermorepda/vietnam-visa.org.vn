@@ -474,22 +474,26 @@
 													</label>
 													<div class="col-sm-9">
 														<textarea id="comment" name="comment" class="form-control" rows="5"><?=$vev->comment?></textarea>
-														<div class="checkbox">
-															<label for="information_confirm"><input type="checkbox" id="information_confirm" name="information_confirm" checked="checked"> I would like to confirm the above information is correct.</label>
-														</div>
-														<div class="checkbox">
-															<label for="terms_conditions_confirm"><input type="checkbox" id="terms_conditions_confirm" name="terms_conditions_confirm" checked="checked"> I have read and agreed <a title="Terms and Conditions" class="terms_conditions_confirm" target="_blank" href="<?=site_url("terms")?>">Terms and Conditions</a>.</label>
-														</div>
 													</div>
 												</div>
-												<div class="form-group row">
-													<div class="col-sm-3">
-													</div>
-													<div class="col-sm-9">
-														<a class="btn btn-danger btn-1x" style="padding-left: 35px;padding-right: 35px;" href="<?=site_url("apply-e-visa/step1")?>"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp; BACK</a>
-														<button class="btn btn-danger btn-1x btn-next" type="submit">NEXT STEP &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></button>
-													</div>
-												</div>
+											</div>
+										</div>
+										<div class="group hidden-xs">
+											<h2 class="hidden-xs">Terms and Conditions</h2>
+											<div class="group-content hidden-xs" style="height: 200px;overflow: scroll;padding: 15px;">
+												<div class="content-text"><?=$item->content?></div>
+											</div>
+										</div>
+										<div class="checkbox">
+											<label for="information_confirm"><input type="checkbox" id="information_confirm" name="information_confirm" checked="checked"> I would like to confirm the above information is correct.</label>
+										</div>
+										<div class="checkbox">
+											<label for="terms_conditions_confirm"><input type="checkbox" id="terms_conditions_confirm" name="terms_conditions_confirm" checked="checked"> I have read and agreed <a title="Terms and Conditions" class="terms_conditions_confirm" target="_blank" href="<?=site_url("terms")?>">Terms and Conditions</a>.</label>
+										</div>
+										<div class="form-group pt-3">
+											<div class="text-center">
+												<a class="btn btn-danger btn-1x" style="padding-left: 35px;padding-right: 35px;" href="<?=site_url("apply-e-visa/step1")?>"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp; BACK</a>
+												<button class="btn btn-danger btn-1x btn-next" type="submit">NEXT STEP &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></button>
 											</div>
 										</div>
 									</div>
