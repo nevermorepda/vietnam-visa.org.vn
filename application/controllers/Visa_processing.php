@@ -29,6 +29,38 @@ class Visa_processing extends CI_Controller {
 		
 		echo json_encode(array(sizeof($types_of_tourist), sizeof($types_of_business)));
 	}
+
+	public function message()
+	{
+		if (!empty($_POST))
+		{
+			// Save
+			$fullname = $this->util->value($this->input->post("fullname"), "");
+			$email = $this->util->value($this->input->post("email"), "");
+			$phone = $this->util->value($this->input->post("phone"), "");
+			$content = $this->util->value($this->input->post("message"), "");
+			$g_recatcha = $this->input->post("g-recaptcha-response");
+			
+			if ($this->captcha->test_recaptcha($g_recatcha, $this->input->ip_address(), $this->input->user_agent())) {
+				// Inform by mail
+				$mail = array(
+						"subject"		=> "[Contact] ".$fullname,
+						"from_sender"	=> $email,
+						"name_sender"	=> $fullname,
+						"to_receiver"   => MAIL_INFO, 
+						"message"       => $content
+				);
+				$this->mail->config($mail);
+				$this->mail->sendmail();
+				
+				$this->session->set_flashdata("success", "Your message has been sent successful.");
+			} else {
+				$this->session->set_flashdata("error", "The CAPTCHA field is telling me that you are a robot. Shall we give it another try?");
+			}
+		}
+		
+		redirect("contact", "back");
+	}
 }
 
 ?>

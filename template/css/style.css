@@ -1750,6 +1750,9 @@ input.error, select.error, textarea.error, span.error {
     transform: rotate(180deg);
     float: right
 }
+.send-request {
+	background: #f1f1f1;
+}
 .visa-process-wrap .img-pr {
 	border: 2px solid #FFF;
 }
