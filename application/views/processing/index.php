@@ -478,28 +478,38 @@
 </div>
 <div class="send-request p-3">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-5">
-				<p class="description">Please send us your problems. We will contact you as soon as possible</p>
-				<form id="contact-form" action="<?=site_url("contact/message")?>" method="POST">
+		<p class="description">Please send us your problems. We will contact you as soon as possible</p>
+		<form id="contact-form" action="<?=site_url("contact/message")?>" method="POST">
+			<div class="row">
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label class="form-label">YOUR NAME <span class="required">*</span></label>
 						<input type="text" value="" id="fullname" name="fullname" required="" class="form-control">
 					</div>
+				</div>
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label class="form-label">EMAIL <span class="required">*</span></label>
 						<input type="email" value="" id="email" name="email" required="" class="form-control">
 					</div>
+				</div>
+				<div class="col-sm-4">
 					<div class="form-group">
 						<label class="form-label">PHONE NUMBER</label> <span style="font-size: 12px !important;" class=""> (optional)</span>
 						<input type="text" value="" id="phone" name="phone" class="form-control">
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
 					<div class="form-group">
 						<label class="form-label">MESSAGE <span class="required">*</span></label>
-						<textarea required="" style="height: 108px;" id="message" name="message" type="text" class="form-control"></textarea>
+						<textarea required="" style="height: px;" id="message" name="message" type="text" class="form-control"></textarea>
 					</div>
+				</div>
+				<div class="col-sm-7">
 					<div class="form-group">
-						<div class="g-recaptcha" data-sitekey="<?=RECAPTCHA_KEY?>"></div>
+						<div class="g-recaptcha pt-4" data-sitekey="<?=RECAPTCHA_KEY?>"></div>
 						<!-- <label class="form-label">CAPTCHA <span class="required">*</span></label>
 						<div class="clearfix">
 							<div class="left">
@@ -510,12 +520,12 @@
 							</div>
 						</div> -->
 					</div>
-					<div class="form-group">
-						<input type="submit" class="btn btn-danger btn-contact" name="submit" value="SEND MESSAGE">
-					</div>
-				</form>
+				</div>
 			</div>
-		</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-danger btn-contact" name="submit" value="SEND MESSAGE">
+			</div>
+		</form>
 	</div>
 </div>
 
