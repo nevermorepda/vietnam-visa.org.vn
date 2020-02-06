@@ -17,6 +17,7 @@
 <script type="text/javascript">
 	var airport_json = '<?=$str_json?>';
 	var arrival_port = '<?=$vev->arrival_port?>';
+	var visit_purpose = '<?=$vev->visit_purpose?>';
 </script>
 <script type="text/javascript" src="<?=JS_URL?>e-visa-step2.js"></script>
 <div class="apply-visa">
@@ -255,7 +256,7 @@
 															<i class="fa fa-times" typ="passport" stt="<?=$cnt?>"></i>
 														</div>
 													</div>
-													<? if (in_array($vev->arrival_port, $arr_airports)) { ?>
+													<? if (in_array($vev->arrival_port, $arr_airports) && $vev->visit_purpose == 'For business') { ?>
 													<div class="col-sm-6 apply-visa">
 														<label class="form-label">Upload your flight ticket<span class="required">*</span></label>
 														<div class="passport-upload file-flight-ticket-<?=$cnt?>" <?=!empty($vev->flight_ticket[$cnt]) ? 'style="background: url('.BASE_URL.$vev->flight_ticket[$cnt].')"' : 'style="background: #e7e7e7;"'?>>

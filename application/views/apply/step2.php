@@ -1,4 +1,7 @@
 <? $nations = $this->m_nation->nation_jion_visa_fee();?>
+<script type="text/javascript">
+	var visit_purpose = '<?=$step1->visit_purpose?>';
+</script>
 <script type="text/javascript" src="<?=JS_URL?>apply.visa.step2.js"></script>
 <div class="container">
 	<!-- breadcrumb -->
@@ -128,6 +131,7 @@
 											<input type="text" id="passportnumber_<?=$cnt?>" name="passportnumber_<?=$cnt?>" class="form-control passportnumber_<?=$cnt?>" value="<?=!empty($step1->passportnumber[$cnt]) ? $step1->passportnumber[$cnt] : ''?>" />
 										</div>
 									</div>
+									<? if ($step1->visit_purpose == 'For business') { ?>
 									<div class="col-sm-6 apply-visa">
 										<label class="form-label">Upload your flight ticket<span class="required">*</span></label>
 										<div class="passport-upload file-flight-ticket-<?=$cnt?>" <?=!empty($step1->flight_ticket[$cnt]) ? 'style="background: url('.BASE_URL.$step1->flight_ticket[$cnt].')"' : 'style="background: #e7e7e7;"'?>>
@@ -138,6 +142,7 @@
 											<i class="fa fa-times" typ="flight-ticket" stt="<?=$cnt?>"></i>
 										</div>
 									</div>
+									<? } ?>
 								</div>
 								<? } ?>
 								<div class="processing-note">
