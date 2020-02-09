@@ -68,9 +68,8 @@
 												<div class="form-group">
 													<label class="control-label">Purpose of visit <span class="required">*</span></label>
 													<select id="visit_purpose" name="visit_purpose" class="form-control visit_purpose">
-														<? foreach ($visit_purposes as $visit_purpose) { ?>
-														<option value="<?=$visit_purpose->name?>"><?=$visit_purpose->name?></option>
-														<? } ?>
+														<option value="For tourist">For tourist</option>
+														<option value="For business">For business</option>
 													</select>
 												</div>
 											</div>

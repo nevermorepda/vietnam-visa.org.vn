@@ -4,8 +4,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		// $this->util->block_ip();
-		// $this->output->cache(CACHE_TIME);
+		$this->util->block_ip();
+		$this->output->cache(CACHE_TIME);
 
 		$info = new stdClass();
 		$info->catid = ID_EXTRA_SERVICES;
