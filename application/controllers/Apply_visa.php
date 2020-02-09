@@ -326,6 +326,14 @@ class Apply_visa extends CI_Controller {
 	
 	function step1()
 	{
+		if (!empty($_POST)) {
+			$home_post = new stdClass();
+			$home_post->group_size = $_POST['group_size'];
+			$home_post->visa_type = $_POST['visa_type'];
+			$home_post->visit_purpose = $_POST['visit_purpose'];
+			$home_post->processing_time = $_POST['processing_time'];
+			$home_post->private_visa = $_POST['private_visa'];
+		}
 		$step1 = $this->session->userdata("step1");
 
 		if ($step1 == null) {
@@ -336,6 +344,7 @@ class Apply_visa extends CI_Controller {
 		
 		$view_data = array();
 		$view_data["step1"] = $step1;
+		$view_data["home_post"] = $home_post;
 		$view_data["breadcrumb"] = $breadcrumb;
 		
 		$tmpl_content = array();

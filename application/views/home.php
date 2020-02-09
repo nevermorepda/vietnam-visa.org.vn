@@ -12,6 +12,8 @@
 // }
 	$fee = $this->m_visa_fee->search(0);
 	$processing_fee = $this->m_processing_fee->items()[0];
+	$visit_purposes = $this->m_visit_purpose->items(NULL, 1);
+	$visa_types = $this->m_visa_type->items(NULL, 1);
 ?>
 <div class="slide-bar">
 	<div class="slide-wrap">
@@ -20,23 +22,170 @@
 		</div>
 		<div class="slide-content">
 			<div class="container">
-				<div class="slide-text">
-					<h1>THE FASTEST WAY TO<br><span style="font-size: 62px;">GET A VISA </span></h1>
-					<ul class="checklist d-none d-sm-none d-md-block">
-						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Quick and easy</strong> – Only 4 steps to get the visa to Vietnam</li>
-						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Accept credit cards</strong> – Low processing rates</li>
-						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Free 24/7 support</strong> – Call our experts anytime</li>
-						<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Trusted and reliable</strong> – 5,000,000+ travellers worldwide</li>
-					</ul>
-				</div>
-				<div class="slide-button">
-					<a class="btn btn-danger" href="<?=site_url("visa-processing")?>">GET STARTED</a>
-					<a class="btn btn-light" href="<?=site_url("apply-visa")?>">APPLY NOW</a>
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="slide-text">
+							<h1>THE FASTEST WAY TO<br><span style="font-size: 62px;">GET A VISA </span></h1>
+							<ul class="checklist d-none d-sm-none d-md-block">
+								<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Quick and easy</strong> – Only 4 steps to get the visa to Vietnam</li>
+								<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Accept credit cards</strong> – Low processing rates</li>
+								<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Free 24/7 support</strong> – Call our experts anytime</li>
+								<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Trusted and reliable</strong> – 5,000,000+ travellers worldwide</li>
+							</ul>
+						</div>
+						<div class="slide-button">
+							<a class="btn btn-light" href="<?=site_url("visa-processing")?>">GET STARTED</a>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="slide-form">
+							<div class="applyform p-3 d-none d-sm-none d-md-block">
+								<form id="frmApply" class="form-horizontal" role="form" action="<?=BASE_URL_HTTPS."/apply-visa/step1.html"?>" method="POST">
+									<div class="row clearfix">
+										<div class="col-sm-5">
+											<div class="panel-options">
+												<div class="form-group">
+													<label class="control-label">Number of visa <span class="required">*</span></label>
+													<select id="group_size" name="group_size" class="form-control group_size">
+														<option value="1">1 Applicant</option>
+														<? for ($i=2; $i<=15; $i++) { ?>
+														<option value="<?=$i?>"><?=$i?> Applicants</option>
+														<? } ?>
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="control-label">Type of visa <span class="required">*</span></label>
+													<select id="visa_type" name="visa_type" class="form-control visa_type">
+														<? foreach ($visa_types as $visa_type) {
+															if ($visa_type->code == '6mm') {
+														?>
+														<option value="<?=$visa_type->code?>"><?=$visa_type->name?> (US Only)</option>
+														<? } else { ?>
+														<option value="<?=$visa_type->code?>"><?=$visa_type->name?></option>
+														<? } } ?>
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="control-label">Purpose of visit <span class="required">*</span></label>
+													<select id="visit_purpose" name="visit_purpose" class="form-control visit_purpose">
+														<? foreach ($visit_purposes as $visit_purpose) { ?>
+														<option value="<?=$visit_purpose->name?>"><?=$visit_purpose->name?></option>
+														<? } ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-7">
+											<div class="processing-option">
+												<label class="control-label">Processing time <span class="required">*</span></label>
+												<div class="radio">
+													<label>
+														<input id="processing_time_normal" note-id="processing-time-normal-note" class="processing_time" type="radio" name="processing_time" checked value="Normal"/>
+														<strong>Normal (Guaranteed <span class="process-date"></span>)</strong>
+													</label>
+													<div id="processing-time-normal-note" class="processing-option none">
+														<div class="processing-note">
+															We guarantee delivery of approval letter in by email.
+														</div>
+													</div>
+												</div>
+												<script type="text/javascript">
+													$('.visa_type').change(function(event) {
+														var val = $(this).val();
+														if (val == '3ms' || val == '3mm')
+															$('.process-date').html('3-5 working days');
+														else
+															$('.process-date').html('1-2 working days');
+													});
+												</script>
+												<div class="radio" style="margin-top: 5px">
+													<label>
+														<input id="processing_time_urgent" note-id="processing-time-urgent-note" class="processing_time" type="radio" name="processing_time" value="Urgent"/>
+														<strong>Urgent (Guaranteed 4-8 working hours)</strong>
+													</label>
+													<div id="processing-time-urgent-note" class="processing-option none">
+														<div class="processing-note">
+															It is effective for who needs visa in emergency. We will send the approval letter by email in <span class="red">4 to 8 hours</span>. If you apply on a Saturday, Sunday or holiday, it will be processed the next business day. The extra charge is from <b></b>/person.
+														</div>
+													</div>
+												</div>
+												<div class="radio" style="margin-top: 5px">
+													<label>
+														<input id="processing_time_emergency" note-id="processing_time_emergency-note" class="processing_time" type="radio" name="processing_time" value="Emergency" />
+														<span class="red"><strong>Emergency (Within 30 minutes)</strong></span>
+													</label>
+													<div id="processing_time_emergency-note" class="processing-option none">
+														<div class="processing-note">
+															Similar to Urgent option except it only takes <span class="red">30 minutes</span>. The extra charge is from <b></b>/person. You should call our hotline <a class="red" title="hotline" href="tel:<?=HOTLINE?>"><?=HOTLINE?></a> to confirm the application has been received and acknowledged to process immediately. You are subject to pay stamping fee at the airports. (You can apply supper urgent case on weekend/holiday for arrival date is next Monday or next business day.)
+														</div>
+													</div>
+												</div>
+												<div class="checkbox pt-2">
+													<label>
+														<input type="checkbox" id="private_visa" name="private_visa" class="private_visa" value="1"/>
+														<strong class="text-color-red">Show me in a private visa letter</strong>
+													</label>
+												</div>
+												<div class="total p-2 text-center">
+													<div class="clearfix">
+														<label class="total-label">TOTAL FEE:</label>
+														<span class="total_price"></span>
+													</div>
+													<button type="submit" class="btn btn-danger">APPLY NOW</button>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	get_visa_fee();
+	$('#group_size').change(function(event) {
+		get_visa_fee();
+	});
+	$('#visa_type').change(function(event) {
+		get_visa_fee();
+	});
+	$('#visit_purpose').change(function(event) {
+		get_visa_fee();
+	});
+	$(".processing_time").change(function(){
+		get_visa_fee();
+	});
+	$(".private_visa").change(function(){
+		get_visa_fee();
+	});
+	function get_visa_fee() {
+		var groupsize = $('#group_size').val();
+		var	type = $('#visa_type').val();
+		var	purpose = $('#visit_purpose').val();
+		var processing_time 	= $("input[name='processing_time']:checked").val();
+		var private_visa 		= $("input[name='private_visa']:checked").val();
+		var p = {};
+		p['groupsize'] = groupsize;
+		p['type'] = type;
+		p['purpose'] = purpose;
+		p['processing_time'] = processing_time;
+		p['private_visa'] = private_visa;
+		$.ajax({
+			url: '<?=site_url('home/ajax-api')?>',
+			type: 'post',
+			dataType: 'html',
+			data: p,
+			success: function(data) {
+				$('.total_price').html(data + ' $');
+			}
+		});
+	}
+</script>
 <?
 	$holiday_info = new stdClass();
 	$holiday_info->current_date = date("Y-m-d");

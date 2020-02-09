@@ -4,8 +4,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->util->block_ip();
-		$this->output->cache(CACHE_TIME);
+		// $this->util->block_ip();
+		// $this->output->cache(CACHE_TIME);
 
 		$info = new stdClass();
 		$info->catid = ID_EXTRA_SERVICES;
@@ -27,6 +27,40 @@ class Home extends CI_Controller {
 		$tmpl_content['tabindex']  = "home";
 		$tmpl_content['content']   = $this->load->view("home", $view_data, TRUE);
 		$this->load->view('layout/main', $tmpl_content);
+	}
+
+	function ajax_api() {
+		$groupsize = $this->input->post('groupsize');
+		$type = $this->input->post('type');
+		$purpose = $this->input->post('purpose');
+		$processing_time = $this->input->post('processing_time');
+		$private_visa = $this->input->post('private_visa');
+
+		$oj = '';
+		if ($purpose == 'For business'){
+			$oj .= 'business';
+		} elseif($purpose == 'For tourist') {
+			$oj .= 'tourist';
+		}
+
+		$oj .= '_'.$type;
+		$fee = $this->m_visa_fee->search(0);
+		$private_letter_fee = 0;
+		if (!empty($private_visa)) {
+			$private_letter_fee = (int)$this->m_private_letter_fee->search($oj);
+		}
+		$total = $fee->{$oj} * $groupsize;
+
+		if ($processing_time == 'Urgent') {
+			$oj .='_urgent';
+		} elseif ($processing_time == 'Emergency') {
+			$oj .='_emergency';
+		}
+		
+		$processing_fee = $this->m_processing_fee->search($oj);
+		$processing_fee = $processing_fee * $groupsize;
+		$total = $total + $processing_fee + $private_letter_fee;
+		echo json_encode($total);
 	}
 }
 

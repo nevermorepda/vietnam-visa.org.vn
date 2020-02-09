@@ -57,7 +57,7 @@
 										<option value="<?=$i?>"><?=$i?> Applicants</option>
 										<? } ?>
 									</select>
-									<script> $('#group_size').val('<?=$step1->group_size?>'); </script>
+									<script> $('#group_size').val('<?=!empty($home_post->group_size) ? $home_post->group_size : $step1->group_size?>'); </script>
 								</div>
 							</div>
 						</div>
@@ -76,7 +76,7 @@
 										<option value="<?=$visa_type->code?>"><?=$visa_type->name?></option>
 										<? } } ?>
 									</select>
-									<script> $('#visa_type').val('<?=$step1->visa_type?>'); </script>
+									<script> $('#visa_type').val('<?=!empty($home_post->visa_type) ? $home_post->visa_type : $step1->visa_type?>'); </script>
 								</div>
 							</div>
 						</div>
@@ -92,7 +92,7 @@
 										<option value="<?=$visit_purpose->name?>"><?=$visit_purpose->name?></option>
 										<? } ?>
 									</select>
-									<script> genVisitOptions(); $('#visit_purpose').val('<?=$step1->visit_purpose?>'); </script>
+									<script> genVisitOptions(); $('#visit_purpose').val('<?=!empty($home_post->visit_purpose) ? $home_post->visit_purpose : $step1->visit_purpose?>'); </script>
 								</div>
 							</div>
 						</div>
@@ -164,10 +164,11 @@
 								<div class="col-md-4">
 									<label class="control-label">Processing time <span class="required">*</span></label>
 								</div>
+								<? $processing_time = !empty($home_post->processing_time) ? $home_post->processing_time : $step1->processing_time; ?>
 								<div class="col-md-8">
 									<div class="radio">
 										<label>
-											<input id="processing_time_normal" note-id="processing-time-normal-note" class="processing_time" type="radio" name="processing_time" value="Normal" <?=($step1->processing_time=="Normal"?"checked='checked'":"")?>/>
+											<input id="processing_time_normal" note-id="processing-time-normal-note" class="processing_time" type="radio" name="processing_time" value="Normal" <?=($processing_time=="Normal"?"checked='checked'":"")?>/>
 											<strong>Normal (Guaranteed <span class="process-date"><?=((strtoupper($country_name)=='VIET NAM')?'1-2 working days':'1-2 working days')?></span>)</strong>
 										</label>
 										<div id="processing-time-normal-note" class="processing-option none">
@@ -187,7 +188,7 @@
 									</script>
 									<div class="radio" style="margin-top: 5px">
 										<label>
-											<input id="processing_time_urgent" note-id="processing-time-urgent-note" class="processing_time" type="radio" name="processing_time" value="Urgent" <?=($step1->processing_time=="Urgent"?"checked='checked'":"")?>/>
+											<input id="processing_time_urgent" note-id="processing-time-urgent-note" class="processing_time" type="radio" name="processing_time" value="Urgent" <?=($processing_time=="Urgent"?"checked='checked'":"")?>/>
 											<strong>Urgent (Guaranteed 4-8 working hours)</strong>
 										</label>
 										<div id="processing-time-urgent-note" class="processing-option none">
@@ -198,7 +199,7 @@
 									</div>
 									<div class="radio" style="margin-top: 5px">
 										<label>
-											<input id="processing_time_emergency" note-id="processing_time_emergency-note" class="processing_time" type="radio" name="processing_time" value="Emergency" <?=($step1->processing_time=="Emergency"?"checked='checked'":"")?>/>
+											<input id="processing_time_emergency" note-id="processing_time_emergency-note" class="processing_time" type="radio" name="processing_time" value="Emergency" <?=($processing_time=="Emergency"?"checked='checked'":"")?>/>
 											<span class="red"><strong>Emergency (Within 30 minutes)</strong></span>
 										</label>
 										<div id="processing_time_emergency-note" class="processing-option none">
@@ -209,7 +210,7 @@
 									</div>
 									<div class="radio" style="margin-top: 5px">
 										<label>
-											<input id="processing_time_holiday" note-id="processing-time-holiday-note" class="processing_time" type="radio" name="processing_time" value="Holiday" <?=($step1->processing_time=="Holiday"?"checked='checked'":"")?>/>
+											<input id="processing_time_holiday" note-id="processing-time-holiday-note" class="processing_time" type="radio" name="processing_time" value="Holiday" <?=($processing_time=="Holiday"?"checked='checked'":"")?>/>
 											<strong>Holiday (for Saturday, Sunday or public holiday)</strong>
 										</label>
 										<div id="processing-time-holiday-note" class="processing-option none">
@@ -256,8 +257,9 @@
 								</div>
 								<div class="col-md-8">
 									<div class="checkbox">
+										<? $private_visa = !empty($home_post->private_visa) ? $home_post->private_visa : $step1->private_visa ?>
 										<label>
-											<input type="checkbox" id="private_visa" name="private_visa" class="private_visa" value="1" <?=($step1->private_visa==1?"checked='checked'":"")?>>
+											<input type="checkbox" id="private_visa" name="private_visa" class="private_visa" value="1" <?=((int)$private_visa==1?"checked='checked'":"")?>>
 											<strong class="text-color-red">Show me in a private visa letter</strong>
 										</label>
 									</div>
