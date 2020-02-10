@@ -326,8 +326,8 @@ class Apply_visa extends CI_Controller {
 	
 	function step1()
 	{
+		$home_post = new stdClass();
 		if (!empty($_POST)) {
-			$home_post = new stdClass();
 			$home_post->group_size = $_POST['group_size'];
 			$home_post->visa_type = $_POST['visa_type'];
 			$home_post->visit_purpose = $_POST['visit_purpose'];
