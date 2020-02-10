@@ -466,17 +466,25 @@ function checkProcessingTime()
 		if (arrival_date.getTime() <= current_date.getTime()) {
 			if (!$("#processing_time_normal").is(':disabled')) {
 				$("#processing_time_normal").attr("disabled", true);
-				$("#processing_time_normal").parent().find("strong").css("color", "#ccc");
+				$("#processing_time_normal").parent().css("color", "#ccc");
+				$("#processing_time_normal").prop("checked", false);
 			}
 			if (!$("#processing_time_urgent").is(':disabled')) {
 				$("#processing_time_urgent").attr("disabled", true);
-				$("#processing_time_urgent").parent().find("strong").css("color", "#ccc");
+				$("#processing_time_urgent").parent().css("color", "#ccc");
+				$("#processing_time_urgent").prop("checked", false);
+			}
+			if (!$("#processing_time_emergency").is(':disabled')) {
+				$("#processing_time_emergency").attr("disabled", true);
+				$("#processing_time_emergency").parent().css('color', '#ccc');
+				$("#processing_time_emergency").prop("checked", false);
 			}
 		}
 		else {
 			$.ajax({
 				type: "POST",
 				url: BASE_URL + "/apply-e-visa/ajax-detect-rush-case.html",
+				dataType: 'html',
 				data: {
 					arrival_year: arrival_date.getFullYear(),
 					arrival_month: arrival_date.getMonth()+1,

@@ -217,6 +217,8 @@ class Apply_e_visa extends CI_Controller {
 		$vev->flightnumber				= "";
 		$vev->arrivaltime				= "";
 		$vev->arrivaldate				= "";
+		$vev->arrivalmonth				= "";
+		$vev->arrivalyear				= "";
 		$vev->exitdate					= "";
 		$vev->contact_title				= "Mr";
 		$vev->contact_fullname			= "";

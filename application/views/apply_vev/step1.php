@@ -81,7 +81,7 @@
 											<option value="<?=$y?>"><?=$y?></option>
 											<? } ?>
 										</select>
-										<script> $("#arrivalyear").val("<?=$step1->arrivalyear?>"); </script>
+										<script> $("#arrivalyear").val("<?=$vev->arrivalyear?>"); </script>
 									</div>
 									<div class="col-sm-4 col-xs-4">
 										<select id="arrivalmonth" name="arrivalmonth" class="form-control arrival_month">
@@ -90,7 +90,7 @@
 											<option value="<?=$m?>"><?=date('M', mktime(0, 0, 0, $m, 10))?></option>
 											<? } ?>
 										</select>
-										<script> $("#arrivalmonth").val("<?=$step1->arrivalmonth?>"); </script>
+										<script> $("#arrivalmonth").val("<?=$vev->arrivalmonth?>"); </script>
 									</div>
 									<div class="col-sm-4 col-xs-4">
 										<select id="arrivaldate" name="arrivaldate" class="form-control arrival_date">
@@ -99,7 +99,7 @@
 											<option value="<?=$d?>"><?=$d?></option>
 											<? } ?>
 										</select>
-										<script> $("#arrivaldate").val("<?=$step1->arrivaldate?>"); </script>
+										<script> $("#arrivaldate").val("<?=$vev->arrivaldate?>"); </script>
 									</div>
 								</div>
 								<div class="processing-note">
