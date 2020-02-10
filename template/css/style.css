@@ -1109,6 +1109,7 @@ input.error, select.error, textarea.error, span.error {
 	width: 100%;
 	height: 100%;
 	z-index: 4;
+	background-color: #1f4a84ad;
 }
 
 .slide-wrap .slide-content .slide-text h1 {
@@ -1152,8 +1153,9 @@ input.error, select.error, textarea.error, span.error {
  
 .slide-wrap .slide-content .slide-form {
 	margin-top:50px;
-	background-color: #ffffff59;
+	/* background-color: #ffffff59; */
 	border-radius: 5px;
+	color: #ffffff;
 }
 .slide-wrap .slide-content .slide-form .total {
 	border-top: 1px solid #ccc;
@@ -1164,8 +1166,8 @@ input.error, select.error, textarea.error, span.error {
 }
 .slide-wrap .slide-content .slide-form .total .total_price {
 	font-weight: 600;
-	color: red;
-	font-size:30px;
+	/* color: red; */
+	font-size:35px;
 }
 .slide-wrap .slide-content .search-widget {
 	background: rgba(0,0,0, .7);
@@ -4570,7 +4572,7 @@ ul.list-embassy li {
 		height: 400px  !important;
 	}
 	.slider {
-		min-height: 400px !important;
+		min-height: 785px !important;
 	}
 	.comments .content-list {
 		padding: 0 100px;

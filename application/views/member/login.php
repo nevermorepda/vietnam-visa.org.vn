@@ -53,7 +53,7 @@
 								<div class="row form-group">
 									<div class="col-md-4"></div>
 									<div class="col-md-8 clearfix">
-										<a href="<?=site_url('member/lostpass')?>">Forgot your password?</a>
+										<a href="" data-toggle="modal" data-target="#exampleModal">Forgot your password?</a>
 									</div>
 								</div>
 								<div class="row form-group">
@@ -168,8 +168,42 @@
 		</div>
 	</div>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+      	<div class="text-center">
+			<h3><i class="fa fa-lock fa-4x"></i></h3>
+			<h2 class="text-center">Reset Password?</h2>
+			<p>Please enter your email address and we'll send you a link to reset your password</p>
+		</div>
+      </div>
+      <div class="modal-body">
+        <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+					<input id="email" name="email" placeholder="Email address" class="form-control"  type="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<input name="recover-submit" class="btn btn-lg btn-danger btn-block" value="Submit" type="submit">
+			</div>
+			<input type="hidden" class="hide" name="token" id="token" value=""> 
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Return</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="fb-root"></div>
+<script>
+	$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+})
+</script>
 
 <script type="text/javascript" src="<?=JS_URL?>facebook.js"></script>
 <script type="text/javascript" src="<?=JS_URL?>google-plus.js"></script>
@@ -307,6 +341,5 @@ function checkEmailExisted(email)
 	});
 	return result;
 }
-
 </script>
 

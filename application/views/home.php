@@ -33,13 +33,13 @@
 								<li><i class="fa fa-check" aria-hidden="true"></i> <strong>Trusted and reliable</strong> – 5,000,000+ travellers worldwide</li>
 							</ul>
 						</div>
-						<div class="slide-button">
+						<div class="slide-button d-none d-sm-none d-md-block">
 							<a class="btn btn-light" href="<?=site_url("visa-processing")?>">GET STARTED</a>
 						</div>
 					</div>
 					<div class="col-sm-7">
 						<div class="slide-form">
-							<div class="applyform p-3 d-none d-sm-none d-md-block">
+							<div class="applyform">
 								<form id="frmApply" class="form-horizontal" role="form" action="<?=BASE_URL_HTTPS."/apply-visa/step1.html"?>" method="POST">
 									<div class="row clearfix">
 										<div class="col-sm-5">
@@ -111,7 +111,7 @@
 												<div class="radio" style="margin-top: 5px">
 													<label>
 														<input id="processing_time_emergency" note-id="processing_time_emergency-note" class="processing_time" type="radio" name="processing_time" value="Emergency" />
-														<span class="red"><strong>Emergency (Within 30 minutes)</strong></span>
+														<strong>Emergency (Within 30 minutes)</strong>
 													</label>
 													<div id="processing_time_emergency-note" class="processing-option none">
 														<div class="processing-note">
@@ -119,18 +119,18 @@
 														</div>
 													</div>
 												</div>
-												<div class="checkbox pt-2">
+												<div class="checkbox pt-2 pb-3">
 													<label>
 														<input type="checkbox" id="private_visa" name="private_visa" class="private_visa" value="1"/>
-														<strong class="text-color-red">Show me in a private visa letter</strong>
+														<strong>Show me in a private visa letter</strong>
 													</label>
 												</div>
-												<div class="total p-2 text-center">
+												<div class="total pt-2 text-center">
 													<div class="clearfix">
 														<label class="total-label">TOTAL FEE:</label>
-														<span class="total_price"></span>
+														<span class="total_price pl-3"></span>
 													</div>
-													<button type="submit" class="btn btn-danger">APPLY NOW</button>
+													<button type="submit" class="btn btn-danger mt-4">APPLY NOW</button>
 												</div>
 												
 											</div>
@@ -166,8 +166,8 @@
 		var groupsize = $('#group_size').val();
 		var	type = $('#visa_type').val();
 		var	purpose = $('#visit_purpose').val();
-		var processing_time 	= $("input[name='processing_time']:checked").val();
-		var private_visa 		= $("input[name='private_visa']:checked").val();
+		var processing_time = $("input[name='processing_time']:checked").val();
+		var private_visa = $("input[name='private_visa']:checked").val();
 		var p = {};
 		p['groupsize'] = groupsize;
 		p['type'] = type;
