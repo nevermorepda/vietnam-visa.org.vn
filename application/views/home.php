@@ -20,7 +20,7 @@
 		<div id="slideshow" class="slider">
 			<div class="flexslider" style="background-image: url(<?=IMG_URL?>wizban/banner-visa-slider.jpg);"></div>
 		</div>
-		<div class="slide-content">
+		<div class="slide-content" style="background-color: #1f4a84ad;">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-5">

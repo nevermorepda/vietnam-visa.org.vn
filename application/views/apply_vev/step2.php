@@ -256,8 +256,8 @@
 															<i class="fa fa-times" typ="passport" stt="<?=$cnt?>"></i>
 														</div>
 													</div>
-													<? if (in_array($vev->arrival_port, $arr_airports) && $vev->visit_purpose == 'For business') { ?>
-													<div class="col-sm-6 apply-visa">
+													<? //if (in_array($vev->arrival_port, $arr_airports) && $vev->visit_purpose == 'For business') { ?>
+													<!-- <div class="col-sm-6 apply-visa">
 														<label class="form-label">Upload your flight ticket<span class="required">*</span></label>
 														<div class="passport-upload file-flight-ticket-<?=$cnt?>" <?=!empty($vev->flight_ticket[$cnt]) ? 'style="background: url('.BASE_URL.$vev->flight_ticket[$cnt].')"' : 'style="background: #e7e7e7;"'?>>
 															<label>
@@ -266,8 +266,8 @@
 															</label>
 															<i class="fa fa-times" typ="flight-ticket" stt="<?=$cnt?>"></i>
 														</div>
-													</div>
-													<? } ?>
+													</div> -->
+													<? //} ?>
 												</div>
 												<? } ?>
 											</div>

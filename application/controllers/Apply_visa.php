@@ -1182,7 +1182,7 @@ class Apply_visa extends CI_Controller {
 		{
 			for ($i=1; $i<=$step1->group_size; $i++) {
 				$allow_type = 'JPG|PNG|jpg|jpeg|png|pdf|PDF';
-				$path = "/files/upload/image/flight_ticket";
+				// $path = "/files/upload/image/flight_ticket";
 
 				$step1->fullname[$i]		= (!empty($_POST["fullname_{$i}"]) ? $_POST["fullname_{$i}"] : "");
 				$step1->gender[$i]			= (!empty($_POST["gender_{$i}"]) ? $_POST["gender_{$i}"] : "Male");
@@ -1199,12 +1199,12 @@ class Apply_visa extends CI_Controller {
 					$ban_err++;
 				}
 
-				if (!empty($_FILES["flight_ticket_photo_{$i}"]["name"])) {
-					$format_photo = explode('.', $_FILES["flight_ticket_photo_{$i}"]["name"]);
-					$photo_name = $this->util->slug($format_photo[0]).'.'.$format_photo[1];
-					$this->util->upload_file('.'.$path,"flight_ticket_photo_{$i}","",$allow_type,$photo_name);
-					$step1->flight_ticket[$i]	= $path.'/'.$photo_name;
-				}
+				// if (!empty($_FILES["flight_ticket_photo_{$i}"]["name"])) {
+				// 	$format_photo = explode('.', $_FILES["flight_ticket_photo_{$i}"]["name"]);
+				// 	$photo_name = $this->util->slug($format_photo[0]).'.'.$format_photo[1];
+				// 	$this->util->upload_file('.'.$path,"flight_ticket_photo_{$i}","",$allow_type,$photo_name);
+				// 	$step1->flight_ticket[$i]	= $path.'/'.$photo_name;
+				// }
 
 			}
 			
@@ -1615,7 +1615,7 @@ class Apply_visa extends CI_Controller {
 					$pax["birthday"]	= date("Y-m-d", strtotime($step1->birthmonth[$i]."/".$step1->birthdate[$i]."/".$step1->birthyear[$i]));
 					$pax["nationality"]	= $step1->nationality[$i];
 					$pax["passport"]	= $step1->passportnumber[$i];
-					$pax["flight_ticket"]= $step1->flight_ticket[$i];
+					// $pax["flight_ticket"]= $step1->flight_ticket[$i];
 					
 					if (!$this->m_visa_booking->add_traveller($pax)) {
 						$succed = false;
