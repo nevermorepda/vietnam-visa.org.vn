@@ -177,7 +177,7 @@
 		$.ajax({
 			url: '<?=site_url('home/ajax-api')?>',
 			type: 'post',
-			dataType: 'html',
+			dataType: 'json',
 			data: p,
 			success: function(data) {
 				$('.total_price').html(data + ' $');

@@ -197,6 +197,37 @@ class Member extends CI_Controller {
 		
 		redirect("member/myaccount");
 	}
+
+	public function ajax_getpass() {
+		$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
+
+		$user = $this->m_user->get_user_by_email($email);
+
+		if ($user != null) {
+			$tpl_data = array(
+				"FULLNAME"		=> $user->user_fullname,
+				"EMAIL"			=> $user->user_login,
+				"PASSWORD"		=> $user->password_text,
+			);
+			
+			$message = $this->mail_tpl->forgot_password($tpl_data);
+			
+			// Send to SALE Department
+			$mail = array(
+				"subject"		=> "Forgot password - ".SITE_NAME,
+				"from_sender"	=> MAIL_INFO,
+				"name_sender"	=> $user->user_fullname,
+				"to_receiver"	=> $email,
+				"message"		=> $message
+			);
+			$this->mail->config($mail);
+			$this->mail->sendmail();
+		}
+		else {
+			$this->session->set_flashdata("status", "This email is not registered. Please signup a new account with us!");
+			redirect("member/login", "back");
+		}
+	}
 	
 	public function check_email_existed()
 	{
@@ -294,7 +325,45 @@ class Member extends CI_Controller {
 		$tmpl_content['content']   = $this->load->view("member/change_password", NULL, TRUE);
 		$this->load->view('layout/main', $tmpl_content);
 	}
-	
+
+	public function reset_password() {
+		
+		if (!empty($_POST)) {
+			$new_pwd = $this->input->post('new_password');
+			$cnf_new_pwd = $this->input->post('cnf_password');
+
+			$info = new stdClass();
+			$info->username = $this->session->userdata("user")->user_login;
+			$info->password = $crrent_pwd;
+			
+			$user = $this->m_user->user($info);
+			
+			if ($user == null) {
+				$this->session->set_flashdata("status", "Invalid password.");
+				redirect("member/reset-password", "back");
+			} else if (empty($new_pwd) || strlen($new_pwd) < 6) {
+				$this->session->set_flashdata("status", "New password is required at least 6 characters.");
+				redirect("member/reset-password", "back");
+			} else if ($new_pwd != $cnf_new_pwd) {
+				$this->session->set_flashdata("status", "Please retype your new password. Confirm field is not matched.");
+				redirect("member/reset-password", "back");
+			} else {
+				$data = array(
+					"user_pass" => md5($new_pwd),
+					"password_text" => $new_pwd,
+				);
+				$where = array("id" => $this->session->userdata("user")->id);
+				$this->m_user->update($data, $where);
+
+				redirect("home");
+			}
+		}
+		$tmpl_content = array();
+		$tmpl_content['meta']['title'] = "Change Your Password";
+		$tmpl_content['content']   = $this->load->view("member/reset_password", NULL, TRUE);
+		$this->load->view('layout/main', $tmpl_content);
+	}
+
 	public function recovered_password()
 	{
 		$tmpl_content['content'] = $this->load->view("member/recovered_password", NULL, TRUE);
