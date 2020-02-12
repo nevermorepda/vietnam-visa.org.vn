@@ -45,6 +45,9 @@ class M_user extends M_db
 			if (!empty($info->user_type)) {
 				$sql .= " AND user_type = '{$info->user_type}'";
 			}
+			if (!empty($info->resetpass_key)) {
+				$sql .= " AND resetpass_key = '{$info->resetpass_key}'";
+			}
 			if (!empty($info->user_types)) {
 				$sql .= " AND user_type IN (".implode(",", $info->user_types).")";
 			}

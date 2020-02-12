@@ -3,7 +3,7 @@
 		<h1 class="page-title font-weight-medium">Create New Password For User Account</h1>
 		<div class="row">
 			<div class="col-sm-7">
-				<form id="form-lostpass" name="form-lostpass" class="form-horizontal" role="form" action="<?=site_url("member/reset-password")?>" method="POST">
+				<form id="form-lostpass" name="form-lostpass" class="form-horizontal" role="form" action="" method="POST">
 					<label class="font-weight-medium">New password</label>
 					<input class="form-control" id="new_password" type="password" name="new_password" placeholder="New password">
 					<br>
@@ -12,7 +12,7 @@
 					<br>
 					<div class="row">
 						<div class="col-12 col-md-4 col-lg-3">
-							<a class="btn btn-danger btn-1x text-white w-100" id="btn-getpass">Submit</a>
+							<button class="btn btn-danger btn-1x text-white w-100" type="submit">Submit</button>
 						</div>
 					</div>
 					<input type="hidden" id="task" name="task" value="">

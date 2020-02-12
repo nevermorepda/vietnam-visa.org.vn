@@ -200,14 +200,19 @@ class Member extends CI_Controller {
 
 	public function ajax_getpass() {
 		$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
-
+		$key = md5(rand(10,99).date('Ymdhis'));
 		$user = $this->m_user->get_user_by_email($email);
+
+		$data = array("resetpass_key" => $key);
+		$where = array("id" => $user->id);
+		$this->m_user->update($data, $where);
 
 		if ($user != null) {
 			$tpl_data = array(
 				"FULLNAME"		=> $user->user_fullname,
 				"EMAIL"			=> $user->user_login,
 				"PASSWORD"		=> $user->password_text,
+				"RESETPASS_KEY" => $key,
 			);
 			
 			$message = $this->mail_tpl->forgot_password($tpl_data);
@@ -326,38 +331,32 @@ class Member extends CI_Controller {
 		$this->load->view('layout/main', $tmpl_content);
 	}
 
-	public function reset_password() {
-		
+	public function reset_password($key) {
+		$info = new stdClass();
+		$info->resetpass_key = $key;
+		$user = $this->m_user->users($info);
+
+		if (empty($user)) {
+			redirect(site_url());
+		}
 		if (!empty($_POST)) {
-			$new_pwd = $this->input->post('new_password');
-			$cnf_new_pwd = $this->input->post('cnf_password');
+			$new_password = $this->input->post('new_password');
+			$cnf_password = $this->input->post('cnf_password');
 
-			$info = new stdClass();
-			$info->username = $this->session->userdata("user")->user_login;
-			$info->password = $crrent_pwd;
-			
-			$user = $this->m_user->user($info);
-			
-			if ($user == null) {
-				$this->session->set_flashdata("status", "Invalid password.");
-				redirect("member/reset-password", "back");
-			} else if (empty($new_pwd) || strlen($new_pwd) < 6) {
-				$this->session->set_flashdata("status", "New password is required at least 6 characters.");
-				redirect("member/reset-password", "back");
-			} else if ($new_pwd != $cnf_new_pwd) {
-				$this->session->set_flashdata("status", "Please retype your new password. Confirm field is not matched.");
-				redirect("member/reset-password", "back");
-			} else {
+			if ($new_password == $cnf_password) {
 				$data = array(
-					"user_pass" => md5($new_pwd),
-					"password_text" => $new_pwd,
+					"user_pass" => md5($new_password),
+					"resetpass_key" => null,
 				);
-				$where = array("id" => $this->session->userdata("user")->id);
+				$where = array("id" => $user[0]->id);
 				$this->m_user->update($data, $where);
-
-				redirect("home");
+				redirect("member/login");
+			} else {
+				$this->session->set_flashdata("status", "Please retype your new password. Confirm field is not matched.");
+				redirect("member/reset_password/{$key}", "back");
 			}
 		}
+
 		$tmpl_content = array();
 		$tmpl_content['meta']['title'] = "Change Your Password";
 		$tmpl_content['content']   = $this->load->view("member/reset_password", NULL, TRUE);

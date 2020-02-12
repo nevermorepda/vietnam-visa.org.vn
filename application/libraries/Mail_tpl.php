@@ -679,14 +679,16 @@ class Mail_tpl {
 						<br>
 						<p>We received a request tp request your password for your account: '.$tpl_data["EMAIL"].'. We are here to help! </p>
 						<br>
-						<a style="text-decoration:none;color:#fff;background:#4cd137;padding:10px;border-radius:2px" href="#" target="_blank" data-saferedirecturl="">Set a New Password</a>
+						<a style="text-decoration:none;color:#fff;background:#4cd137;padding:10px;border-radius:2px" href="'.site_url("member/reset_password/{$tpl_data["RESETPASS_KEY"]}").'" target="_blank" data-saferedirecturl="">Set a New Password</a>
 						<br>
 						<br>
 						<p>Simply click on the button to set a new password</p>
 						<p>Please do not hesitate to contact us if you have any problem!</p>
 						<br>
 						<p>Best regards,</p>
-						<p><b>VIETNAM VISA DEPT.</b></p>
+						<p><b>VIETNAM VIS
+
+						A DEPT.</b></p>
 					</div>';
 		return $content;
 	}

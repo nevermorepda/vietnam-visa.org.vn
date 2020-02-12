@@ -188,7 +188,6 @@
 			<div class="form-group">
 				<button id="btn-getpass" class="btn btn-lg btn-danger btn-block">Submit</button>
 			</div>
-			<input type="hidden" id="task" name="task" value="getpass" />
 		</div>
 		<div class="message d-none">
 			<div class="container">
@@ -211,9 +210,6 @@
 	});
 </script>
 
-<script type="text/javascript" src="<?=JS_URL?>facebook.js"></script>
-<script type="text/javascript" src="<?=JS_URL?>google-plus.js"></script>
-
 <? if ($this->session->flashdata("status")) { ?>
 <script>
 $(document).ready(function() {
@@ -223,7 +219,11 @@ $(document).ready(function() {
 });
 </script>
 <? } ?>
+
 <script type="text/javascript">
+	<? if ($this->session->flashdata("status")) { ?>
+		messageBox("ERROR", "Error", '<?=$this->session->flashdata("status")?>');
+	<? } ?>
 	$("#btn-getpass").click(function() {
 		var err = 0;
 		var msg = [];
@@ -248,7 +248,7 @@ $(document).ready(function() {
 			messageBox("ERROR", "Error", errmsg);
 		}
 		
-		var email = $("#re-email").val();
+		var email = $("#re-email").val(); 
 		var p = {};
 		p['email'] = email;
 		$.ajax({
@@ -262,6 +262,7 @@ $(document).ready(function() {
 		});
 	});
 </script>
+
 <script>
 $(document).ready(function() {
 	$("#btn-login").click(function() {
