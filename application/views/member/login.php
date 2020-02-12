@@ -186,7 +186,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<button id="btn-getpass" class="btn btn-lg btn-danger btn-block">Submit</button>
+				<button type="submit" id="btn-getpass" class="btn btn-lg btn-danger btn-block">Submit</button>
 			</div>
 		</div>
 		<div class="message d-none">
@@ -199,7 +199,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a class="btn btn-secondary" href="<?=site_url('member/login')?>">Return</a>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		</div>
 	</div>
 </div>
@@ -237,6 +237,7 @@ $(document).ready(function() {
 		}
 
 		if (!err) {
+			$('#btn-getpass').addClass('d-none');
 			$('.message').addClass('d-block');
 		} else {
 			var errmsg = "<p>Your information containning errors. Please review and correct the field(s) marked in red.</p>";
