@@ -197,6 +197,42 @@ class Member extends CI_Controller {
 		
 		redirect("member/myaccount");
 	}
+
+	public function ajax_getpass() {
+		$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
+		$key = md5(rand(10,99).date('Ymdhis'));
+		$user = $this->m_user->get_user_by_email($email);
+
+		$data = array("resetpass_key" => $key);
+		$where = array("id" => $user->id);
+		$this->m_user->update($data, $where);
+
+		if ($user != null) {
+			$tpl_data = array(
+				"FULLNAME"		=> $user->user_fullname,
+				"EMAIL"			=> $user->user_login,
+				"PASSWORD"		=> $user->password_text,
+				"RESETPASS_KEY" => $key,
+			);
+			
+			$message = $this->mail_tpl->forgot_password($tpl_data);
+			
+			// Send to SALE Department
+			$mail = array(
+				"subject"		=> "Forgot password - ".SITE_NAME,
+				"from_sender"	=> MAIL_INFO,
+				"name_sender"	=> $user->user_fullname,
+				"to_receiver"	=> $email,
+				"message"		=> $message
+			);
+			$this->mail->config($mail);
+			$this->mail->sendmail();
+		}
+		else {
+			$this->session->set_flashdata("status", "This email is not registered. Please signup a new account with us!");
+			redirect("member/login", "back");
+		}
+	}
 	
 	public function check_email_existed()
 	{
@@ -294,7 +330,39 @@ class Member extends CI_Controller {
 		$tmpl_content['content']   = $this->load->view("member/change_password", NULL, TRUE);
 		$this->load->view('layout/main', $tmpl_content);
 	}
-	
+
+	public function reset_password($key) {
+		$info = new stdClass();
+		$info->resetpass_key = $key;
+		$user = $this->m_user->users($info);
+
+		if (empty($user)) {
+			redirect(site_url());
+		}
+		if (!empty($_POST)) {
+			$new_password = $this->input->post('new_password');
+			$cnf_password = $this->input->post('cnf_password');
+
+			if ($new_password == $cnf_password) {
+				$data = array(
+					"user_pass" => md5($new_password),
+					"resetpass_key" => null,
+				);
+				$where = array("id" => $user[0]->id);
+				$this->m_user->update($data, $where);
+				redirect("member/login");
+			} else {
+				$this->session->set_flashdata("status", "Please retype your new password. Confirm field is not matched.");
+				redirect("member/reset_password/{$key}", "back");
+			}
+		}
+
+		$tmpl_content = array();
+		$tmpl_content['meta']['title'] = "Change Your Password";
+		$tmpl_content['content']   = $this->load->view("member/reset_password", NULL, TRUE);
+		$this->load->view('layout/main', $tmpl_content);
+	}
+
 	public function recovered_password()
 	{
 		$tmpl_content['content'] = $this->load->view("member/recovered_password", NULL, TRUE);

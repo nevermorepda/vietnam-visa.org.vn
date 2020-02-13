@@ -169,52 +169,100 @@
 	</div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header ">
-      	<div class="text-center">
-			<h3><i class="fa fa-lock fa-4x"></i></h3>
-			<h2 class="text-center">Reset Password?</h2>
-			<p>Please enter your email address and we'll send you a link to reset your password</p>
-		</div>
-      </div>
-      <div class="modal-body">
-        <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header ">
+				<div class="text-center">
+					<h3><i class="fa fa-lock fa-4x"></i></h3>
+					<h2 class="text-center">Reset Password?</h2>
+					<p>Please enter your email address and we'll send you a link to reset your password</p>
+				</div>
+			</div>
+		<div class="modal-body">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-					<input id="email" name="email" placeholder="Email address" class="form-control"  type="email">
+					<input type="text" class="form-control" id="re-email" name="email" placeholder="Your email address" />
 				</div>
 			</div>
 			<div class="form-group">
-				<input name="recover-submit" class="btn btn-lg btn-danger btn-block" value="Submit" type="submit">
+				<button type="submit" id="btn-getpass" class="btn btn-lg btn-danger btn-block">Submit</button>
 			</div>
-			<input type="hidden" class="hide" name="token" id="token" value=""> 
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Return</button>
-      </div>
-    </div>
-  </div>
+		</div>
+		<div class="message d-none">
+			<div class="container">
+				<h1>Thank you!</h1>
+				<p>
+				Your forgot password request has been sent successfully.<br/>
+				A new email has be sent to your email address. Please double check your email !
+				<p>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	</div>
 </div>
 <div id="fb-root"></div>
 <script>
 	$('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-})
+	var button = $(event.relatedTarget) // Button that triggered the modal
+	});
 </script>
-
-<script type="text/javascript" src="<?=JS_URL?>facebook.js"></script>
-<script type="text/javascript" src="<?=JS_URL?>google-plus.js"></script>
 
 <? if ($this->session->flashdata("status")) { ?>
 <script>
 $(document).ready(function() {
-	messageBox("ERROR", "Error", "<?=$this->session->flashdata("status")?>");
+	<? if ($this->session->flashdata("status")) { ?>
+		messageBox("ERROR", "Error", '<?=$this->session->flashdata("status")?>');
+	<? } ?>
 });
 </script>
 <? } ?>
+
+<script type="text/javascript">
+	<? if ($this->session->flashdata("status")) { ?>
+		messageBox("ERROR", "Error", '<?=$this->session->flashdata("status")?>');
+	<? } ?>
+	$("#btn-getpass").click(function() {
+		var err = 0;
+		var msg = [];
+		
+		if ($("#re-email").val() == "") {
+			$("#re-email").addClass("error");
+			err++;
+			msg.push("Email is required.");
+		} else {
+			$("#re-email").removeClass("error");
+		}
+
+		if (!err) {
+			$('#btn-getpass').addClass('d-none');
+			$('.message').addClass('d-block');
+		} else {
+			var errmsg = "<p>Your information containning errors. Please review and correct the field(s) marked in red.</p>";
+			errmsg += "<ul>";
+			for (var i=0; i<msg.length; i++) {
+				errmsg += "<li>"+msg[i]+"</li>";
+			}
+			errmsg += "</ul>";
+			messageBox("ERROR", "Error", errmsg);
+		}
+		
+		var email = $("#re-email").val(); 
+		var p = {};
+		p['email'] = email;
+		$.ajax({
+			url: '<?=site_url('member/ajax-getpass')?>',
+			type: 'post',
+			dataType: 'json',
+			data: p,
+			success: function(data){
+				console.log(data);
+			}
+		});
+	});
+</script>
 
 <script>
 $(document).ready(function() {
