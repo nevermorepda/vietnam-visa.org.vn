@@ -194,5 +194,6 @@ $autoload['model'] = array(
 	'm_agent_fast_checkin_fee',
 	'm_agent_processing_fee',
 	'm_letter_log',
-	'm_processing_special_fee'
+	'm_processing_special_fee',
+	'm_subscribe',
 );

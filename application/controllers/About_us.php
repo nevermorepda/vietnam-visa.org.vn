@@ -39,6 +39,19 @@ class About_us extends CI_Controller {
 		$tmpl_content['content'] = $this->load->view("team/index", NULL, TRUE);
 		$this->load->view('layout/view', $tmpl_content);
 	}
+	public function get_cate() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		$item = $this->m_content_category->items();
+		echo json_encode($item);
+	}
+	public function post_cate() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		echo json_encode(array($username,$password));
+	}
 }
 
 ?>

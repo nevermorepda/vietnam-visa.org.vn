@@ -55,6 +55,61 @@
 					<li><i class="fa fa-facebook" style="padding-right: 8px;"></i> <a target="_blank" title="Contact form" href="https://www.facebook.com/vietnamvisavs">Facebook</a></li>
 				</ul>
 			</div>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<h3><strong>JOIN US & GET SPECIAL OFFERS</strong></h3>
+				<div class="input-group mb-3">
+					<input type="text" id="subscribe-email" class="form-control" placeholder="Enter your email address">
+					<div class="input-group-append">
+						<button class="btn btn-danger" id="btn-subscribe" type="button">SUBSCRIBE</button>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#btn-subscribe').click(function(event) {
+						var email = $('#subscribe-email').val();
+						var err = 0;
+						var msg = [];
+						if (email == "") {
+							$("#subscribe-email").addClass("error");
+							err++;
+							msg.push("Your email is required.");
+						} else {
+							if (!isEmail(email)) {
+								err++;
+								$("#subscribe-email").removeClass("error");
+								msg.push("Is not an email format");
+							}
+						}
+						if (err == 0) {
+							$.ajax({
+								url: '<?=site_url('home/subscribe-email')?>',
+								type: 'post',
+								dataType: 'html',
+								data: {email: email},
+								success: function (e) {
+									if (parseInt(e) == 1) {
+										messageBox("INFO", "Subscribe email", 'Your email signup successful. Thank you!');
+										$('#subscribe-email').val('');
+									} else {
+										messageBox("ERROR", "Subscribe email", 'This email address already exists!');
+									}
+								}
+							});
+						} else {
+							var errmsg = "<p>Your information containning errors. Please review and correct the field(s) marked in red.</p>";
+							errmsg += "<ul>";
+							for (var i=0; i<msg.length; i++) {
+								errmsg += "<li>"+msg[i]+"</li>";
+							}
+							errmsg += "</ul>";
+							messageBox("ERROR", "Subscribe email", errmsg);
+						}
+					});
+				});
+			</script>
+			<div class="col-sm-3"></div>
 		</div>
 	</div>
 </div>
@@ -78,7 +133,23 @@ Once you use our services, we have a mission to handle visa applications in Viet
 		</div>
 	</div>
 </div>
-
+<div id="dialog-subscribe" class="modal-error modal fade" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Subscribe email</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				
+			</div>
+			<div class="modal-body">
+				<p>&hellip;</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 <div id="dialog" class="modal-error modal fade" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog">
 		<div class="modal-content">
