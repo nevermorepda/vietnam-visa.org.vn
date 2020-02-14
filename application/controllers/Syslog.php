@@ -8980,6 +8980,16 @@ class Syslog extends CI_Controller {
 		
 		echo "";
 	}
+	function ajax_sort_ordernum() {
+		$id = $this->input->post("id");
+		$tbl = $this->input->post("tbl");
+		$val = $this->input->post("val");
+		if ($this->{$tbl}->update(array("order_num" => $val), array("id" => $id))) {
+			echo 1;
+		} else {
+			echo 0;
+		}
+	}
 }
 
 ?>
