@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="tool-bar clearfix">
 			<h1 class="page-title">
-				Export list mail
+				Mail booking
 				<br><br>
 				<form id="frm-admin" name="adminForm" action="" method="POST">
 					<input type="hidden" id="task" name="task" value="">
