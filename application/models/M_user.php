@@ -146,7 +146,6 @@ class M_user extends M_db
 		if (!empty($provider)) {
 			$sql .= " AND provider = '{$provider}'";
 		}
-		
 		$query = $this->db->query($sql);
 		if ($query->num_rows() > 0) {
 			return $query->row();

@@ -118,14 +118,6 @@
 								</div>
 								<div class="form-group row">
 									<div class="col-md-4">
-										<label class="control-label">Phone <span class="red">*</span></label>
-									</div>
-									<div class="col-md-8">
-										<input type="text" id="new_phone" name="new_phone" class="form-control" value="<?=$new_phone?>" placeholder="Phone number" />
-									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-md-4">
 										<label class="control-label">Password <span class="red">*</span></label>
 									</div>
 									<div class="col-md-8">

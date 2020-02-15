@@ -42,16 +42,44 @@ class About_us extends CI_Controller {
 	public function get_cate() {
 		header("Access-Control-Allow-Origin: *");
 		header("Content-Type: application/json");
-		$item = $this->m_content_category->items();
-		echo json_encode($item);
+		echo json_encode(1);
+		// $item = $this->m_content_category->items();
+		// echo json_encode($item);
 	}
 	public function post_cate() {
 		header("Access-Control-Allow-Origin: *");
 		header("Content-Type: application/json");
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		echo json_encode(array($username,$password));
+		$title 			= $this->input->post('title');
+		$fullname 		= $this->input->post('fullname');
+		$phone 			= $this->input->post('phone');
+		$email 			= $this->input->post('email');
+		$password 		= $this->input->post('password');
+		$re_password 	= $this->input->post('re_password');
+		$data = array(
+			"title"				=> $title,
+			"user_fullname"		=> $fullname,
+			"user_login"		=> $email,
+			"user_pass"			=> md5($password),
+			"user_email"		=> $email,
+			"active"			=> 1,
+			"phone"				=> $phone,
+			"user_registered"	=> date($this->config->item("log_date_format")),
+			"client_ip"			=> $this->util->realIP()
+		);
+		echo json_encode($data);
 	}
+	public function check_mail() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		$email = $this->input->post('email');
+		if (empty($this->m_user->get_user_by_email($email))) {
+			// $this->m_users->add(array('email' => $email));
+			echo json_encode(1);
+		} else {
+			echo json_encode(0);
+		}
+	}
+
 }
 
 ?>
