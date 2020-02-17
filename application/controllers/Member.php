@@ -69,51 +69,51 @@ class Member extends CI_Controller {
 			} else {
 				$this->session->set_flashdata("status", "Invalid email or password.");
 				redirect("member/login", "back");
-			}
+			}	
 		}
-		else if ($task == "getpass")
-		{
-			$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
+		// else if ($task == "getpass")
+		// {
+		// 	$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
 			
-			$user = $this->m_user->get_user_by_email($email);
-			$fb_user = $this->m_user->get_user_by_email($email, NULL, "facebook");
-			$gp_user = $this->m_user->get_user_by_email($email, NULL, "google-plus");
+		// 	$user = $this->m_user->get_user_by_email($email);
+		// 	$fb_user = $this->m_user->get_user_by_email($email, NULL, "facebook");
+		// 	$gp_user = $this->m_user->get_user_by_email($email, NULL, "google-plus");
 			
-			if ($user != null) {
-				$tpl_data = array(
-					"FULLNAME"		=> $user->user_fullname,
-					"EMAIL"			=> $user->user_login,
-					"PASSWORD"		=> $user->password_text,
-				);
+		// 	if ($user != null) {
+		// 		$tpl_data = array(
+		// 			"FULLNAME"		=> $user->user_fullname,
+		// 			"EMAIL"			=> $user->user_login,
+		// 			"PASSWORD"		=> $user->password_text,
+		// 		);
 				
-				$message = $this->mail_tpl->forgot_password($tpl_data);
+		// 		$message = $this->mail_tpl->forgot_password($tpl_data);
 				
-				// Send to SALE Department
-				$mail = array(
-					"subject"		=> "Forgot password - ".SITE_NAME,
-					"from_sender"	=> MAIL_INFO,
-					"name_sender"	=> $user->user_fullname,
-					"to_receiver"	=> $email,
-					"message"		=> $message
-				);
-				$this->mail->config($mail);
-				$this->mail->sendmail();
+		// 		// Send to SALE Department
+		// 		$mail = array(
+		// 			"subject"		=> "Forgot password - ".SITE_NAME,
+		// 			"from_sender"	=> MAIL_INFO,
+		// 			"name_sender"	=> $user->user_fullname,
+		// 			"to_receiver"	=> $email,
+		// 			"message"		=> $message
+		// 		);
+		// 		$this->mail->config($mail);
+		// 		$this->mail->sendmail();
 				
-				redirect("member/recovered-password");
-			}
-			else if ($fb_user != null) {
-				$this->session->set_flashdata("status", "This email is associating with your Facebook account. You just click on the <strong>Sign in with Facebook</strong> button bellow to signin to our system.");
-				redirect("member/login", "back");
-			}
-			else if ($gp_user != null) {
-				$this->session->set_flashdata("status", "This email is associating with your Google+ account. You just click on the <strong>Sign in with Google+</strong> button bellow to signin to our system.");
-				redirect("member/login", "back");
-			}
-			else {
-				$this->session->set_flashdata("status", "This email is not registered. Please signup a new account with us!");
-				redirect("member/login", "back");
-			}
-		}
+		// 		redirect("member/recovered-password");
+		// 	}
+		// 	else if ($fb_user != null) {
+		// 		$this->session->set_flashdata("status", "This email is associating with your Facebook account. You just click on the <strong>Sign in with Facebook</strong> button bellow to signin to our system.");
+		// 		redirect("member/login", "back");
+		// 	}
+		// 	else if ($gp_user != null) {
+		// 		$this->session->set_flashdata("status", "This email is associating with your Google+ account. You just click on the <strong>Sign in with Google+</strong> button bellow to signin to our system.");
+		// 		redirect("member/login", "back");
+		// 	}
+		// 	else {
+		// 		$this->session->set_flashdata("status", "This email is not registered. Please signup a new account with us!");
+		// 		redirect("member/login", "back");
+		// 	}
+		// }
 		else if ($task == "register")
 		{
 			$new_title			= (!empty($_POST["new_title"]) ? $_POST["new_title"] : "");
@@ -215,11 +215,11 @@ class Member extends CI_Controller {
 				"RESETPASS_KEY" => $key,
 			);
 			
-			$message = $this->mail_tpl->forgot_password($tpl_data);
+			$message = $this->mail_tpl->reset_password($tpl_data);
 			
 			// Send to SALE Department
 			$mail = array(
-				"subject"		=> "Forgot password - ".SITE_NAME,
+				"subject"		=> "Reset password - ".SITE_NAME,
 				"from_sender"	=> MAIL_INFO,
 				"name_sender"	=> $user->user_fullname,
 				"to_receiver"	=> $email,

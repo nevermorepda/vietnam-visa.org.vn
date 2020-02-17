@@ -12,8 +12,8 @@ class News extends CI_Controller {
 			$breadcrumb = array("Vietnam Visa News" => site_url("news"), $item->title => '');
 			
 			$view_data = array();
-			$view_data['item']		= $item;
-			$view_data['breadcrumb']= $breadcrumb;
+			$view_data['item']		 = $item;
+			$view_data['breadcrumb'] = $breadcrumb;
 			
 			$tmpl_content = array();
 			$tmpl_content['meta']['title'] = $this->util->getMetaTitle($item);

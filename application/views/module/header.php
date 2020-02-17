@@ -61,7 +61,7 @@
 	<div class="main-menu clearfix">
 		<div class="container clearfix">
 			<ul class="menu-items clearfix">
-				<li><a class="<?=(($tabindex == "home") ? "active" : "")?>" title="" href="<?=BASE_URL?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+				<!-- <li><a class="<?=(($tabindex == "home") ? "active" : "")?>" title="" href="<?=BASE_URL?>"><i class="fa fa-home" aria-hidden="true"></i></a></li> -->
 				<li class="menu-item-div"></li>
 				<li>
 					<a href="<?=site_url("visa-processing")?>" class="<?=(($tabindex == "processing") ? "active" : "")?>" title="">How It Works</a>
@@ -84,6 +84,8 @@
 				<li><a class="<?=(($tabindex == "services") ? "active" : "")?>" title="" href="<?=site_url("services")?>">Extra Services</a></li>
 				<li class="menu-item-div"></li>
 				<li><a class="<?=(($tabindex == "faqs") ? "active" : "")?>" title="" href="<?=site_url("faqs")?>">FAQs</a></li>
+				<li class="menu-item-div"></li>
+				<li><a class="<?=(($tabindex == "blog") ? "active" : "")?>" title="" href="<?=site_url("blog")?>">Blogs</a></li>
 				<li class="menu-item-div"></li>
 				<li><a class="<?=(($tabindex == "contact") ? "active" : "")?>" title="" href="<?=site_url("contact")?>">Get In Touch!</a></li>
 				<li class="menu-item-div"></li>
@@ -148,6 +150,9 @@
 							</li>
 							<li>
 								<a title="" href="<?=site_url("faqs")?>"><span class="glyphicon glyphicon-question-sign"></span> FAQs</a>
+							</li>
+							<li>
+								<a title="" href="<?=site_url("blog")?>"><span class="glyphicon glyphicon-cog"></span>Blogs</a>
 							</li>
 							<li>
 								<a title="" href="<?=site_url("contact")?>"><span class="glyphicon glyphicon-envelope"></span> Get In Touch!</a>
