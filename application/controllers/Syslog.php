@@ -7014,7 +7014,64 @@ class Syslog extends CI_Controller {
 		$view_data['todate'] = $todate;
 		
 		$tmpl_content = array();
-		$tmpl_content["content"] = $this->load->view("admin/export_mail/index", $view_data, true);
+		$tmpl_content["content"] = $this->load->view("admin/export_mail/booking/index", $view_data, true);
+		$this->load->view("layout/admin/main", $tmpl_content);
+	}
+	function export_mail_subscribe() {
+		if ($this->session->userdata('admin')->user_type != USR_SUPPER_ADMIN) {
+			redirect(site_url("syslog"));
+		}
+		$fromdate = date('m/d/Y');
+		$todate = date('m/d/Y');
+		$this->_breadcrumb = array_merge($this->_breadcrumb, array("Page Redirects" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}")));
+		$info = new stdClass();
+		$task = $this->util->value($this->input->post("task"), "");
+		if (!empty($task)) {
+			$fromdate = $this->input->post('fromdate');
+			$todate = $this->input->post('todate');
+			$info->fromdate = $fromdate;
+			$info->todate = $todate;
+			if ($task == "export") {
+				$info->fromdate = $fromdate;
+				$info->todate = $todate;
+				$this->m_subscribe->export_csv('list-subscribe-mail(from'.$fromdate.' - to'.$todate.')', $info);
+			}
+			else if ($task == "publish") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$data = array("active" => 1);
+					$where = array("id" => $id);
+					$this->m_subscribe->update($data, $where);
+				}
+				redirect(site_url("syslog/export-mail-subscribe"));
+			}
+			else if ($task == "unpublish") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$data = array("active" => 0);
+					$where = array("id" => $id);
+					$this->m_subscribe->update($data, $where);
+				}
+				redirect(site_url("syslog/export-mail-subscribe"));
+			}
+			else if ($task == "delete") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$where = array("id" => $id);
+					$this->m_subscribe->delete($where);
+				}
+				redirect(site_url("syslog/export-mail-subscribe"));
+			}
+		}
+		
+		$view_data = array();
+		$view_data["breadcrumb"] = $this->_breadcrumb;
+		$view_data["items"]		= $this->m_subscribe->items($info);
+		$view_data['fromdate'] = $fromdate;
+		$view_data['todate'] = $todate;
+		
+		$tmpl_content = array();
+		$tmpl_content["content"] = $this->load->view("admin/export_mail/subscribe/index", $view_data, true);
 		$this->load->view("layout/admin/main", $tmpl_content);
 	}
 	function check_step () {
@@ -9215,6 +9272,16 @@ class Syslog extends CI_Controller {
 		$this->m_processing_special_fee->update($data, $where);
 		
 		echo "";
+	}
+	function ajax_sort_ordernum() {
+		$id = $this->input->post("id");
+		$tbl = $this->input->post("tbl");
+		$val = $this->input->post("val");
+		if ($this->{$tbl}->update(array("order_num" => $val), array("id" => $id))) {
+			echo 1;
+		} else {
+			echo 0;
+		}
 	}
 }
 

@@ -62,6 +62,18 @@ class Home extends CI_Controller {
 		$total = $total + $processing_fee + $private_letter_fee;
 		echo json_encode($total);
 	}
+
+	function subscribe_email() {
+		$email = $this->input->post('email');
+		$info = new stdClass();
+		$info->email = $email;
+		if (empty($this->m_subscribe->items($info))) {
+			$this->m_subscribe->add(array('email' => $email));
+			echo 1;
+		} else {
+			echo 0;
+		}
+	}
 }
 
 ?>

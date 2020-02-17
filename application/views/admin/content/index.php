@@ -54,8 +54,7 @@
 							<? } else { ?>
 							<li><a href="#" onclick="return itemTask('cb<?=$i?>','publish');"><i class="fa fa-eye" aria-hidden="true"></i> Show</a></li>
 							<? } ?>
-							<li><a href="#" onclick="return itemTask('cb<?=$i?>','orderup');"><i class="fa fa-level-up" aria-hidden="true"></i> Up</a></li>
-							<li><a href="#" onclick="return itemTask('cb<?=$i?>','orderdown');"><i class="fa fa-level-down" aria-hidden="true"></i> Down</a></li>
+							<li><a>No.: <input style="border: navajowhite;width: 35px;" type="" class="sort-ordernum" tbl="m_content" id-item="<?=$item->id?>" value="<?=$item->order_num?>"></a></li>
 							<? if (!empty($histories) && $this->session->userdata("admin")->user_type == USR_SUPPER_ADMIN) { ?>
 							<li><a href="#" data-container="body" data-toggle="tooltip" data-placement="right" data-html="true" title="<?=$history_detail?>"><i class="fa fa-edit" aria-hidden="true"></i> Log</a></li>
 							<? } ?>
@@ -84,9 +83,36 @@
 		<? } ?>
 	</div>
 </div>
-
 <script>
 $(document).ready(function() {
+	$(".sort-ordernum").click(function() {
+		$(this).select();
+	});
+	
+	$(".sort-ordernum").blur(function() {
+		var id = $(this).attr('id-item');
+		var tbl = $(this).attr('tbl');
+		var val = $(this).val();
+		
+		var p = {};
+		p["id"] = id;
+		p["tbl"] = tbl;
+		p["val"] = val;
+		
+		$.ajax({
+			type: "POST",
+			url: "<?=site_url("syslog/ajax-sort-ordernum")?>",
+			data: p,
+			dataType: 'html',
+			success: function(e) {
+				if (parseInt(e) == 1) {
+					location.reload();
+				} else {
+					alert('error!');
+				}
+			}
+		});
+	});
 	$('[data-toggle="tooltip"]').tooltip();
 	$(".btn-publish").click(function(e){
 		e.preventDefault();

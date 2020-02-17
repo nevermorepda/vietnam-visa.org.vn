@@ -39,6 +39,47 @@ class About_us extends CI_Controller {
 		$tmpl_content['content'] = $this->load->view("team/index", NULL, TRUE);
 		$this->load->view('layout/view', $tmpl_content);
 	}
+	public function get_cate() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		echo json_encode(1);
+		// $item = $this->m_content_category->items();
+		// echo json_encode($item);
+	}
+	public function post_cate() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		$title 			= $this->input->post('title');
+		$fullname 		= $this->input->post('fullname');
+		$phone 			= $this->input->post('phone');
+		$email 			= $this->input->post('email');
+		$password 		= $this->input->post('password');
+		$re_password 	= $this->input->post('re_password');
+		$data = array(
+			"title"				=> $title,
+			"user_fullname"		=> $fullname,
+			"user_login"		=> $email,
+			"user_pass"			=> md5($password),
+			"user_email"		=> $email,
+			"active"			=> 1,
+			"phone"				=> $phone,
+			"user_registered"	=> date($this->config->item("log_date_format")),
+			"client_ip"			=> $this->util->realIP()
+		);
+		echo json_encode($data);
+	}
+	public function check_mail() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		$email = $this->input->post('email');
+		if (empty($this->m_user->get_user_by_email($email))) {
+			// $this->m_users->add(array('email' => $email));
+			echo json_encode(1);
+		} else {
+			echo json_encode(0);
+		}
+	}
+
 }
 
 ?>

@@ -187,7 +187,13 @@
 						<li class="<?=(($method=='scheduler')?'active':'')?>"><a href="<?=site_url("syslog/scheduler")?>">Scheduler</a></li>
 						<li class="<?=(($method=='holiday')?'active':'')?>"><a href="<?=site_url("syslog/holiday")?>">Holiday</a></li>
 						<li class="<?=(($method=='history')?'active':'')?>"><a href="<?=site_url("syslog/history")?>">History</a></li>
-						<li class="<?=(($method=='export-mail-booking')?'active':'')?>"><a href="<?=site_url("syslog/export-mail-booking")?>">Export mail</a></li>
+						<li class="dropdown <?=((in_array($method, array('export-mail-booking', 'export-mail-subscribe')))?'active':'')?>">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Export mail <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="<?=site_url("syslog/export-mail-booking")?>">Export mail booking</a></li>
+								<li><a href="<?=site_url("syslog/export-mail-subscribe")?>">Export mail subscribe</a></li>
+							</ul>
+						</li>
 						<li class="<?=(($method=='mail-remind')?'active':'')?>"><a href="<?=site_url("syslog/mail-remind")?>">Mail remind</a></li>
 						<li class="<?=(($method=='settings')?'active':'')?>"><a href="<?=site_url("syslog/settings")?>">Settings</a></li>
 						<? } ?>
