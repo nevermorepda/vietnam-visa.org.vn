@@ -89,7 +89,7 @@
 							</ul>
 						</li>
 						<? } ?>
-						<? if (in_array($this->session->userdata('admin')->id, $admin_id)) { ?>
+						<? if ($admin->user_type == USR_SUPPER_ADMIN) { ?>
 						<li class="dropdown <?=((in_array($method, array('blog', 'blog-categories')))?'active':'')?>">
 							<a href="<?=site_url("syslog/blog")?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">blog <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-level">
