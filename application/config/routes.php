@@ -70,3 +70,6 @@ $route['vietnam-visa-tips/view/(:any)'] = "vietnam-visa-tips/index/$1";
 $route['vietnam-visa-tips/(:any)'] = "vietnam-visa-tips/index/$1";
 $route['visa-requirements/view/(:any)'] = "visa-requirements/index/$1";
 $route['visa-requirements/(:any)'] = "visa-requirements/index/$1";
+$route['blog/(:any)/(:any)'] = "blog/index/$1/$2";
+$route['blog/(:any)'] = "blog/index/$1";
+$route['blog'] = "blog/index";

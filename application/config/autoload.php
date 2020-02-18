@@ -196,4 +196,6 @@ $autoload['model'] = array(
 	'm_letter_log',
 	'm_processing_special_fee',
 	'm_subscribe',
+	'm_blog',
+	'm_blog_category'
 );

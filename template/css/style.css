@@ -4456,7 +4456,172 @@ ul.list-embassy li {
 	padding: 0 15px;
 }
 /* End E-Visa */
-
+/* ///////////////////////////////////////////////////// */
+.post {
+	position: relative;
+}
+.post figure img {
+	width: 100%;
+	height: auto;
+}
+.post .entry-date {
+	background: #da001a;
+	padding: 5px 7px;
+	color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-transform: none;
+}
+.blog .slider-blog {
+	background: url("../images/wizban/faq-banner.jpg") no-repeat scroll bottom center transparent;
+	min-height: 350px;
+	position: relative;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.blog .slider-blog .text-wrapper {
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	position: absolute;
+	top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.blog-infinite .post {
+	margin-bottom: 30px;
+	border-bottom: 1px solid #cccccc;
+}
+.blog-infinite .post .details {
+	background: #fff;
+	padding: 0 0 10px;
+}
+.blog-infinite .post .entry-title {
+	font-size: 20px;
+	margin-bottom: 15px;
+	font-weight: 700;
+}
+.blog-infinite .post .entry-title a {
+	color: inherit!important;
+	text-decoration: none;
+}
+.blog-infinite .post .excerpt-container {
+	margin-bottom: 20px;
+}
+.blog-infinite .post-meta {
+	font-size: 1em;
+	text-transform: uppercase;
+}
+.blog-infinite .post-meta .entry-author {
+	float: left;
+	line-height: 28px;
+	font-size: .83333em;
+	margin-bottom: 10px;
+}
+.blog-infinite .post-meta .entry-author a.author {
+	color: #e44049;
+	text-decoration: none;
+}
+.blog-infinite .post-meta .entry-action>* {
+	height: 28px;
+	line-height: 28px;
+	display: inline-block;
+	padding: 0 10px;
+	margin-left: 8px;
+	margin-bottom: 10px;
+	background: #fff;
+	color: #9e9e9e;
+	letter-spacing: .04em;
+	font-size: .8333em;
+	font-weight: 400;
+	text-decoration: none;
+}
+.blog-infinite .post-meta .entry-action>* i {
+	color: #d9d9d9;
+}
+.widget {
+	margin-bottom: 30px;
+}
+.widget-categories .list {
+	padding: 0;
+	list-style: none;
+}
+.widget-categories .list .item {
+	border-bottom: 1px dashed #999;
+}
+.widget-categories .list .item a {
+	text-decoration: none;
+	color: #4d4d4d;
+	padding: 10px 0;
+	display: block;
+}
+.widget-categories .list .item:last-child {
+	border-bottom: none;
+}
+.widget-latest-item .list {
+	list-style: none;
+	padding: 0;
+}
+.widget-latest-item .list .item {
+	border-bottom: 1px dashed #999;
+}
+.widget-latest-item .list .item:last-child {
+	border-bottom: none;
+}
+.widget-latest-item .list .item a {
+	text-decoration: none;
+	color: #4d4d4d;
+	padding: 15px 0;
+	display: block;
+}
+.widget-latest-item .wrap-item {
+	display: table;
+	width: 100%;
+}
+.widget-latest-item .wrap-item .image-item {
+	display: table-cell;
+	width: 80px;
+}
+.widget-latest-item .wrap-item .image-item img {
+	width: 84px;
+	height: 84px;
+	object-fit: cover;
+	vertical-align: middle;
+}
+.widget-latest-item .wrap-item .content-item {
+	display: table-cell;
+	padding-left: 15px;
+	vertical-align: middle;
+	line-height: 18px;
+}
+.widget-search .btn-search {
+	border: none;
+	background: #da001a;
+	color: #fff;
+	padding: 0 15px;
+}
+.widget-search .ipt-search {
+	border-radius: 0;
+}
+.pagination {
+	margin: 30px 0;
+}
+.pagination>.active>a, .pagination>.active>a:hover {
+	background-color: #666!important;
+	border-color: #444!important;
+	color: #fff!important;
+}
+.pagination>li>a {
+	padding: 8px 13px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	color: #666;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
 /* Large desktop */
 @media (min-width: 1200px) {
 	.header-sm {

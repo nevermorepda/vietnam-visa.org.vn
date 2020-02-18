@@ -66,20 +66,27 @@ class About_us extends CI_Controller {
 			"user_registered"	=> date($this->config->item("log_date_format")),
 			"client_ip"			=> $this->util->realIP()
 		);
-		echo json_encode($data);
-	}
-	public function check_mail() {
-		header("Access-Control-Allow-Origin: *");
-		header("Content-Type: application/json");
-		$email = $this->input->post('email');
 		if (empty($this->m_user->get_user_by_email($email))) {
-			// $this->m_users->add(array('email' => $email));
-			echo json_encode(1);
+			if ($this->m_user->add($data)) {
+				echo json_encode(1);
+			} else {
+				echo json_encode(0);
+			}
 		} else {
-			echo json_encode(0);
+			echo json_encode(-1);
 		}
 	}
 
+	public function login_ionic() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		
+		$email 			= $this->input->post('email');
+		$password 		= $this->input->post('password');
+
+		$user = $this->m_user->login_ionic($email, $password);
+		echo json_encode($user);
+	}
 }
 
 ?>

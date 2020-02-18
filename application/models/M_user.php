@@ -247,5 +247,28 @@ class M_user extends M_db
 		$where = array("id" => $user_id);
 		$this->db->update($this->_table, $data, $where);
 	}
+
+	public function login_ionic($email, $password)
+	{
+		$email    = addslashes(trim($email));
+		$password = addslashes(trim($password));
+		
+		if (empty($email) || empty($password)) {
+			return false;
+		}
+		
+		$email    = strtoupper($email);
+		$password = md5($password);
+		$sql      = "SELECT * FROM {$this->_table} WHERE UPPER(user_login)='{$email}' AND user_pass='{$password}' AND active=1";
+		$query    = $this->db->query($sql);
+		
+		if ($query->num_rows() > 0) {
+			$user = $query->row();
+			return $user;
+		} else {
+			return 0;
+		}
+		
+	}
 }
 ?>
