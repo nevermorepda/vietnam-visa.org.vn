@@ -19,7 +19,7 @@
 		</div>
 		<div class="col-sm-4 col-md-4" style="padding: 15px; border: 1px solid #DDDDDD; border-radius: 4px;">
 			<div style="margin: auto">
-				<h4>Lost Password Tutorial</h4>
+				<h4>Lost Password    </h4>
 				<p>Please follow by these steps to get your password again...</p>
 				<ul style="list-style: decimal">
 					<li>Enter your email in the form and click "Get Password" button.</li>

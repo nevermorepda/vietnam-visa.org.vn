@@ -206,6 +206,7 @@
 <div id="fb-root"></div>
 <script>
 	$('#exampleModal').on('show.bs.modal', function (event) {
+	$("#exampleModal").modal({backdrop: "static"});
 	var button = $(event.relatedTarget) // Button that triggered the modal
 	});
 </script>

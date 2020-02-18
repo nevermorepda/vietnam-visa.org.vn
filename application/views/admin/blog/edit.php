@@ -27,6 +27,7 @@
 							}
 							function print_categories($obj, $categories, $curr_category_id, $level) {
 								foreach ($categories as $category) {
+
 									?>
 									<option value="<?=$category->id?>"><?=level_indent($level).($level?"|&rarr; ":"")?><?=$category->name?></option>
 									<?

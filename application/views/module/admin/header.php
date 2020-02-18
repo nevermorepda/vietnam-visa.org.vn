@@ -5,6 +5,7 @@
 	$category_info = new stdClass();
 	$category_info->parent_id = 0;
 	$content_categories = $this->m_category->items($category_info);
+	$blog_categories = $this->m_blog_category->items($category_info);
 	
 	$info = new stdClass();
 	$info->user_types = array(USR_SUPPER_ADMIN, USR_ADMIN);
@@ -13,6 +14,8 @@
 	$arrival_ports = $this->m_arrival_port_category->items();
 	$ports = $this->m_arrival_port->items();
 	$admin_id = explode('|',SUPER_ADMIN_FULL_ROLE);
+
+
 ?>
 <div class="header">
 	<div class="header-top">
@@ -83,6 +86,18 @@
 								<li><a href="<?=site_url("syslog/agents-private-letter-fees")?>">Private Letter Fees</a></li>
 								<li><a href="<?=site_url("syslog/agents-fast-checkin-fees")?>">Fast Check-in Fees</a></li>
 								<li><a href="<?=site_url("syslog/agents-car-fees")?>">Car Fees</a></li>
+							</ul>
+						</li>
+						<? } ?>
+						<? if (in_array($this->session->userdata('admin')->id, $admin_id)) { ?>
+						<li class="dropdown <?=((in_array($method, array('blog', 'blog-categories')))?'active':'')?>">
+							<a href="<?=site_url("syslog/blog")?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">blog <span class="caret"></span></a>
+							<ul class="dropdown-menu multi-level">
+								<li><a href="<?=site_url("syslog/blog-categories")?>">Blog Categories</a></li>
+								<li role="separator" class="divider"></li>
+								<? foreach($blog_categories as $blog_category) { ?>
+								<li><a href="<?=site_url("syslog/blog/{$blog_category->id}")?>"><?=$blog_category->name?></a></li>
+								<? } ?>
 							</ul>
 						</li>
 						<? } ?>

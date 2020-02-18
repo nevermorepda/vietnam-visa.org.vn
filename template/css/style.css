@@ -203,7 +203,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 select, .pointer {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 input.error, select.error, textarea.error, span.error {
@@ -371,9 +371,9 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .item-title {
-    font-size: 24px;
-    margin: 0 0 20px;
-    padding: 0 0 10px;
+	font-size: 24px;
+	margin: 0 0 20px;
+	padding: 0 0 10px;
 }
 
 .item-author {
@@ -440,16 +440,16 @@ input.error, select.error, textarea.error, span.error {
 }
 .header .banner .search-bar {
 	position: absolute;
-    right: 0px;
-    top: 22px;
-    width: 300px;
+	right: 0px;
+	top: 22px;
+	width: 300px;
 }
 
 .header .banner .toptimezone {
-    position: absolute;
-    right: 0px;
-    top: 70px;
-    text-align: right;
+	position: absolute;
+	right: 0px;
+	top: 70px;
+	text-align: right;
 }
 .header .banner .toptimezone .timezone {
 	color: #666666;
@@ -535,7 +535,7 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .header .top-menu .menu-items .menu-item-last a {
-    padding-right: 0px;
+	padding-right: 0px;
 }
 
 .header .top-menu .menu-items .menu-item a.div {
@@ -556,9 +556,9 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .header .main-menu .menu-items {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
 	list-style-type: none;
 	display: table;
 	position: relative;
@@ -590,14 +590,14 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .header .main-menu .menu-items li a.apply:before {
-    background: url("../images/best-sellers-badge.png?cr=i") no-repeat scroll left top rgba(0, 0, 0, 0);
-    border: 0 none;
-    content: "";
-    height: 25px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 27px;
+	background: url("../images/best-sellers-badge.png?cr=i") no-repeat scroll left top rgba(0, 0, 0, 0);
+	border: 0 none;
+	content: "";
+	height: 25px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 27px;
 }
 
 .header .main-menu .menu-items li ul.dropdown-menu {
@@ -834,14 +834,14 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .badge-big {
-    margin-top: -80px;
-    position: relative;
-    width: 74px;
-    z-index: 1;
-    transition-duration: 0.5s;
+	margin-top: -80px;
+	position: relative;
+	width: 74px;
+	z-index: 1;
+	transition-duration: 0.5s;
 }
 .badge-big:hover {
-    margin-top: 0px;
+	margin-top: 0px;
 }
 .badge-big span {
 	background: none repeat scroll 0 0 #de4a4a;
@@ -884,15 +884,15 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .footer .footer-sharing-block .sharing-description:after {
-    content: '';
-    display: block;
-    position: relative;
-    top: -23px;
-    left: 50%;
-    width: 105px;
-    height: 20px;
-    background-image: url('../images/spread-footer.svg');
-    background-repeat: no-repeat;
+	content: '';
+	display: block;
+	position: relative;
+	top: -23px;
+	left: 50%;
+	width: 105px;
+	height: 20px;
+	background-image: url('../images/spread-footer.svg');
+	background-repeat: no-repeat;
 }
 
 .footer .footer-sharing-block .btn-social {
@@ -947,7 +947,7 @@ input.error, select.error, textarea.error, span.error {
 	color: #D40000 !important;
 }
 .breadcrumb a.active:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .alternative-breadcrumb .breadcrumbs .breadcrumb {
@@ -1663,12 +1663,12 @@ input.error, select.error, textarea.error, span.error {
 .testimonial .content .extra-services .title .comment-line,
 .testimonial .carousel-control .glyphicon,
 .testimonial .carousel-control .extra-services .title .glyphicon {
-    background-position: -52px -252px;
-    width: 25px;
-    height: 25px;
-    display: inline-block;
-    vertical-align: text-bottom;
-    margin-right: 10px
+	background-position: -52px -252px;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	vertical-align: text-bottom;
+	margin-right: 10px
 }
 
 .testimonial .content .comment-line, .testimonial .carousel-control .glyphicon{
@@ -1681,93 +1681,94 @@ input.error, select.error, textarea.error, span.error {
 }
 
 .testimonial .img-responsive {
-    border-radius: 50%;
-    display: inline-block;
-    height: 154px;
-    width: 154px;
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative;
-    margin-top: 6%
+	border-radius: 50%;
+	display: inline-block;
+	height: 154px;
+	width: 154px;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	margin-top: 6%
 }
 
 .testimonial .img-responsive:before {
-    border: 1px solid #d7d7d7;
-    border-radius: 50%;
-    content: "";
-    height: 112%;
-    left: -6%;
-    position: absolute;
-    top: -6%;
-    width: 112%
+	border: 1px solid #d7d7d7;
+	border-radius: 50%;
+	content: "";
+	height: 112%;
+	left: -6%;
+	position: absolute;
+	top: -6%;
+	width: 112%
 }
 
 .testimonial .content {
-    border: 1px solid #d9d9d9;
-    padding: 15px;
-    position: relative;
-    width: 54%
+	border: 1px solid #d9d9d9;
+	padding: 15px;
+	position: relative;
+	width: 54%
 }
 
 .testimonial .content .comment-line {
-    background-position: -750px -362px;
-    width: 23px;
-    height: 20px;
-    display: block;
-    position: absolute;
-    left: -23px;
-    top: 40%
+	background-position: -750px -362px;
+	width: 23px;
+	height: 20px;
+	display: block;
+	position: absolute;
+	left: -23px;
+	top: 40%
 }
 
 .testimonial .content .comment {
-    border-bottom: 1px solid #cc0001;
-    padding-bottom: 8px;
-    margin-bottom: 8px
+	border-bottom: 1px solid #cc0001;
+	padding-bottom: 8px;
+	margin-bottom: 8px
 }
 
 .testimonial .content .comment i {
-    display: block;
-    height: 90px;
-    overflow: hidden;
-    color: #8e8e8e;
-    font-family: "Roboto Condensed";
-    font-size: 16px;
+	display: block;
+	height: 90px;
+	overflow: hidden;
+	color: #8e8e8e;
+	font-family: "Roboto Condensed";
+	font-size: 16px;
 }
 
 .testimonial .content section .author {
-    text-transform: uppercase;
-    display: block
+	text-transform: uppercase;
+	display: block
 }
 
 .testimonial .content section .clRed {
-    font-size: 13px
+	font-size: 13px
 }
 
 .testimonial .carousel-control, .home-slide-carousel .carousel-control {
-    background: transparent
+	background: transparent
 }
 
 .testimonial .carousel-control .glyphicon {
-    background-position: -750px -392px;
-    width: 22px;
-    height: 39px;
-    display: block;
-    margin-top: 40%
+	background-position: -750px -392px;
+	width: 22px;
+	height: 39px;
+	display: block;
+	margin-top: 40%
 }
 
 .testimonial .carousel-control .glyphicon.glyphicon-left  {
-    float: left
+	float: left
 }
 
 .testimonial .carousel-control .glyphicon.glyphicon-right {
-    moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    float: right
+	moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	float: right
 }
+
 .send-request {
 	background: #f7f7f7;
 }
@@ -1929,8 +1930,8 @@ input.error, select.error, textarea.error, span.error {
 .followus {
 	margin: 40px 0px;
 	background: url("../images/shadow-bar.jpg?cr=i") no-repeat scroll center bottom transparent;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    min-height: 150px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	min-height: 150px;
 }
 .followus .label {
 	text-align: left;
@@ -1954,7 +1955,7 @@ input.error, select.error, textarea.error, span.error {
 	height: 80px;
 	margin-left: 30px;
 	border-left: 1px solid #D6D6D6;
-    width: 1px;
+	width: 1px;
 }
 
 /* End Follow */
@@ -2167,14 +2168,14 @@ input.error, select.error, textarea.error, span.error {
 	padding-bottom: 30px;
 }
 .pr-blockL {
-    color: #D4D4D4;
-    float: left;
-    font-size: 80px;
-    line-height: 75px;
-    margin-right: 10px;
+	color: #D4D4D4;
+	float: left;
+	font-size: 80px;
+	line-height: 75px;
+	margin-right: 10px;
 }
 .pr-blockR {
-    line-height: 1.4em;
+	line-height: 1.4em;
 }
 .pr-section-bg {
 }
@@ -2303,8 +2304,8 @@ input.error, select.error, textarea.error, span.error {
 }
 
 #contact-form .form-label {
-    font-weight: bold;
-    letter-spacing: 0.5px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
 }
 
 /* End Help */
@@ -2400,71 +2401,71 @@ input.error, select.error, textarea.error, span.error {
 
 /* Review */
 #review-detail {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 3px 3px 3px 3px;
-    margin: 40px 0px 20px;
-    padding: 10px 0;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+	margin: 40px 0px 20px;
+	padding: 10px 0;
 }
 #review-detail ul.tabs {
-    border-bottom: 1px solid #D4D4D4;
-    padding-bottom: 25px;
-    list-style-type: none;
-    padding-left: 0px;
+	border-bottom: 1px solid #D4D4D4;
+	padding-bottom: 25px;
+	list-style-type: none;
+	padding-left: 0px;
 }
 #review-detail ul.tabs li {
-    color: #666666;
-    float: left;
-    padding-right: 20px;
+	color: #666666;
+	float: left;
+	padding-right: 20px;
 }
 #review-detail ul.tabs li a.selected {
-    border-bottom: 3px solid #E41E01;
-    color: #E41E01;
-    font-weight: bold;
+	border-bottom: 3px solid #E41E01;
+	color: #E41E01;
+	font-weight: bold;
 }
 #review-detail ul.tabs li a {
-    color: #2A2A2A;
-    font-size: 14px;
-    padding: 8px 0;
-    text-decoration: none;
+	color: #2A2A2A;
+	font-size: 14px;
+	padding: 8px 0;
+	text-decoration: none;
 }
 #review-detail div.tab-selected {
-    display: block;
+	display: block;
 }
 #review-detail div.tab-content {
-    display: none;
+	display: none;
 }
 #review-detail .summary-box .label {
-    font-size: 18px;
-    line-height: 28px;
+	font-size: 18px;
+	line-height: 28px;
 }
 #review-detail .summary-box .rating {
-    margin-left: 10px;
-    margin-top: 6px;
+	margin-left: 10px;
+	margin-top: 6px;
 }
 #review-container .review-form {
-    border: 1px solid #DDDDDD;
-    box-shadow: 0 14px 8px -12px #CCCCCC;
-    margin: 10px 0;
-    padding: 10px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 14px 8px -12px #CCCCCC;
+	margin: 10px 0;
+	padding: 10px;
 }
 #review-container .review-form table {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 #review-container .review-form table.tbl-review td {
-    vertical-align: top;
+	vertical-align: top;
 }
 #review-container .review-form td {
-    padding: 6px 4px;
+	padding: 6px 4px;
 }
 #review-container .review-form td input[type="text"] {
-    width: 500px;
+	width: 500px;
 }
 #review-container .review-form td select {
-    width: 250px;
+	width: 250px;
 }
 #review-container .review-form td textarea {
-    height: 100px;
-    width: 500px;
+	height: 100px;
+	width: 500px;
 }
 #review-container .review-box {
 	margin-top: 20px;
@@ -2476,61 +2477,61 @@ input.error, select.error, textarea.error, span.error {
 #review-container .review-box .location {
 	color: #999999;
 	font-size: 11px;
-    margin-top: 10px;
+	margin-top: 10px;
 	margin-left: 10px;
 }
 #review-container .review-box .item {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 #review-container .review-box .item .rating {
-    border-bottom: 1px solid #DDDDDD;
-    margin-bottom: 10px;
-    padding-bottom: 6px;
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 10px;
+	padding-bottom: 6px;
 }
 #review-container .review-box .item .title {
-    font-size: 16px;
+	font-size: 16px;
 }
 #review-container .review-box .item .date {
 	color: #999999;
 	font-size: 11px;
-    margin-top: 10px;
+	margin-top: 10px;
 }
 #review-container .review-box .item .text {
-    line-height: 18px;
-    text-align: justify;
-    margin-top: 10px;
+	line-height: 18px;
+	text-align: justify;
+	margin-top: 10px;
 }
 #review-container .review-box .item .respond {
 	background: url("../images/logo-40x40.jpg?cr=i") no-repeat scroll 10px 10px #FFFFFF;
-    border: 1px solid #DDDDDD;
-    box-shadow: 0 14px 8px -12px #CCCCCC;
-    margin: 10px 0;
-    padding: 10px 10px 10px 70px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 14px 8px -12px #CCCCCC;
+	margin: 10px 0;
+	padding: 10px 10px 10px 70px;
 }
 #question-container .question-form {
-    border: 1px solid #DDDDDD;
-    box-shadow: 0 14px 8px -12px #CCCCCC;
-    margin: 10px 0;
-    padding: 10px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 14px 8px -12px #CCCCCC;
+	margin: 10px 0;
+	padding: 10px;
 }
 #question-container .question-form table {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 #question-container .question-form table.tbl-review td {
-    vertical-align: top;
+	vertical-align: top;
 }
 #question-container .question-form td {
-    padding: 6px 4px;
+	padding: 6px 4px;
 }
 #question-container .question-form td input[type="text"] {
-    width: 500px;
+	width: 500px;
 }
 #question-container .question-form td select {
-    width: 250px;
+	width: 250px;
 }
 #question-container .question-form td textarea {
-    height: 100px;
-    width: 500px;
+	height: 100px;
+	width: 500px;
 }
 #question-container .question-box {
 	margin-top: 20px;
@@ -2542,31 +2543,31 @@ input.error, select.error, textarea.error, span.error {
 #question-container .question-box .location {
 	color: #999999;
 	font-size: 11px;
-    margin-top: 10px;
+	margin-top: 10px;
 	margin-left: 10px;
 }
 #question-container .question-box .item {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 #question-container .question-box .item .title {
-    font-size: 16px;
+	font-size: 16px;
 }
 #question-container .question-box .item .date {
 	color: #999999;
 	font-size: 11px;
-    margin-top: 10px;
+	margin-top: 10px;
 }
 #question-container .question-box .item .text {
-    line-height: 18px;
-    text-align: justify;
-    margin-top: 10px;
+	line-height: 18px;
+	text-align: justify;
+	margin-top: 10px;
 }
 #question-container .question-box .item .respond {
 	background: url("../images/logo-40x40.jpg?cr=i") no-repeat scroll 15px 15px #FFFFFF;
-    border: 1px solid #DDDDDD;
-    box-shadow: 0 14px 8px -12px #CCCCCC;
-    margin: 10px 0;
-    padding: 15px 15px 15px 70px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 14px 8px -12px #CCCCCC;
+	margin: 10px 0;
+	padding: 15px 15px 15px 70px;
 }
 /* End Review */
 
@@ -2608,8 +2609,8 @@ ul.style-step {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
-    float: right;
-    vertical-align: baseline;
+	float: right;
+	vertical-align: baseline;
 }
 ul.style-step li {
 	background-color: #F2F3F3;
@@ -2621,17 +2622,17 @@ ul.style-step li {
 	padding: 4px 15px;
 }
 ul.style-step li font.number {
-    font-size: 20px;
+	font-size: 20px;
 }
 ul.style-step li.active {
-    background: none repeat scroll 0 0 #ed1c24;
-    color: #FFFFFF;
+	background: none repeat scroll 0 0 #ed1c24;
+	color: #FFFFFF;
 }
 .applyform input[type="text"].error, input.error, select.error {
-    border: 1px solid #DF1F26 !important;
+	border: 1px solid #DF1F26 !important;
 }
 .applyform div.error {
-    border: 1px dotted #DF1F26;
+	border: 1px dotted #DF1F26;
 }
 .rush-info {
 	background-color: #fcf8e3;
@@ -2691,9 +2692,9 @@ ul.style-step li.active {
 
 .panel-fees {
 	background-color: #FFFFFF;
-    padding: 0px;
-    border: 1px solid #DDDDDD;
-    position: relative;
+	padding: 0px;
+	border: 1px solid #DDDDDD;
+	position: relative;
 }
 .panel-fees ul {
 	list-style: none;
@@ -2701,17 +2702,17 @@ ul.style-step li.active {
 	padding: 0px;
 }
 .panel-fees li {
-    border-bottom: 1px solid #BDC6CA;
-    padding: 10px;
+	border-bottom: 1px solid #BDC6CA;
+	padding: 10px;
 }
 .panel-fees .last {
-    border-bottom: 1px solid #6997B3;
+	border-bottom: 1px solid #6997B3;
 }
 .panel-fees span, .panel-fees table.extra_service {
-    float: right;
+	float: right;
 }
 .panel-fees table.extra_service td {
-    padding: 0px 0px 10px 0px;
+	padding: 0px 0px 10px 0px;
 }
 .panel-fees .total {
 	border: none;
@@ -2723,26 +2724,26 @@ ul.style-step li.active {
 	font-weight: bold;
 }
 .panel-fees label span {
-    float: none !important;
+	float: none !important;
 }
 .panel-fees .passport_holder_t {
 	color: #005286;
 	font-weight: bold;
 }
 .panel-fees .yoursavepercent_t {
-    float: none;
-    color: #005286;
-    font-weight: bold;
+	float: none;
+	color: #005286;
+	font-weight: bold;
 }
 .panel-fees .vipsavepercent_t {
-    float: none;
-    color: #005286;
-    font-weight: bold;
+	float: none;
+	color: #005286;
+	font-weight: bold;
 }
 .panel-fees .total span {
-    color: #DC2222;
-    font-size: 16px;
-    font-weight: bold;
+	color: #DC2222;
+	font-size: 16px;
+	font-weight: bold;
 }
 .panel-fees .payment-methods {
 	background-color: #ECEFF1;
@@ -2754,14 +2755,14 @@ ul.style-step li.active {
 }
 .applyform.step2 .group {
 	border: 1px solid #DDD;
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 .applyform.step2 .group h2 {
 	background-color: #CFD8DC;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 12px 15px;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 12px 15px;
 }
 .applyform.step2 .group .group-content .form-control {
 	padding: 4px;
@@ -2792,21 +2793,21 @@ ul.style-step li.active {
 }
 
 .applyform.step3 .table-summary {
-    border-collapse: collapse;
-    margin: 0 0 18px 0;
+	border-collapse: collapse;
+	margin: 0 0 18px 0;
 }
 .applyform.step3 h3 {
 }
 .applyform.step3 .table-summary th,
 .applyform.step3 .table-summary td {
-    padding: 7px 10px;
-    border: 1px solid #CFD8DC;
+	padding: 7px 10px;
+	border: 1px solid #CFD8DC;
 }
 .applyform.step3 .table-summary th {
-    background: #CFD8DC;
+	background: #CFD8DC;
 }
 .applyform.step3 .table-summary td {
-    font-weight: normal;
+	font-weight: normal;
 }
 .applyform.step3 .table-summary .total {
 	font-weight: bold;
@@ -2815,16 +2816,16 @@ ul.style-step li.active {
 }
 
 .applymore15 {
-    padding: 20px 0px 0px;
+	padding: 20px 0px 0px;
 }
 .applymore15 p {
-    line-height: 10px;
+	line-height: 10px;
 }
 .applymore15 a {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 .applymore15 .here {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* End Apply Form */
@@ -2937,10 +2938,10 @@ ul.style-step li.active {
 
 .question-list .question-item {
 	border-color: #cccccc;
-    border-style: solid;
-    border-width: 0 0 1px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+	border-style: solid;
+	border-width: 0 0 1px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .question-list .question-item .signature .asked-by {
@@ -3027,8 +3028,8 @@ ul.style-step li.active {
 #tooltip {
 	background-color: #FFFFFF;
 	border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	position: absolute;
 	z-index: 100;
 	padding: 15px;
@@ -3037,12 +3038,12 @@ ul.style-step li.active {
 
 #tooltip:after {
 	background: url("../images/tooltip-marker.png?cr=i") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    top: 100%;
-    content: "";
-    height: 11px;
-    position: absolute;
-    width: 17px;
-    left: 50%;
+	top: 100%;
+	content: "";
+	height: 11px;
+	position: absolute;
+	width: 17px;
+	left: 50%;
 	bottom: -10px;
 	margin-left: -9px;
 }
@@ -3080,20 +3081,20 @@ ul.style-step li.active {
 /* Google Translate */
 
 .goog-te-gadget-simple {
-    background: none repeat scroll 0 0 transparent !important;
-    border: medium none !important;
+	background: none repeat scroll 0 0 transparent !important;
+	border: medium none !important;
 	padding: 0px !important;
 	font-size: 13px !important;
 }
 .goog-te-gadget-icon {
-    display: none;
+	display: none;
 }
 .goog-te-menu-value {
-    margin: 0px !important;
+	margin: 0px !important;
 }
 .goog-te-menu-value span {
-    color: #2a2a2a !important;
-    border-width: 0px !important;
+	color: #2a2a2a !important;
+	border-width: 0px !important;
 }
 .goog-te-banner-frame {
 	display: none;
@@ -3114,14 +3115,14 @@ ul.style-step li.active {
 /* Vietnam Visa Fees */
 
 .pricing-table th {
-    background: none repeat scroll 0 0 #f2f2f2 !important;
-    border: 1px solid #cccccc;
-    text-align: center;
-    vertical-align: middle;
+	background: none repeat scroll 0 0 #f2f2f2 !important;
+	border: 1px solid #cccccc;
+	text-align: center;
+	vertical-align: middle;
 }
 .pricing-table td {
-    border: 1px solid #CCCCCC;
-    vertical-align: middle;
+	border: 1px solid #CCCCCC;
+	vertical-align: middle;
 }
 
 .service-fees .country-list {
@@ -3166,11 +3167,11 @@ ul.style-step li.active {
 	padding: 10px;
 }
 .support-online-widget table {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 .support-online-widget td {
-    padding: 5px 0px;
-    vertical-align: middle;
+	padding: 5px 0px;
+	vertical-align: middle;
 }
 .support-online-widget .content .email a {
 	color: #D40000;
@@ -3291,12 +3292,12 @@ ul.style-step li.active {
 .confidence-widget .content {
 	border: 1px solid #CCCCCC;
 	border-top: none;
-    padding: 10px 15px;
+	padding: 10px 15px;
 }
 .confidence-widget .title {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 15px 0;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 15px 0;
 }
 .confidence-widget .content ul {
 	list-style: none;
@@ -3331,9 +3332,9 @@ ul.style-step li.active {
 	padding-top: 10px;
 }
 .service-widget .title {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 15px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 15px 15px;
 }
 .service-widget .content ul {
 	list-style: none;
@@ -3400,8 +3401,8 @@ ul.style-step li.active {
 }
 
 .embassy .pagination {
-    text-align: center;
-    margin: 10px 0px;
+	text-align: center;
+	margin: 10px 0px;
 }
 .embassy .pagination a {
 	text-decoration: none;
@@ -3433,123 +3434,123 @@ ul.style-step li.active {
 }
 .embassy .nations .embassies {
 	border-top: 1px solid #E9E9E9;
-    float: left;
-    padding: 15px 0;
-    width: 100%;
+	float: left;
+	padding: 15px 0;
+	width: 100%;
 }
 .embassy .nations .embassies .number {
-    border-right: 1px solid #888888;
-    font: 30px/40px Tahoma,Geneva,sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    min-width: 50px;
+	border-right: 1px solid #888888;
+	font: 30px/40px Tahoma,Geneva,sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	min-width: 50px;
 }
 .embassy .nations .embassies ul {
-    margin: 0px;
-    padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 .embassy .nations .embassies ul li {
-    display: block;
-    margin-top: 5px;
+	display: block;
+	margin-top: 5px;
 }
 .embassy .nations .embassies ul img {
-    width: 16px;
-    height: 16px;
-    padding-right: 4px;
+	width: 16px;
+	height: 16px;
+	padding-right: 4px;
 }
 .embassy .nations .embassies ul a {
 }
 .embassy-l {
 }
 .embassy-l embassy-ct {
-    line-height: 18px;
-    padding: 15px 0 0 15px;
+	line-height: 18px;
+	padding: 15px 0 0 15px;
 }
 .embassy-l h1.title {
-    color: #888888;
-    float: left;
-    font-family: "Times New Roman",Times,serif;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 12px;
-    width: 108px;
+	color: #888888;
+	float: left;
+	font-family: "Times New Roman",Times,serif;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 12px;
+	width: 108px;
 }
 .embassy-l p.message {
-    color: #005286;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-left: 108px;
+	color: #005286;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-left: 108px;
 }
 .embassy-l p.error {
-    color:#FF0000;
-    padding-left: 108px;
+	color:#FF0000;
+	padding-left: 108px;
 }
 ul.listpost {
-    float: left;
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    margin-top: 10px;
-    position: relative;
-    width: 430px;
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 10px;
+	position: relative;
+	width: 430px;
 }
 ul.listpost li {
-    color: #888888;
-    float: left;
-    font-weight: bold;
-    line-height: 18px;
-    margin-top: 5px;
-    width: 100%;
+	color: #888888;
+	float: left;
+	font-weight: bold;
+	line-height: 18px;
+	margin-top: 5px;
+	width: 100%;
 }
 ul.listpost li img {
-    float: left;
+	float: left;
 }
 .embassy-r {
 	float: right;
 }
 .embassy-scroll {
-    background: none repeat scroll 0 0 #FBFBFB;
-    border-color: #E9E9E9;
-    border-style: solid;
-    border-width: 1px 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: 0 0 12px;
-    position: relative;
-    top: 6px;
-    width: 350px;
-    height: 570px;
+	background: none repeat scroll 0 0 #FBFBFB;
+	border-color: #E9E9E9;
+	border-style: solid;
+	border-width: 1px 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 0 12px;
+	position: relative;
+	top: 6px;
+	width: 350px;
+	height: 570px;
 }
 .line-embassy {
-    float: left;
-    margin-top: 22px;
-    width: 100%;
+	float: left;
+	margin-top: 22px;
+	width: 100%;
 }
 .bgnumber {
-    border: 1px solid #8C8C8C;
-    display: inline;
-    float: left;
-    font-weight: bold;
-    height: 17px;
-    line-height: 16px;
-    margin-left: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 17px;
+	border: 1px solid #8C8C8C;
+	display: inline;
+	float: left;
+	font-weight: bold;
+	height: 17px;
+	line-height: 16px;
+	margin-left: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 17px;
 }
 ul.list-embassy {
-    display: inline;
-    float: left;
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    margin-left: 12px;
-    width: 280px;
+	display: inline;
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 12px;
+	width: 280px;
 }
 ul.list-embassy li {
-    float: left;
-    line-height: 18px;
-    width: 140px;
+	float: left;
+	line-height: 18px;
+	width: 140px;
 }
 
 /* End Embassy List */
@@ -3591,31 +3592,31 @@ ul.list-embassy li {
 /* Extra Service Form */
 
 .service-form {
-    background: none repeat scroll 0 0 #F8F8F8;
-    border: 1px solid #DDDDDD;
-    padding: 20px 15px;
+	background: none repeat scroll 0 0 #F8F8F8;
+	border: 1px solid #DDDDDD;
+	padding: 20px 15px;
 }
 .service-form label {
 	font-weight: normal;
 }
 .service-form .service-title {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 0px;
-    text-transform: uppercase;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 5px 0px;
+	text-transform: uppercase;
 }
 .service-form ul {
-    list-style: none;
-    padding: 0px;
+	list-style: none;
+	padding: 0px;
 }
 .service-form ul.form-left li {
-    list-style-type: none;
-    margin-left: 0px;
+	list-style-type: none;
+	margin-left: 0px;
 }
 .service-form .step-title {
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px 0px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 0px;
 }
 .airport-service-form {
 	margin-top: 20px;
@@ -3646,8 +3647,8 @@ ul.list-embassy li {
 .airport-service-form .service-options .group-size {
 }
 .airport-service-form .service-options ul li {
-    list-style-type: none;
-    margin-left: 0px;
+	list-style-type: none;
+	margin-left: 0px;
 }
 .airport-service-form .contact-information {
 	margin-top: 10px;
@@ -3798,16 +3799,16 @@ ul.list-embassy li {
 
 .stamping-fee ul {
 	list-style-type: square;
-    margin: 0;
-    padding-left: 15px;
-    color: #999;
+	margin: 0;
+	padding-left: 15px;
+	color: #999;
 }
 
 .stamping-fee ul li {
 }
 
 .stamping-fee ul li span {
-    color: #464646;
+	color: #464646;
 }
 
 /* End Visa Fees */
@@ -3815,39 +3816,39 @@ ul.list-embassy li {
 /* Related Info */
 
 .related-item {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 .related-item h1 {
-    font-size: 18px;
-    font-weight: normal;
-    padding-top: 10px;
+	font-size: 18px;
+	font-weight: normal;
+	padding-top: 10px;
 }
 .related-item ul {
 	list-style-type: square;
-    margin: 0;
-    padding: 0 0 10px 15px;
-    color: #999;
+	margin: 0;
+	padding: 0 0 10px 15px;
+	color: #999;
 }
 .related-item ul li {
-    line-height: 1.5em;
-    padding: 4px 0px;
+	line-height: 1.5em;
+	padding: 4px 0px;
 }
 .related-item ul li a {
-    color: #464646;
+	color: #464646;
 }
 .related-item ul li a:hover {
-    color: #dd0000;
-    text-decoration: underline;
+	color: #dd0000;
+	text-decoration: underline;
 }
 .b-keywords {
-    background-color: #f8f8f8;
-    border: 1px solid #efefef;
-    height: 32px;
-    margin: 10px 0;
+	background-color: #f8f8f8;
+	border: 1px solid #efefef;
+	height: 32px;
+	margin: 10px 0;
 }
 .b-keywords .keyword-label {
-    line-height: 32px;
-    padding: 0 10px;
+	line-height: 32px;
+	padding: 0 10px;
 }
 .b-keywords .keyword-link {
 }
@@ -3900,25 +3901,25 @@ ul.list-embassy li {
 /* Error Box */
 
 .b-error {
-    background: none repeat scroll 0 0 #ffffcc;
-    border: 1px solid #cc0000;
-    color: #cc3300;
-    font-weight: bold;
-    margin: 0 0 10px;
-    padding: 10px;
+	background: none repeat scroll 0 0 #ffffcc;
+	border: 1px solid #cc0000;
+	color: #cc3300;
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 10px;
 }
 .b-error .marker {
-    background: url("../images/i-warning.png?cr=i") no-repeat scroll left top transparent;
-    color: #df1f26;
-    padding: 8px 0 0 32px;
+	background: url("../images/i-warning.png?cr=i") no-repeat scroll left top transparent;
+	color: #df1f26;
+	padding: 8px 0 0 32px;
 }
 .b-error ul {
-    list-style: outside none none;
-    margin: 0;
-    padding: 0;
+	list-style: outside none none;
+	margin: 0;
+	padding: 0;
 }
 .b-error ul li {
-    padding: 8px 0 0 30px;
+	padding: 8px 0 0 30px;
 }
 
 /* End Error Box */
@@ -3952,12 +3953,12 @@ ul.list-embassy li {
 .dialog {
 	margin: 0px;
 	padding: 0px;
-    position: fixed;
-    text-align: center;
-    left: 0;
-    top: 60px;
-    width: 100%;
-    z-index: 100003;
+	position: fixed;
+	text-align: center;
+	left: 0;
+	top: 60px;
+	width: 100%;
+	z-index: 100003;
 }
 .cell-spacing {
 	min-width: 5%;
@@ -3976,19 +3977,19 @@ ul.list-embassy li {
 	margin: 5px 0;
 }
 .pane-view-content {
-    padding: 5px 10px 10px;
+	padding: 5px 10px 10px;
 }
 .pane-view-header {
-    border-bottom: 1px solid #999999;
-    color: red;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 10px 0px;
-    text-transform: uppercase;
+	border-bottom: 1px solid #999999;
+	color: red;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 10px 0px;
+	text-transform: uppercase;
 }
 .pane-view-body {
-    margin-top: 15px;
-    margin-bottom: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 .pane-view-footer {
 }
@@ -4140,12 +4141,12 @@ ul.list-embassy li {
 }
 
 .login-form .switcher .switch-line {
-    border-left: 1px solid #dddddd;
-    height: 450px;
-    left: 50%;
-    position: absolute;
-    width: 1px;
-    z-index: 0;
+	border-left: 1px solid #dddddd;
+	height: 450px;
+	left: 50%;
+	position: absolute;
+	width: 1px;
+	z-index: 0;
 }
 /* E-Visa */
 .apply-visa-wrapper {
