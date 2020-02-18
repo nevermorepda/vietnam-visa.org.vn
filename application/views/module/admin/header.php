@@ -89,6 +89,7 @@
 							</ul>
 						</li>
 						<? } ?>
+						<? if ($admin->user_type == USR_SUPPER_ADMIN) { ?>
 						<li class="dropdown <?=((in_array($method, array('blog', 'blog-categories')))?'active':'')?>">
 							<a href="<?=site_url("syslog/blog")?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">blog <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-level">
@@ -99,6 +100,7 @@
 								<? } ?>
 							</ul>
 						</li>
+						<? } ?>
 						<? if ($admin->user_type == USR_SUPPER_ADMIN) { ?>
 						<li class="dropdown <?=((in_array($method, array('arrival-ports', 'visa-types', 'visit-purposes')))?'active':'')?>">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
