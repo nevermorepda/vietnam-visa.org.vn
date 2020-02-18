@@ -9162,19 +9162,19 @@ class Syslog extends CI_Controller {
 					"active"		=> $active
 				);
 				if (!empty($_FILES['thumbnail']['name'])){
-					$data['thumbnail'] = "/files/upload/blog/{$this->util->slug($thumbnail[0])}.{$thumbnail[1]}";
+					$data['thumbnail'] = "/files/upload/image/blog/{$this->util->slug($thumbnail[0])}.{$thumbnail[1]}";
 				}
 				$file_deleted = '';
 				
 				if ($action == "add") {
-					$file_deleted = "./files/upload/blog/{$this->m_blog->load($id)->name}";
+					$file_deleted = "./files/upload/image/blog/{$this->m_blog->load($id)->name}";
 					$this->m_blog->add($data);
 				}
 				else if ($action == "edit") {
 					$where = array("id" => $id);
 					$this->m_blog->update($data, $where);
 				}
-				$path = "./files/upload/blog/{$id}";
+				$path = "./files/upload/image/blog";
 				if (!file_exists($path)) {
 					mkdir($path, 0755, true);
 				}
