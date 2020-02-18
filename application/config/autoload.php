@@ -195,10 +195,7 @@ $autoload['model'] = array(
 	'm_agent_processing_fee',
 	'm_letter_log',
 	'm_processing_special_fee',
-<<<<<<< HEAD
 	'm_blog',
-	'm_blog_category'
-=======
+	'm_blog_category',
 	'm_subscribe',
->>>>>>> 554f26c85b554044606376b0dcdb90772135b613
 );
