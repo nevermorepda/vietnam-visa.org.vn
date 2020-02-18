@@ -1,9 +1,12 @@
+
 <div class="widget widget-latest-item">
 	<h4 class="font-weight-bold f20">LATEST POST</h4>
 	<ul class="list">
-		<? foreach ($latest_items as $latest_item) { ?>
+		<? foreach ($latest_items as $latest_item) { 
+			$blog_categories = $this->m_blog_category->load($latest_item->catid);
+		?>
 		<li class="item">
-			<a title="<?=$latest_item->title?>" href="">
+			<a title="<?=$latest_item->title?>" href="<?=site_url("blog/{$blog_categories->alias}/{$latest_item->alias}")?>">
 				<div class="wrap-item">
 					<div class="image-item"><img class="img-fluid" src="<?=BASE_URL.$latest_item->thumbnail?>" alt="<?=$latest_item->title?>"></div>
 					<div class="content-item">
