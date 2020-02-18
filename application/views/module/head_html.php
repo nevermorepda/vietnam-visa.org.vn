@@ -49,7 +49,7 @@ if (!empty($configured_metas)) {
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="<?=$meta['description']?>" />
 <meta name="twitter:title" content="<?=$meta['title']?>" />
-<meta name="twitter:image" content="<?=BASE_URL?>/template/images/visa-fees.jpg" />
+<meta name="twitter:image" content="<?=BASE_URL?>/template/images/vietnam-visa-logo.png" />
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
 <meta name="author" content="<?=$meta['author']?>" />
