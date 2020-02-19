@@ -47,6 +47,45 @@
 							<h2><a class="collapsed" rel="nofollow" title="<?=$faq->title?>" data-toggle="collapse" href="<?="#".$faq->alias?>" aria-expanded="false" aria-controls="collapse<?=$faq->id?>"><?=$faq->title?></a></h2>
 							<div class="collapse" id="<?=$faq->alias?>">
 								<?=$faq->content?>
+								<?if($faq->req_status == 1) { ?>
+								<div class="boxCheckrequirement" id="check-requirement-container">
+									<div class="content">
+										<form id="frmCheckRequirement" action="<?=site_url("visa-requirements")?>" method="POST">
+											<div class="clearfix">
+												<label class="f24" style="padding-bottom: 10px;">Vietnam visa requirements for citizens of</label>
+												<div class="input-group">
+													<select name="citizen" id="citizen" class="form-control">
+														<option value="">Select your nationality</option>
+														<? foreach($nations as $nation) {
+															echo "<option value='{$nation->alias}'>{$nation->name}</option>";
+														} ?>
+													</select>
+													<div class="requirement-content pt-4">
+													</div>
+													<script>$('#citizen').val('<?=$citizen?>');</script>
+													<script type="text/javascript">
+														$('#citizen').change(function(event) {
+															var citizen = $('#citizen').val();
+															var p = {};
+															p['citizen'] = citizen;
+															$.ajax({
+																url: '<?=site_url('checkrequirement')?>',
+																type: 'post',
+																dataType: 'json',
+																data: p,
+																success: function(result) {
+																	console.log(result);
+																	$('.requirement-content').html(result.content);
+																}
+															});
+														});
+													</script>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<? } ?>
 							</div>
 						</li>
 					<? } ?>
@@ -61,6 +100,7 @@
 							<h2><a class="collapsed" rel="nofollow" title="<?=$evisa_faq->title?>" data-toggle="collapse" href="<?="#".$evisa_faq->alias?>" aria-expanded="false" aria-controls="collapse<?=$evisa_faq->id?>"><?=$evisa_faq->title?></a></h2>
 							<div class="collapse" id="<?=$evisa_faq->alias?>">
 								<?=$evisa_faq->content?>
+
 							</div>
 						</li>
 					<? } ?>

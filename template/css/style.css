@@ -1595,7 +1595,7 @@ input.error, select.error, textarea.error, span.error {
 
 .faqs-listing > ul > li .collapse, .faqs-listing > ul > li .collapsing {
 	background-color: #fff;
-	padding: 15px 15px 15px 50px;
+	padding: 15px 50px 15px 50px;
 }
 .tab-faqs .faqs-listing > ul {
 	border-top: none;
@@ -4623,6 +4623,18 @@ ul.list-embassy li {
 	background-color: #fff;
 	border: 1px solid #ddd;
 }
+/* ///////////////////////////////////////// */
+
+/* ///////////////////////////////////////// */
+.boxCheckrequirement {
+	margin: 15px;
+	border: 1px solid #ccc;
+}
+.boxCheckrequirement .content {
+	padding: 15px;
+}
+/* //////////////////////////////////////// */
+
 /* Large desktop */
 @media (min-width: 1200px) {
 	.header-sm {

@@ -62,6 +62,7 @@ $route['news/view/(:any)'] = "news/index/$1";
 $route['news/(:any)'] = "news/index/$1";
 $route['faqs/view/(:any)'] = "faqs/index/$1";
 $route['faqs/(:any)'] = "faqs/index/$1";
+$route['checkrequirement'] = "faqs/checkrequirement";
 $route['services/view/(:any)'] = "services/index/$1";
 $route['services/(:any)'] = "services/index/$1";
 $route['vietnam-embassies/view/(:any)'] = "vietnam-embassies/index/$1";

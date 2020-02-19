@@ -36,6 +36,7 @@
 					<td class="text-center">
 						<input type="checkbox" id="cb<?=$i?>" name="cid[]" value="<?=$item->id?>" onclick="isChecked(this.checked);">
 					</td>
+					<?var_dump($item);?>
 					<td>
 						<a href="<?=site_url("syslog/blog/{$category->id}/edit/{$item->id}")?>"><?=$item->title?></a>
 						<ul class="action-icon-list">

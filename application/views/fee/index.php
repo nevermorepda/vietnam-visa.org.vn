@@ -531,6 +531,7 @@
 					data: p,
 					dataType: "json",
 					success: function(result) {
+						console.log(result);
 						var types_of_tourist = result[0];
 						var types_of_business = result[1];
 						
@@ -545,11 +546,13 @@
 							$(".voa-available").show();
 							$(".voa-button").show();
 						}
+
 						if (types_of_tourist) {
 							$(".voa-tourist").show();
 						} else {
 							$(".voa-tourist").hide();
 						}
+
 						if (types_of_business) {
 							$(".voa-business").show();
 						} else {

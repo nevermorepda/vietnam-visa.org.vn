@@ -79,7 +79,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="table-head text-right"></td>
+					<td class="table-head text-right">Active</td>
 					<td>
 						<select id="active" name="active" class="form-control">
 							<option value="1">Show</option>
@@ -90,6 +90,20 @@
 						</script>
 					</td>
 				</tr>
+				<?if($category->id == 4) { ?>
+				<tr>
+					<td class="table-head text-right" width="10%">Check requeriment active</td>
+					<td>
+						<select id="req_status" name="req_status" class="form-control">
+							<option value="1">Show</option>
+							<option value="0">Hide</option>
+						</select>
+						<script type="text/javascript">
+							$("#req_status").val("<?=$item->req_status?>");
+						</script>
+					</td>
+				</tr>
+				<? } ?>
 			</table>
 			<div>
 				<button class="btn btn-sm btn-primary btn-save">Save</button>

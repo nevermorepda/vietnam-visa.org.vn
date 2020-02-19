@@ -24,7 +24,7 @@ class M_blog extends M_db
 			$sql .= " ORDER BY {$this->_table}.{$orderby} {$sortby}, {$this->_table}.created_date DESC";
 		}
 		else {
-			$sql .= " ORDER BY {$this->_table}.created_date DESC";
+			$sql .= " ORDER BY {$this->_table}.updated_date DESC";
 		}
 
 		if (!is_null($limit)) {

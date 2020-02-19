@@ -151,9 +151,9 @@
 							<li>
 								<a title="" href="<?=site_url("faqs")?>"><span class="glyphicon glyphicon-question-sign"></span> FAQs</a>
 							</li>
-							<li>
+<!-- 							<li>
 								<a title="" href="<?=site_url("blog")?>"><span class="glyphicon glyphicon-cog"></span>Blogs</a>
-							</li>
+							</li> -->
 							<li>
 								<a title="" href="<?=site_url("contact")?>"><span class="glyphicon glyphicon-envelope"></span> Get In Touch!</a>
 							</li>

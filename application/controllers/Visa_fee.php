@@ -43,7 +43,8 @@ class Visa_fee extends CI_Controller {
 		if (!empty($current_nation)) {
 		$tmpl_content['meta']['title'] = "Vietnam Visa Fee for ".$current_nation->name;
 		$tmpl_content['meta']['keywords'] = "vietnam visa fee, vietnam visa cost, visa fee for ".$current_nation->name;
-		} else {
+		} 
+		else {
 		$tmpl_content['meta']['title'] = "Vietnam Visa Fee";
 		$tmpl_content['meta']['keywords'] = "vietnam visa fee, vietnam visa cost, visa fee";
 		}

@@ -525,6 +525,7 @@ class Syslog extends CI_Controller {
 				$content		= $this->util->value($this->input->post("content"), "");
 				//$order_num		= $this->util->value($this->input->post("order_num"), 1);
 				$active			= $this->util->value($this->input->post("active"), 1);
+				$req_status			= $this->util->value($this->input->post("req_status"), 1);
 				
 				if (empty($alias)) {
 					$alias = $this->util->slug($title);
@@ -541,7 +542,8 @@ class Syslog extends CI_Controller {
 					"summary"		=> $summary,
 					"content"		=> $content,
 					//"order_num"		=> $order_num,
-					"active"		=> $active
+					"active"		=> $active,
+					"req_status"		=> $req_status
 				);
 				if (!empty($_FILES['thumbnail']['name'])){
 					$data['thumbnail'] = "/files/upload/content/{$id}/{$this->util->slug($thumbnail[0])}.{$thumbnail[1]}";
@@ -8979,6 +8981,7 @@ class Syslog extends CI_Controller {
 		
 		echo "";
 	}
+	
 	function ajax_sort_ordernum() {
 		$id = $this->input->post("id");
 		$tbl = $this->input->post("tbl");
@@ -8989,6 +8992,7 @@ class Syslog extends CI_Controller {
 			echo 0;
 		}
 	}
+	
 	//------------------------------------------------------------------------------
 	// Blog
 	//------------------------------------------------------------------------------

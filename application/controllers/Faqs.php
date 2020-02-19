@@ -29,6 +29,14 @@ class Faqs extends CI_Controller {
 			$this->load->view('layout/view', $tmpl_content);
 		}
 		else {
+			$nations = $this->m_nation->items();
+			$citizen = (!empty($_POST["citizen"]) ? $_POST["citizen"] : "afghanistan");
+			$item_requiments    = null;
+			
+			if (!empty($citizen)) {
+				$item_requiments = $this->m_requirement->load($citizen);
+			}
+
 			$info = new stdClass();
 			$info->catid = 4; // FAQs
 
@@ -36,6 +44,8 @@ class Faqs extends CI_Controller {
 			$info_evisa->catid = 32; // FAQs
 			
 			$view_data = array();
+			$view_data["nations"] = $nations;
+			$view_data["citizen"] = $citizen;
 			$view_data['faqs'] = $this->m_content->items($info, 1);
 			$view_data['evisa_faqs'] = $this->m_content->items($info_evisa, 1);
 			
@@ -46,6 +56,13 @@ class Faqs extends CI_Controller {
 			$tmpl_content['content']   = $this->load->view("faq/index", $view_data, TRUE);
 			$this->load->view('layout/view', $tmpl_content);
 		}
+	}
+
+	public function checkrequirement()
+	{
+		$citizen = $this->input->post('citizen');
+		$item = $this->m_requirement->load($citizen);
+		echo json_encode($item);
 	}
 }
 
