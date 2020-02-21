@@ -4333,6 +4333,7 @@ class Syslog extends CI_Controller {
 		$sum_op = 0;
 		$sum_pp = 0;
 		$sum_gs = 0;
+		$sum_bt = 0;
 		
 		$sum_pr = 0;
 		$sum_fp = 0;
@@ -4351,6 +4352,7 @@ class Syslog extends CI_Controller {
 		$sum_op_pc = 0;
 		$sum_pp_pc = 0;
 		$sum_gs_pc = 0;
+		$sum_bt_pc = 0;
 		$captital_pc = 0;
 		$sum_rf_pc = 0;
 		$sum_vt_pc = 0;
@@ -4361,6 +4363,7 @@ class Syslog extends CI_Controller {
 		$sum_op_mb = 0;
 		$sum_pp_mb = 0;
 		$sum_gs_mb = 0;
+		$sum_bt_mb = 0;
 		$captital_mb = 0;
 		$sum_rf_mb = 0;
 		$sum_vt_mb = 0;
@@ -4371,6 +4374,7 @@ class Syslog extends CI_Controller {
 		$sum_op_oth = 0;
 		$sum_pp_oth = 0;
 		$sum_gs_oth = 0;
+		$sum_bt_oth = 0;
 		$captital_oth = 0;
 		$sum_rf_oth = 0;
 		$sum_vt_oth = 0;
@@ -4423,6 +4427,8 @@ class Syslog extends CI_Controller {
 					$sum_pp += $item->amount;
 				} else if ($item->payment_method == "Credit Card") {
 					$sum_gs += $item->amount;
+				} else {
+					$sum_bt += $item->amount;
 				}
 				
 				if ($item->refund != $item->amount) {
@@ -4447,6 +4453,9 @@ class Syslog extends CI_Controller {
 							break;
 						case 'Credit Card':
 							$sum_gs_pc += $item->amount;
+							break;
+						default:
+							$sum_bt_pc += $item->amount;
 							break;
 					}
 
@@ -4486,6 +4495,9 @@ class Syslog extends CI_Controller {
 						case 'Credit Card':
 							$sum_gs_mb += $item->amount;
 							break;
+						default:
+							$sum_bt_mb += $item->amount;
+							break;
 					}
 
 					if ($item->payment_type == BOOKING_PREFIX) {
@@ -4522,6 +4534,9 @@ class Syslog extends CI_Controller {
 							break;
 						case 'Credit Card':
 							$sum_gs_oth += $item->amount;
+							break;
+						default:
+							$sum_bt_oth += $item->amount;
 							break;
 					}
 
@@ -4608,6 +4623,7 @@ class Syslog extends CI_Controller {
 		$view_data["sum_op"]				= $sum_op;
 		$view_data["sum_pp"]				= $sum_pp;
 		$view_data["sum_gs"]				= $sum_gs;
+		$view_data["sum_bt"]				= $sum_bt;
 		$view_data["sum_pr"]				= $sum_pr;
 		$view_data["sum_fp"]				= $sum_fp;
 		$view_data["sum_fc"]				= $sum_fc;
@@ -4620,6 +4636,7 @@ class Syslog extends CI_Controller {
 		$view_data["sum_op_pc"]				= $sum_op_pc;
 		$view_data["sum_pp_pc"]				= $sum_pp_pc;
 		$view_data["sum_gs_pc"]				= $sum_gs_pc;
+		$view_data["sum_bt_pc"]				= $sum_bt_pc;
 		$view_data["captital_pc"]			= $captital_pc;
 		$view_data["sum_rf_pc"]				= $sum_rf_pc;
 		$view_data["sum_vt_pc"]				= $sum_vt_pc;
@@ -4627,6 +4644,7 @@ class Syslog extends CI_Controller {
 		$view_data["sum_op_mb"]				= $sum_op_mb;
 		$view_data["sum_pp_mb"]				= $sum_pp_mb;
 		$view_data["sum_gs_mb"]				= $sum_gs_mb;
+		$view_data["sum_bt_mb"]				= $sum_bt_mb;
 		$view_data["captital_mb"]			= $captital_mb;
 		$view_data["sum_rf_mb"]				= $sum_rf_mb;
 		$view_data["sum_vt_mb"]				= $sum_vt_mb;
@@ -4634,6 +4652,7 @@ class Syslog extends CI_Controller {
 		$view_data["sum_op_oth"]			= $sum_op_oth;
 		$view_data["sum_pp_oth"]			= $sum_pp_oth;
 		$view_data["sum_gs_oth"]			= $sum_gs_oth;
+		$view_data["sum_bt_oth"]			= $sum_bt_oth;
 		$view_data["captital_oth"]			= $captital_oth;
 		$view_data["sum_rf_oth"]			= $sum_rf_oth;
 		$view_data["sum_vt_oth"]			= $sum_vt_oth;

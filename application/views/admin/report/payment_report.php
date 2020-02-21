@@ -124,7 +124,7 @@
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Total</div>
-				<div class="number">$<?=round(($sum_op+$sum_pp+$sum_gs),2)?></div>
+				<div class="number">$<?=round(($sum_op+$sum_pp+$sum_gs+$sum_bt),2)?></div>
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Capital</div>
@@ -144,19 +144,19 @@
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Profit</div>
-				<div class="number text-color-green"><?=(((round($captital)+round($sum_rf)) > ($sum_op+$sum_pp+$sum_gs))?"-":"")?> $<?=round(abs(round(($sum_op+$sum_pp+$sum_gs),2)-$captital-round($sum_rf,2)-round($sum_vt,2)),2)?></div>
+				<div class="number text-color-green"><?=(((round($captital)+round($sum_rf)) > ($sum_op+$sum_pp+$sum_gs))?"-":"")?> $<?=round(abs(round(($sum_op+$sum_pp+$sum_gs+$sum_bt),2)-$captital-round($sum_rf,2)-round($sum_vt,2)),2)?></div>
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Desktop : <?=$sum_pc?></div>
-				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_pc+$sum_pp_pc+$sum_gs_pc)-round($captital_pc)-($sum_op_pc+$sum_pp_pc+$sum_gs_pc)*0.05-round($sum_rf_pc))?></span></div>
+				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_pc+$sum_pp_pc+$sum_gs_pc+$sum_bt_pc)-round($captital_pc)-round($sum_rf_pc))?></span></div>
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Mobile : <?=$sum_mb?></div>
-				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_mb+$sum_pp_mb+$sum_gs_mb)-round($captital_mb)-($sum_op_mb+$sum_pp_mb+$sum_gs_mb)*0.05-round($sum_rf_mb))?></span></div>
+				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_mb+$sum_pp_mb+$sum_gs_mb+$sum_bt_mb)-round($captital_mb)-round($sum_rf_mb))?></span></div>
 			</div>
 			<div class="payment-statement pull-left">
 				<div class="title">Orther Devices : <?=$sum_oth?></div>
-				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_oth+$sum_pp_oth+$sum_gs_oth)-round($captital_oth)-($sum_op_oth+$sum_pp_oth+$sum_gs_oth)*0.05-round($sum_rf_oth))?></span></div>
+				<div class="number"><span style="font-size: 12px;">Profit</span> : <span style="color: #5cb85c;">$<?=number_format(($sum_op_oth+$sum_pp_oth+$sum_gs_oth+$sum_bt_oth)-round($captital_oth)-round($sum_rf_oth))?></span></div>
 			</div>
 		</div>
 		<? } ?>

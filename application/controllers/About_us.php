@@ -42,9 +42,8 @@ class About_us extends CI_Controller {
 	public function get_cate() {
 		header("Access-Control-Allow-Origin: *");
 		header("Content-Type: application/json");
-		echo json_encode(1);
-		// $item = $this->m_content_category->items();
-		// echo json_encode($item);
+		$item = $this->m_nation->items();
+		echo json_encode($item);
 	}
 	public function post_cate() {
 		header("Access-Control-Allow-Origin: *");
@@ -86,6 +85,58 @@ class About_us extends CI_Controller {
 
 		$user = $this->m_user->login_ionic($email, $password);
 		echo json_encode($user);
+	}
+
+	public function update_profile() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		
+		$id 			= $this->input->post('id');
+		$fullname 		= $this->input->post('fullname');
+		$phone 			= $this->input->post('phone');
+		$address 		= $this->input->post('address');
+		$country 		= $this->input->post('country');
+
+		$data = array(
+			'user_fullname' => $fullname,
+			'phone' 		=> $phone,
+			'address' 		=> $address,
+			'country' 		=> $country,
+		);
+
+		$user = $this->m_user->update($data, array('id' => $id));
+		echo json_encode($user);
+	}
+
+	public function get_myapplication() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+		
+		$user_id = $this->input->post('user_id');
+		$bookings = $this->m_visa_booking->book_by_user($user_id);
+		echo json_encode($bookings);
+	}
+	public function change_password() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+
+		$id 				= $this->input->post('id');
+		$password 			= $this->input->post('password');
+		$new_password 		= $this->input->post('new_password');
+		$re_new_password 	= $this->input->post('re_new_password');
+		$data = array(
+			'user_pass' => md5($new_password)
+		);
+		$user = $this->m_user->load($id);
+
+		if ($user->user_pass != md5($password)) {
+			echo json_encode(3);
+		} else if ($new_password != $re_new_password) {
+			echo json_encode(2);
+		} else {
+			$this->m_user->update($data, array('id' => $id));
+			echo json_encode(1);
+		}
 	}
 }
 
