@@ -6305,7 +6305,8 @@ class Syslog extends CI_Controller {
 		if (!file_exists($filePath)) {
 		   mkdir($filePath, 0775, TRUE);
 		}
-
+		var_dump($filePath);
+		// die;
 		$newFile = $filePath.$booking->id.'.pdf';
 		$pdf->Output($newFile, 'F');
 		
@@ -6407,13 +6408,15 @@ class Syslog extends CI_Controller {
 		$data = curl_exec($curl);
 		curl_close($curl);
 		
-		$booking->attachment = "";
-		if (!empty($data)) {
-			$files = explode(",", $data);
-			foreach ($files as $file) {
-				$booking->attachment .= '<a class="" target="_blank" href="'.$file.'">'.$file.'</a>.';
-			}
-		}
+		// $booking->attachment = "";
+		// if (!empty($data)) {
+		// 	$files = explode(",", $data);
+		// 	foreach ($files as $file) {
+		// 		$booking->attachment .= '<a class="" target="_blank" href="'.$file.'">'.$file.'</a>.';
+		// 	}
+		// }
+		$url = BASE_URL."/files/upload/user/{$booking->user_id}/approval/{$booking->id}/{$booking->id}.pdf";
+		$booking->attachment = "<a class='' target='_blank' href='{$url}'>{$url}</a>";
 		
 		$str_stamping_fee = "";
 		if (!$booking->full_package) {
