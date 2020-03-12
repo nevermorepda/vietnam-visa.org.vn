@@ -159,6 +159,7 @@
 								</div>
 							</div>
 						</div>
+						</script>
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
@@ -173,17 +174,23 @@
 										</label>
 										<div id="processing-time-normal-note" class="processing-option none">
 											<div class="processing-note">
-												We guarantee delivery of approval letter in <?=((strtoupper($country_name)=='VIET NAM')?'1-2 working days':'1-2 working days')?> by email.
+												We guarantee delivery of approval letter in <span class="process-option-date"><?=((strtoupper($country_name)=='VIET NAM')?'1-2 working days':'1-2 working days')?></span> by email.
 											</div>
 										</div>
 									</div>
 									<script type="text/javascript">
 										$('.visa_type').change(function(event) {
 											var val = $(this).val();
-											if (val == '3ms' || val == '3mm')
+											if (val == '3ms' || val == '3mm'){
 												$('.process-date').html('3-5 working days');
-											else
+												$('.process-option-date').html('3-5 working days');
+											} else if (val == '6mm' || val == '1ym') {
+												$('.process-date').html('5 working days');
+												$('.process-option-date').html('5 working days');
+											} else {
 												$('.process-date').html('1-2 working days');
+												$('.process-option-date').html('1-2 working days');
+											}
 										});
 									</script>
 									<div class="radio" style="margin-top: 5px">
