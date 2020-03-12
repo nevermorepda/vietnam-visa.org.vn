@@ -321,7 +321,13 @@ class Util {
 		else if (stripos(strtolower($purpose), "business") !== false) {
 			$t += 2;
 		}
-		
+		//
+		$_6mm = $this->ci->m_visa_type->load("6mm");
+		$_1ym = $this->ci->m_visa_type->load("1ym");
+		if (in_array($type, array($_6mm->code, $_1ym->code, $_6mm->name, $_1ym->name))) {
+			$t += 3;
+		}
+		//
 		$special_date = new stdClass();
 		$special_date->fr = $current_date;
 		$special_date->to = $current_date;
@@ -385,6 +391,7 @@ class Util {
 				$rush = 2;
 			}
 		}
+
 		////////////////////////////////////////////////////////
 		$date_apply = new DateTime(date('Y-m-d'));
 		$date_apply_from = new DateTime(date('Y-m-d',strtotime('2020-01-20')));
@@ -628,5 +635,101 @@ class Util {
 			return null;
 		}
 	}
+	// check processing time
+	function detect_processing_time($arrival_date, $visa_type, $visit_purpose) {
+
+		$current_date = date('Y-m-d');
+		$arrival_date = date('Y-m-d',strtotime($arrival_date));
+
+		$holiday = false;
+		if (date('D',strtotime($arrival_date)) == 'Sat' || date('D',strtotime($arrival_date)) == 'Sun') {
+			$holiday = true;
+		}
+
+		$i=0; $num_date = 0;
+		while (strtotime(date('Y-m-d',strtotime("+{$i}days"))) < strtotime($arrival_date)) {
+			if ((date('D',strtotime("{$current_date} +{$i}days")) != 'Sat') && (date('D',strtotime("{$current_date} +{$i}days")) != 'Sun')) {
+				$num_date++;
+			}
+			$i++;
+		}
+
+		$status = 0;
+		if ($visit_purpose == 'For tourist') {
+			$status = $this->detect_processing_tourist($arrival_date, $visa_type, $num_date, $holiday);
+		} else if ($visit_purpose == 'For business') {
+			$status = $this->detect_processing_business($arrival_date, $visa_type, $num_date, $holiday);
+		}
+		return $status;
+	}
+
+	function detect_processing_tourist ($arrival_date, $visa_type, $num_date, $holiday) {
+
+		if ($num_date >= 1) {
+			$status = 1;
+		} else if ($num_date == 0 && date('H') < 15) {
+			$status = 2;
+		} else if ($num_date == 0 && date('H') >= 15) {
+			$status = 3;
+		}
+
+		if ($visa_type == '3ms' || $visa_type == '3mm') {
+			if ($num_date >= 3) {
+				$status = 1;
+			} else if ($num_date >=1  && $num_date < 3) {
+				$status = 2;
+			} else if ($num_date == 0 && date('H') < 15) {
+				$status = 2;
+			} else if ($num_date == 0 && date('H') >= 15) {
+				$status = 3;
+			}
+		}
+
+		if ($visa_type == 'e-1ms') { // check evisa
+			$status = $this->detect_processing_evisa($num_date); 
+		} else {
+			if ($num_date == 0 && $holiday == true) { 
+				$status = 3; // check holiday
+			}
+		}
+		
+		return $status;
+	}
+
+	function detect_processing_business ($arrival_date, $visa_type, $num_date, $holiday) {
+
+		if ($num_date >= 3) {
+			$status = 1;
+		} else if ($num_date >=1  && $num_date < 3) {
+			$status = 2;
+		} else if ($num_date == 0 && date('H') < 15) {
+			$status = 2;
+		} else if ($num_date == 0 && date('H') >= 15) {
+			$status = 3;
+		}
+
+		if ($visa_type == 'e-1ms') { // check evisa
+			$status = $this->detect_processing_evisa($num_date); 
+		} else {
+			if ($num_date == 0 && $holiday == true) { 
+				$status = 3; // check holiday
+			}
+		}
+		
+		return $status;
+	}
+
+	function detect_processing_evisa ($num_date){
+
+		if ($num_date >= 2) {
+			$status = 1;
+		} else if ($num_date == 1) {
+			$status = 4;
+		} else if ($num_date == 0) {
+			$status = 0;
+		}
+		return $status;
+	}
+	// end check processing time
 }
 ?>

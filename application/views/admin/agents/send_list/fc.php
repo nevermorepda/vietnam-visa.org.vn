@@ -1018,16 +1018,15 @@
 		var p = {};
 		p["item_id"] = item_id;
 		p["pro_type"] = pro_type;
-		p["val"] = val+' 00:00:00';
-		console.log(p);
-		// $.ajax({
-		// 	type: "POST",
-		// 	url: "<?//=site_url("syslog/ajax-visa-booking")?>",
-		// 	data: p,
-		// 	success: function (result) {
-		// 		$('.note-input-arrivaldate-'+item_id).val(val);
-		// 	}
-		// });
+		p["val"] = val;
+		$.ajax({
+			type: "POST",
+			url: "<?=site_url("syslog/ajax-visa-booking")?>",
+			data: p,
+			success: function (result) {
+				$('.note-input-arrivaldate-'+item_id).val(val);
+			}
+		});
 	});
 	$('.note-input-arrivalport').change(function(event) {
 		var item_id = $(this).attr("item-id");
