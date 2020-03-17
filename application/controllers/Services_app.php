@@ -133,8 +133,41 @@ class Services_app extends CI_Controller {
 
 		echo json_encode($status);
 	}
-	function text() {
+	function cal_visa_fee() {
+		header("Access-Control-Allow-Origin: *");
+		header("Content-Type: application/json");
+
+		$group_size			= (!empty($_POST["group_size"]) ? $_POST["group_size"] : 0);
+		$visa_type			= (!empty($_POST["visa_type"]) ? $_POST["visa_type"] : "1ms");
+		$visit_purpose		= (!empty($_POST["visit_purpose"]) ? $_POST["visit_purpose"] : "");
+		$arrival_port		= (!empty($_POST["arrival_port"]) ? $_POST["arrival_port"] : 0);
+		$processing_time	= $_POST["process_time"];
+		$service_type		= ($_POST["fast_checkin"] == true) ? 1 : 0;
+		$car_type			= (!empty($_POST["car_type"]) ? $_POST["car_type"] : "");
+		$num_seat			= (!empty($_POST["num_seat"]) ? $_POST["num_seat"] : 0);
 		
+		$result = array();
+		
+		// Private letter
+		$private_visa = $this->m_private_letter_fee->search(((stripos(strtolower($visit_purpose), "business") === false) ? "tourist_" : "business_").$visa_type);
+		
+		// FC
+		$fast_checkin = $this->m_fast_checkin_fee->search($service_type, $arrival_port);
+		
+		// Car pick-up
+		$car_pickup = $this->m_car_fee->search($num_seat, $arrival_port);
+		
+		// Visa service
+		if ($visa_type == 'e-1ms') {
+			$visa_fee = $this->m_visa_fee->cal_e_visa_fee('1ms', $group_size, $processing_time, "", $visit_purpose, $arrival_port);
+		} else {
+			$visa_fee = $this->m_visa_fee->cal_visa_fee($visa_type, $group_size, $processing_time, "", $visit_purpose, $arrival_port);
+		}
+		// Full package
+		$full_package = $this->m_fast_checkin_fee->search(1, $arrival_port);
+		
+		$result = array($private_visa, $full_package, $fast_checkin, $car_pickup, $visa_fee->service_fee, $visa_fee->rush_fee, $visa_fee->stamp_fee);
+		echo json_encode($result);
 	}
 }
 

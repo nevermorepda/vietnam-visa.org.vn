@@ -677,23 +677,6 @@ class Mail_tpl {
 		$content = '<div>
 						<p>Dear <b>'.$tpl_data["FULLNAME"].'</b>,</p>
 						<br>
-						<p>We have received forgot password request for your account.</p>
-						<p>Please return to the <a href="'.BASE_URL.'">'.SITE_NAME.'</a> website and log in using the following information:</p>
-						<p>Email: '.$tpl_data["EMAIL"].'</p>
-						<p>Password: '.$tpl_data["PASSWORD"].'</p>
-						<br>
-						<p>Please do not hesitate to contact us if you have any problem!</p>
-						<br>
-						<p>Best regards,</p>
-						<p><b>VIETNAM VISA DEPT.</b></p>
-					</div>';
-		return $content;
-	}
-
-	function reset_password() {
-		$content = '<div>
-						<p>Dear <b>'.$tpl_data["FULLNAME"].'</b>,</p>
-						<br>
 						<p>We received a request tp request your password for your account: '.$tpl_data["EMAIL"].'. We are here to help! </p>
 						<br>
 						<a style="text-decoration:none;color:#fff;background:#4cd137;padding:10px;border-radius:2px" href="'.site_url("member/reset_password/{$tpl_data["RESETPASS_KEY"]}").'" target="_blank" data-saferedirecturl="">Set a New Password</a>
@@ -709,7 +692,7 @@ class Mail_tpl {
 					</div>';
 		return $content;
 	}
-
+	
 	function register_successful($tpl_data)
 	{
 		$content = '<div>
@@ -1556,7 +1539,7 @@ class Mail_tpl {
 					
 				}
 				foreach ($tpl_data['SERVICES_ITEMS'] as $item) {
-					$note_fc = $ci->util->fc($item->full_package,$item->fast_checkin,$item->car_pickup)[1];
+					$note_fc = $ci->util->ex_fc($item->full_package,$item->fast_checkin,$item->car_pickup)[1];
 					if ($item->send_pickup == 1) {
 					$template.='<tr class="row1 prss0">';
 					$template.='<td style="vertical-align: middle;border: thin solid #999; padding:2px;">'.($i+1).'</td>';

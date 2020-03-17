@@ -660,7 +660,12 @@ class Util {
 		} else if ($visit_purpose == 'For business') {
 			$status = $this->detect_processing_business($arrival_date, $visa_type, $num_date, $holiday);
 		}
-		return $status;
+
+		if (strtotime(date('Y-m-d')) <= strtotime($arrival_date)) {
+			return $status;
+		} else {
+			return 0;
+		}
 	}
 
 	function detect_processing_tourist ($arrival_date, $visa_type, $num_date, $holiday) {
@@ -677,6 +682,18 @@ class Util {
 			if ($num_date >= 3) {
 				$status = 1;
 			} else if ($num_date >=1  && $num_date < 3) {
+				$status = 2;
+			} else if ($num_date == 0 && date('H') < 15) {
+				$status = 2;
+			} else if ($num_date == 0 && date('H') >= 15) {
+				$status = 3;
+			}
+		}
+
+		if ($visa_type == '3ms' || $visa_type == '3mm') {
+			if ($num_date >= 5) {
+				$status = 1;
+			} else if ($num_date >=1  && $num_date < 5) {
 				$status = 2;
 			} else if ($num_date == 0 && date('H') < 15) {
 				$status = 2;
